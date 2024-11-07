@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{installation_name}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token" content="{{csrf_token}}" />
+    <script>
+        window.chatwootWebChannel = {{web_channel}}
+        window.chatwootPubsubToken = '{{pubsub_token}}'
+        window.authToken = '{{auth_token}}}'
+        window.globalConfig = {{global_config}}
+    </script>
+    <script type="module" src="/app/javascript/entrypoints/widget.js"></script>
+</head>
+<body>
+    <div id="app" class="h-full"></div>
+    <noscript id="noscript">This app works best with JavaScript enabled.</noscript>
+</body>
+</html>
