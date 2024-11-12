@@ -39,7 +39,7 @@ export function mpa_route_plugin() {
     configureServer: async (server: ViteDevServer) => {
       server.middlewares.use(async (req, res, next) => {
         // 自定义请求处理...
-        console.log('req.url', req.url);
+        // console.log('req.url', req.url);
         if (req.url === '/app/' || req.url === '/') {
           let html = fs.readFileSync(path.resolve(__dirname, 'dashboard.html'), {encoding: 'utf-8'})
           res.end(html);
@@ -102,6 +102,11 @@ export default defineConfig({
         ws: true,
       },
       '/auth': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        ws: false,
+      },
+      '/file/attachments': {
         target: 'http://localhost:8080',
         changeOrigin: true,
         ws: false,
