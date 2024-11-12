@@ -91,3 +91,5 @@ yarn-debug.log*
 # https://vitejs.dev/guide/env-and-mode.html#env-files
 *.local
 /dist
+/server/dist
+/server/node_modules

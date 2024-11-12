@@ -7,10 +7,10 @@
     <meta name="csrf-param" content="authenticity_token" />
     <meta name="csrf-token" content="{{csrf_token}}" />
     <script>
-        window.chatwootWebChannel = {{web_channel}}
+        window.chatwootWebChannel = {{{web_channel}}}
         window.chatwootPubsubToken = '{{pubsub_token}}'
-        window.authToken = '{{auth_token}}}'
-        window.globalConfig = {{global_config}}
+        window.authToken = '{{auth_token}}'
+        window.globalConfig = {{{global_config}}}
     </script>
     <script type="module" src="/app/javascript/entrypoints/widget.js"></script>
 </head>
