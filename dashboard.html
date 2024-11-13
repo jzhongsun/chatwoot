@@ -2,14 +2,14 @@
 <html>
 
 <head>
-    <title>{{{installation_name}}}</title>
+    <title>{{{global_config.INSTALLATION_NAME}}}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0" />
     <meta name="msapplication-TileColor" content="#1f93ff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#1f93ff">
     <meta name="description"
-        content="Chatwoot is a customer support solution that helps companies engage customers over Messenger, Twitter, Telegram, WeChat, Whatsapp. Simply connect your channels and converse with your customers from a single place. Easily add new agents to your system and have them own and resolve conversations with customers.Chatwoot also gives you real-time reports to measure your team's performance, canned responses to easily respond to frequently asked questions and private notes for agents to collaborate among themselves.">
+        content="AgentsHub is a customer support solution that helps companies engage customers over Messenger, Twitter, Telegram, WeChat, Whatsapp. Simply connect your channels and converse with your customers from a single place. Easily add new agents to your system and have them own and resolve conversations with customers.Chatwoot also gives you real-time reports to measure your team's performance, canned responses to easily respond to frequently asked questions and private notes for agents to collaborate among themselves.">
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -28,9 +28,22 @@
     <meta name="csrf-param" content="authenticity_token" />
     <meta name="csrf-token" content="{{{csrf_token}}}" />
     <script>
-        window.chatwootConfig = {{{account_config}}}
-        window.globalConfig = {{{global_config}}}
-        window.browserConfig = {{{browser_config}}}
+        window.chatwootConfig = {
+            hostURL: '{{app_config.FRONTEND_URL}}',
+            helpCenterURL: '{{app_config.HELP_CENTER_URL}}',
+            fbAppId: '{{global_config.FB_APP_ID}}',
+            googleOAuthClientId: '{{app_config.GOOGLE_OAUTH_CLIENT_ID}}',
+            googleOAuthCallbackUrl: '{{app_config.GOOGLE_OAUTH_CALLBACK_URL}}',
+            fbApiVersion: '{{global_config.FACEBOOK_API_VERSION}}',
+            signupEnabled: '{{global_config.ENABLE_ACCOUNT_SIGNUP}}',
+            isEnterprise: '{{global_config.IS_ENTERPRISE}}',
+            enterprisePlanName: '{{app_config.INSTALLATION_PRICING_PLAN}}',
+            enabledLanguages: {{{json app_config.AVAILABLE_LANGUAGES}}},
+            helpUrls: {{{json app_config.FEATURE_HELP_URLS}}},
+            selectedLocale: '{{app_config.LOCALE}}'            
+        }
+        window.globalConfig = {{{json global_config}}}
+        window.browserConfig = {{{json browser_config}}}
         window.errorLoggingConfig = ''
     </script>
     <script type="module" src="/app/javascript/entrypoints/dashboard.js"></script>
