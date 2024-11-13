@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var debug = require('debug')('server:server');
 var proxy = require('http-proxy-middleware');
 const { randomUUID } = require('crypto');
 
@@ -41,7 +40,7 @@ async function v3App(req, res, next) {
 
 async function dashboardApp(req, res, next) {
   try {
-    const config = await responseh(backend_url + '/dashboard', {
+    const config = await fetch(backend_url + '/dashboard', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -64,16 +63,19 @@ async function dashboardApp(req, res, next) {
 
 async function widgetApp(req, res, next) {
   try {
+    console.info(req.headers)
     const response = await fetch(backend_url + req.url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        'Cookie': req.headers['cookie'],
+        'User-Agent': req.headers['user-agent'],
+        'X-Forwarded-For': req.ip,
       },
       credentials: 'include',
-      cookies: req.cookies,
     });
     const widget = await response.json();
-    console.info(response, widget);
+    // console.info(response, widget);
     res
       .cookie('cw_conversation', widget.conversation_token, {
         expire: 1000 * 60 * 60 * 24 * 30 + Date.now(),
@@ -129,7 +131,7 @@ app.use(wsProxy);
 app.set('views', path.join(__dirname, 'dist'));
 app.set('view engine', 'html');
 
-var hbs = require('hbs');
+const hbs = require('hbs');
 hbs.registerHelper('json', function(context) {
   return JSON.stringify(context);
 });
