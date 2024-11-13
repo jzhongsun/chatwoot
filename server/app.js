@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var debug = require('debug')('server:server');
 var proxy = require('http-proxy-middleware');
 const { randomUUID } = require('crypto');
 
@@ -23,12 +24,13 @@ async function v3App(req, res, next) {
         'Content-Type': 'application/json',
       },
     });
+    console.info(config);
     const dashboard = await config.json();
     res.render('v3app', {
       installation_name: dashboard.global_config.INSTALLATION_NAME,
-      global_config: JSON.stringify(dashboard.global_config),
-      account_config: JSON.stringify(dashboard.account_config),
-      browser_config: JSON.stringify(dashboard.browser_config),
+      global_config: dashboard.global_config,
+      app_config: dashboard.app_config,
+      browser_config: dashboard.browser_config,
       csrf_token: randomUUID(),
       layout: false,
     });
@@ -39,19 +41,19 @@ async function v3App(req, res, next) {
 
 async function dashboardApp(req, res, next) {
   try {
-    const config = await fetch(backend_url + '/dashboard', {
+    const config = await responseh(backend_url + '/dashboard', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
     });
-    console.log(config);
+    console.info(config);
     const dashboard = await config.json();
     res.render('dashboard', {
       installation_name: dashboard.global_config.INSTALLATION_NAME,
-      global_config: JSON.stringify(dashboard.global_config),
-      account_config: JSON.stringify(dashboard.account_config),
-      browser_config: JSON.stringify(dashboard.browser_config),
+      global_config: dashboard.global_config,
+      app_config: dashboard.app_config,
+      browser_config: dashboard.browser_config,
       csrf_token: randomUUID(),
       layout: false,
     });
@@ -62,22 +64,36 @@ async function dashboardApp(req, res, next) {
 
 async function widgetApp(req, res, next) {
   try {
-    const config = await fetch(backend_url + '/widget', {
+    const response = await fetch(backend_url + req.url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
+      credentials: 'include',
+      cookies: req.cookies,
     });
-    const widget = await config.json();
-    res.render('widget', {
-      installation_name: widget.global_config.INSTALLATION_NAME,
-      auth_token: widget.conversation_token,
-      pubsub_token: widget.contact_inbox.pubsub_token,
-      global_config: JSON.stringify(widget.global_config),
-      web_channel: JSON.stringify(widget.web_channel),
-      csrf_token: randomUUID(),
-      layout: false,
-    });
+    const widget = await response.json();
+    console.info(response, widget);
+    res
+      .cookie('cw_conversation', widget.conversation_token, {
+        expire: 1000 * 60 * 60 * 24 * 30 + Date.now(),
+      })
+      .render('widget', {
+        installation_name: widget.global_config.INSTALLATION_NAME,
+        inbox: widget.inbox,
+        contact: widget.contact,
+        contact_inbox: widget.contact_inbox,
+        account: widget.account,
+        web_widget: widget.web_widget,
+        agent_bot: widget.agent_bot,
+        languages: widget.languages,
+        auth_token: widget.conversation_token,
+        pubsub_token: widget.contact_inbox.pubsub_token,
+        global_config: widget.global_config,
+        web_channel: widget.web_channel,
+        csrf_token: randomUUID(),
+        layout: false,
+      });
   } catch (error) {
     next(error);
   }
@@ -85,9 +101,10 @@ async function widgetApp(req, res, next) {
 
 /* GET home page. */
 router.get('/', dashboardApp);
-router.get('/app/login', v3App);
 router.get('/app/', dashboardApp);
 router.get('/app/accounts/**', dashboardApp);
+router.get('/app/login', v3App);
+router.get('/auth', v3App);
 router.get('/widget', widgetApp);
 
 /* HEALTH */
@@ -111,7 +128,12 @@ app.use(wsProxy);
 // view engine setup
 app.set('views', path.join(__dirname, 'dist'));
 app.set('view engine', 'html');
-app.engine('html', require('hbs').__express);
+
+var hbs = require('hbs');
+hbs.registerHelper('json', function(context) {
+  return JSON.stringify(context);
+});
+app.engine('html', hbs.__express);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -129,14 +151,15 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-// app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use(function(err, req, res, next) {
+  console.error(err);
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-//   // render the error page
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
+  // render the error page
+  res.status(err.status || 500);
+  res.render('500');
+});
 
 module.exports = app;
