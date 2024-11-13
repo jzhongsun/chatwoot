@@ -1,4 +1,4 @@
-FROM node:lts-slim
+FROM registry.cn-hangzhou.aliyuncs.com/aliyun-node/alinode:4.7.2-jessie
 WORKDIR /app
 COPY . /app
 RUN npm install
