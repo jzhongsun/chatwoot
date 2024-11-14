@@ -21,6 +21,7 @@ export default defineConfig({
         widget: './widget.html',
         dashboard: './dashboard.html',
         v3app: './v3app.html',
+        demo: './web-widget.html',
       },
     },
   },
