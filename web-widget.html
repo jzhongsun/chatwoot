@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Landing Page Example</title>
+    <title>AgentsHub DEMO</title>
     <style>
         /* 全局样式重置，让页面在不同浏览器表现更一致 */
         * {
@@ -125,7 +125,7 @@
             grid-gap: 30px;
         }
 
-      .product-item {
+        .product-item {
             background-color: #f4f4f4;
             border-radius: 10px;
             padding: 20px;
@@ -134,18 +134,18 @@
             transition: all 0.3s ease;
         }
 
-      .product-item:hover {
+        .product-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
 
-      .product-item h3 {
+        .product-item h3 {
             color: #007BFF;
             margin-bottom: 10px;
             font-size: 1.5em;
         }
 
-      .product-item p {
+        .product-item p {
             font-size: 1em;
             margin-bottom: 15px;
         }
@@ -229,66 +229,187 @@
             }
         }
     </style>
-    <script>     
-        window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":"Chat with us"};
-        (function(d,t) {
-          var BASE_URL="https://agents.xlin.ai";
-          var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-          g.src=BASE_URL+"/packs/js/sdk.js";
-          g.defer = true;
-          g.async = true;
-          s.parentNode.insertBefore(g,s);
-          g.onload=function(){
-            window.chatwootSDK.run({
-              websiteToken: 'NwMTpWPeEekZ5b82nhEEBydW',
-              baseUrl: BASE_URL
-            })
-          }
-        })(document,"script");
-  </script>
+    <script>
+        window.chatwootSettings = { "position": "right", "type": "standard", "launcherTitle": "Chat with us" };
+        (function (d, t) {
+            var BASE_URL = "https://agents.xlin.ai";
+            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            g.src = BASE_URL + "/packs/js/sdk.js";
+            g.defer = true;
+            g.async = true;
+            s.parentNode.insertBefore(g, s);
+            g.onload = function () {
+                window.chatwootSDK.run({
+                    websiteToken: 'NwMTpWPeEekZ5b82nhEEBydW',
+                    baseUrl: BASE_URL
+                })
+            }
+        })(document, "script");
+    </script>
 </head>
 
 <body>
     <!-- 头部 -->
     <header>
-        <h1>Welcome to Our Page</h1>
-        <p>Discover amazing things and experiences with us. We are dedicated to providing you with the best services and products.</p>
-        <button>Get Started</button>
+        <h1>Welcome to AgentsHub Demo Page</h1>
+        <p>Discover amazing things and experiences with us. We are dedicated to providing you with the best services and
+            products.</p>
     </header>
     <!-- 主体内容 -->
     <main>
         <!-- 关于我们 -->
         <section id="about-us">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                <rect x="10" y="10" width="80" height="80" fill="#ccc" />
-            </svg>
             <div>
                 <h2>About Us</h2>
-                <p>We are a leading company specialized in [specific business area]. With years of experience and a team of highly skilled professionals, we strive to deliver outstanding [product / service name] to meet the diverse needs of our customers. Our commitment to quality and innovation has enabled us to build a solid reputation in the industry.</p>
+                <p>We are a leading company specialized in Sales and Service AI agents. With years of experience and a
+                    team of highly skilled professionals, we strive to deliver outstanding AgentsHub to meet the diverse
+                    needs of our customers. Our commitment to quality and innovation has enabled us to build a solid
+                    reputation in the industry.</p>
             </div>
         </section>
         <!-- 我们的产品 -->
         <section id="products">
             <div class="product-item">
-                <h3>[Product 1 Name]</h3>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-                    <circle cx="25" cy="25" r="20" fill="#ddd" />
+                <h3>WhatsApp Business</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="320"
+                    width="100%" viewBox="-93.2412 -156.2325 808.0904 937.395">
+                    <defs>
+                        <linearGradient x1=".5" y1="0" x2=".5" y2="1" id="a">
+                            <stop stop-color="#20B038" offset="0%" />
+                            <stop stop-color="#60D66A" offset="100%" />
+                        </linearGradient>
+                        <linearGradient x1=".5" y1="0" x2=".5" y2="1" id="b">
+                            <stop stop-color="#F9F9F9" offset="0%" />
+                            <stop stop-color="#FFF" offset="100%" />
+                        </linearGradient>
+                        <linearGradient xlink:href="#a" id="f" x1="270.265" y1="1.184" x2="270.265" y2="541.56"
+                            gradientTransform="scale(.99775 1.00225)" gradientUnits="userSpaceOnUse" />
+                        <linearGradient xlink:href="#b" id="g" x1="279.952" y1=".811" x2="279.952" y2="560.571"
+                            gradientTransform="scale(.99777 1.00224)" gradientUnits="userSpaceOnUse" />
+                        <filter x="-.056" y="-.062" width="1.112" height="1.11" filterUnits="objectBoundingBox" id="c">
+                            <feGaussianBlur stdDeviation="2" in="SourceGraphic" />
+                        </filter>
+                        <filter x="-.082" y="-.088" width="1.164" height="1.162" filterUnits="objectBoundingBox" id="d">
+                            <feOffset dy="-4" in="SourceAlpha" result="shadowOffsetOuter1" />
+                            <feGaussianBlur stdDeviation="12.5" in="shadowOffsetOuter1" result="shadowBlurOuter1" />
+                            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
+                                result="shadowBlurOuter1" />
+                            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.21 0" in="shadowBlurOuter1" />
+                        </filter>
+                        <path
+                            d="M576.337 707.516c-.018-49.17 12.795-97.167 37.15-139.475L574 423.48l147.548 38.792c40.652-22.23 86.423-33.944 133.002-33.962h.12c153.395 0 278.265 125.166 278.33 278.98.025 74.548-28.9 144.642-81.446 197.373C999 957.393 929.12 986.447 854.67 986.48c-153.42 0-278.272-125.146-278.333-278.964z"
+                            id="e" />
+                    </defs>
+                    <g fill="none" fill-rule="evenodd">
+                        <g transform="matrix(1 0 0 -1 -542.696 1013.504)" fill="#000" fill-rule="nonzero"
+                            filter="url(#c)">
+                            <use filter="url(#d)" xlink:href="#e" width="100%" height="100%" />
+                            <use fill-opacity=".2" xlink:href="#e" width="100%" height="100%" />
+                        </g>
+                        <path transform="matrix(1 0 0 -1 41.304 577.504)" fill-rule="nonzero" fill="url(#f)"
+                            d="M2.325 274.421c-.014-47.29 12.342-93.466 35.839-134.166L.077 1.187l142.314 37.316C181.6 17.133 225.745 5.856 270.673 5.84h.12c147.95 0 268.386 120.396 268.447 268.372.03 71.707-27.87 139.132-78.559 189.858-50.68 50.726-118.084 78.676-189.898 78.708-147.968 0-268.398-120.386-268.458-268.358" />
+                        <path transform="matrix(1 0 0 -1 31.637 586.837)" fill-rule="nonzero" fill="url(#g)"
+                            d="M2.407 283.847c-.018-48.996 12.784-96.824 37.117-138.983L.072.814l147.419 38.654c40.616-22.15 86.346-33.824 132.885-33.841h.12c153.26 0 278.02 124.724 278.085 277.994.026 74.286-28.874 144.132-81.374 196.678-52.507 52.544-122.326 81.494-196.711 81.528-153.285 0-278.028-124.704-278.09-277.98zm87.789-131.724l-5.503 8.74C61.555 197.653 49.34 240.17 49.36 283.828c.049 127.399 103.73 231.044 231.224 231.044 61.74-.025 119.765-24.09 163.409-67.763 43.639-43.67 67.653-101.726 67.635-163.469-.054-127.403-103.739-231.063-231.131-231.063h-.09c-41.482.022-82.162 11.159-117.642 32.214l-8.444 5.004L66.84 66.86z" />
+                        <path
+                            d="M242.63 186.78c-5.205-11.57-10.684-11.803-15.636-12.006-4.05-.173-8.687-.162-13.316-.162-4.632 0-12.161 1.74-18.527 8.693-6.37 6.953-24.322 23.761-24.322 57.947 0 34.19 24.901 67.222 28.372 71.862 3.474 4.634 48.07 77.028 118.694 104.88 58.696 23.146 70.64 18.542 83.38 17.384 12.74-1.158 41.11-16.805 46.9-33.03 5.791-16.223 5.791-30.128 4.054-33.035-1.738-2.896-6.37-4.633-13.319-8.108-6.95-3.475-41.11-20.287-47.48-22.603-6.37-2.316-11.003-3.474-15.635 3.482-4.633 6.95-17.94 22.596-21.996 27.23-4.053 4.643-8.106 5.222-15.056 1.747-6.949-3.485-29.328-10.815-55.876-34.485-20.656-18.416-34.6-41.16-38.656-48.116-4.053-6.95-.433-10.714 3.052-14.178 3.12-3.113 6.95-8.11 10.424-12.168 3.467-4.057 4.626-6.953 6.942-11.586 2.316-4.64 1.158-8.698-.579-12.172-1.737-3.475-15.241-37.838-21.42-51.576"
+                            fill="#FFF" />
+                    </g>
                 </svg>
-                <p>[Describe the features and benefits of Product 1]. It's designed to make your life easier and more enjoyable.</p>
+                <p>Connect WhatsApp with Agents Hub. It's designed to make your life easier and more enjoyable.</p>
             </div>
             <div class="product-item">
-                <h3>[Product 2 Name]</h3>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-                    <rect x="5" y="5" width="40" height="40" fill="#eee" />
+                <h3>Line Business</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="320" viewBox="0 0 320 320">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #06c755;
+                            }
+
+                            .cls-2 {
+                                fill: #fff;
+                            }
+                        </style>
+                    </defs>
+                    <g id="Layer_2" data-name="Layer 2">
+                        <g id="LINE_LOGO" data-name="LINE LOGO">
+                            <rect class="cls-1" width="320" height="320" rx="72.14" />
+                            <path class="cls-2"
+                                d="M266.66,144.92c0-47.74-47.86-86.58-106.69-86.58S53.28,97.18,53.28,144.92c0,42.8,38,78.65,89.22,85.42,3.48.75,8.21,2.29,9.4,5.26,1.08,2.7.71,6.93.35,9.65,0,0-1.25,7.53-1.52,9.13-.47,2.7-2.15,10.55,9.24,5.76s61.44-36.18,83.82-61.95h0C259.25,181.24,266.66,164,266.66,144.92Z" />
+                            <path class="cls-1"
+                                d="M231.16,172.49h-30a2,2,0,0,1-2-2v0h0V123.94h0v0a2,2,0,0,1,2-2h30a2,2,0,0,1,2,2v7.57a2,2,0,0,1-2,2H210.79v7.85h20.37a2,2,0,0,1,2,2V151a2,2,0,0,1-2,2H210.79v7.86h20.37a2,2,0,0,1,2,2v7.56A2,2,0,0,1,231.16,172.49Z" />
+                            <path class="cls-1"
+                                d="M120.29,172.49a2,2,0,0,0,2-2v-7.56a2,2,0,0,0-2-2H99.92v-37a2,2,0,0,0-2-2H90.32a2,2,0,0,0-2,2v46.53h0v0a2,2,0,0,0,2,2h30Z" />
+                            <rect class="cls-1" x="128.73" y="121.85" width="11.64" height="50.64" rx="2.04" />
+                            <path class="cls-1"
+                                d="M189.84,121.85h-7.56a2,2,0,0,0-2,2v27.66l-21.3-28.77a1.2,1.2,0,0,0-.17-.21v0l-.12-.12,0,0-.11-.09-.06,0-.11-.08-.06,0-.11-.06-.07,0-.11,0-.07,0-.12,0-.08,0-.12,0h-.08l-.11,0h-7.71a2,2,0,0,0-2,2v46.56a2,2,0,0,0,2,2h7.57a2,2,0,0,0,2-2V142.81l21.33,28.8a2,2,0,0,0,.52.52h0l.12.08.06,0,.1.05.1,0,.07,0,.14,0h0a2.42,2.42,0,0,0,.54.07h7.52a2,2,0,0,0,2-2V123.89A2,2,0,0,0,189.84,121.85Z" />
+                        </g>
+                    </g>
                 </svg>
-                <p>[Describe the features and benefits of Product 2]. This product offers unique solutions for various challenges.</p>
+                <p>Connect Line Business with Agents Hub. This product offers unique solutions for various
+                    challenges.</p>
             </div>
             <div class="product-item">
-                <h3>[Product 3 Name]</h3>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-                    <ellipse cx="25" cy="25" rx="20" ry="15" fill="#f0f0f0" />
+                <h3>WeChat Service</h3>
+                <svg width="100%" height="320" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#2DC100"
+                        d="M300 255c0 24.854-20.147 45-45 45H45c-24.854 0-45-20.146-45-45V45C0 20.147 20.147 0 45 0h210c24.853 0 45 20.147 45 45v210z" />
+
+                    <g fill="#FFF">
+
+                        <path
+                            d="M200.803 111.88c-24.213 1.265-45.268 8.605-62.362 25.188-17.271 16.754-25.155 37.284-23 62.734-9.464-1.172-18.084-2.462-26.753-3.192-2.994-.252-6.547.106-9.083 1.537-8.418 4.75-16.488 10.113-26.053 16.092 1.755-7.938 2.891-14.889 4.902-21.575 1.479-4.914.794-7.649-3.733-10.849-29.066-20.521-41.318-51.232-32.149-82.85 8.483-29.25 29.315-46.989 57.621-56.236 38.635-12.62 82.054.253 105.547 30.927 8.485 11.08 13.688 23.516 15.063 38.224zm-111.437-9.852c.223-5.783-4.788-10.993-10.74-11.167-6.094-.179-11.106 4.478-11.284 10.483-.18 6.086 4.475 10.963 10.613 11.119 6.085.154 11.186-4.509 11.411-10.435zm58.141-11.171c-5.974.11-11.022 5.198-10.916 11.004.109 6.018 5.061 10.726 11.204 10.652 6.159-.074 10.83-4.832 10.772-10.977-.051-6.032-4.981-10.79-11.06-10.679z" />
+
+                        <path
+                            d="M255.201 262.83c-7.667-3.414-14.7-8.536-22.188-9.318-7.459-.779-15.3 3.524-23.104 4.322-23.771 2.432-45.067-4.193-62.627-20.432-33.397-30.89-28.625-78.254 10.014-103.568 34.341-22.498 84.704-14.998 108.916 16.219 21.129 27.24 18.646 63.4-7.148 86.284-7.464 6.623-10.15 12.073-5.361 20.804.884 1.612.985 3.653 1.498 5.689zm-87.274-84.499c4.881.005 8.9-3.815 9.085-8.636.195-5.104-3.91-9.385-9.021-9.406-5.06-.023-9.299 4.318-9.123 9.346.166 4.804 4.213 8.69 9.059 8.696zm56.261-18.022c-4.736-.033-8.76 3.844-8.953 8.629-.205 5.117 3.772 9.319 8.836 9.332 4.898.016 8.768-3.688 8.946-8.562.19-5.129-3.789-9.364-8.829-9.399z" />
+
+                    </g>
+
                 </svg>
-                <p>[Describe the features and benefits of Product 3]. You'll love its functionality and user-friendly design.</p>
+                <p>Connect WeChat Service and Mini Program with Agents Hub.</p>
+            </div>
+            <div class="product-item">
+                <h3>Facebook Business</h3>
+                <svg version="1.1" id="svg9" width="100%" height="320" viewBox="0 0 666.66668 666.66717"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                    <defs id="defs13">
+                        <clipPath clipPathUnits="userSpaceOnUse" id="clipPath25">
+                            <path d="M 0,700 H 700 V 0 H 0 Z" id="path23" />
+                        </clipPath>
+                    </defs>
+                    <g id="g17" transform="matrix(1.3333333,0,0,-1.3333333,-133.33333,799.99999)">
+                        <g id="g19">
+                            <g id="g21" clip-path="url(#clipPath25)">
+                                <g id="g27" transform="translate(600,350)">
+                                    <path
+                                        d="m 0,0 c 0,138.071 -111.929,250 -250,250 -138.071,0 -250,-111.929 -250,-250 0,-117.245 80.715,-215.622 189.606,-242.638 v 166.242 h -51.552 V 0 h 51.552 v 32.919 c 0,85.092 38.508,124.532 122.048,124.532 15.838,0 43.167,-3.105 54.347,-6.211 V 81.986 c -5.901,0.621 -16.149,0.932 -28.882,0.932 -40.993,0 -56.832,-15.528 -56.832,-55.9 V 0 h 81.659 l -14.028,-76.396 h -67.631 V -248.169 C -95.927,-233.218 0,-127.818 0,0"
+                                        style="fill:#0866ff;fill-opacity:1;fill-rule:nonzero;stroke:none" id="path29" />
+                                </g>
+                                <g id="g31" transform="translate(447.9175,273.6036)">
+                                    <path
+                                        d="M 0,0 14.029,76.396 H -67.63 v 27.019 c 0,40.372 15.838,55.899 56.831,55.899 12.733,0 22.981,-0.31 28.882,-0.931 v 69.253 c -11.18,3.106 -38.509,6.212 -54.347,6.212 -83.539,0 -122.048,-39.441 -122.048,-124.533 V 76.396 h -51.552 V 0 h 51.552 v -166.242 c 19.343,-4.798 39.568,-7.362 60.394,-7.362 10.254,0 20.358,0.632 30.288,1.831 L -67.63,0 Z"
+                                        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" id="path33" />
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <p>Connect Facebook Page and Messenger with Agents Hub. You'll love its functionality and user-friendly
+                    design.</p>
+            </div>
+            <div class="product-item">
+                <h3>Website Integration</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="320" viewBox="0 0 512 512">
+                    <path
+                        d="M108.4 0h23v22.8h21.2V0h23v69h-23V46h-21v23h-23.2M206 23h-20.3V0h63.7v23H229v46h-23M259.5 0h24.1l14.8 24.3L313.2 0h24.1v69h-23V34.8l-16.1 24.8l-16.1-24.8v34.2h-22.6M348.7 0h23v46.2h32.6V69h-55.6" />
+                    <path fill="#e44d26" d="M107.6 471l-33-370.4h362.8l-33 370.2L255.7 512" />
+                    <path fill="#f16529" d="M256 480.5V131H404.3L376 447" />
+                    <path fill="#ebebeb"
+                        d="M142 176.3h114v45.4h-64.2l4.2 46.5h60v45.3H154.4M156.4 336.3H202l3.2 36.3 50.8 13.6v47.4l-93.2-26" />
+                    <path fill="#fff"
+                        d="M369.6 176.3H255.8v45.4h109.6M361.3 268.2H255.8v45.4h56l-5.3 59-50.7 13.6v47.2l93-25.8" />
+                </svg>
+                <p>Integrate company website with AgentsHub. </p>
             </div>
         </section>
         <!-- 联系我们 -->
@@ -296,15 +417,12 @@
             <h2>Contact Us</h2>
             <ul>
                 <li>Email: info@example.com</li>
-                <li>Phone: 123456789</li>
-                <li>Address: [detailed address]</li>
             </ul>
-            <button>Contact Us Now</button>
         </section>
     </main>
     <!-- 底部 -->
     <footer>
-        <p>Copyright &copy; [Company Name] [Year]</p>
+        <p>Copyright &copy; xlin.ai 2024</p>
     </footer>
 </body>
 
