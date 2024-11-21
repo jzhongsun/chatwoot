@@ -1,0 +1,43 @@
+{
+    "INBOX_MGMT": {
+        "ADD": {
+            "WECHAT_CHANNEL": {
+                "TITLE": "添加微信公众号",
+                "DESC": "添加微信公众号到您的收件箱，以开始接收来自客户的消息。",
+                "SUBMIT_BUTTON": "添加",
+                "CHANNEL_NAME": {
+                    "LABEL": "微信公众号名称",
+                    "PLACEHOLDER": "请输入公众号名称",
+                    "ERROR": "公众号名称是必填项。"
+                },
+                "APP_TYPE": {
+                    "LABEL": "应用类型",
+                    "PLACEHOLDER": "请选择应用类型",
+                    "ERROR": "应用类型是必填项。",
+                    "SUBSCRIPTION": "订阅号",
+                    "SERVICE": "服务号"
+                },
+                "APP_ID": {
+                    "LABEL": "App ID",
+                    "PLACEHOLDER": "请输入App ID",
+                    "ERROR": "App ID是必填项。"
+                },
+                "APP_SECRET": {
+                    "LABEL": "App Secret",
+                    "PLACEHOLDER": "请输入App Secret",
+                    "ERROR": "App Secret是必填项。"
+                },
+                "TOKEN": {
+                    "LABEL": "Token",
+                    "PLACEHOLDER": "请输入Token",
+                    "ERROR": "Token是必填项。"
+                },
+                "AES_KEY": {
+                    "LABEL": "AES Key",
+                    "PLACEHOLDER": "请输入AES Key",
+                    "ERROR": "AES Key是必填项。"
+                }
+            }
+        }
+    }
+}

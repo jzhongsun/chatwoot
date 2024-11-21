@@ -114,12 +114,12 @@ export default {
       </div>
       <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%]">
         <label :class="{ error: v$.appId.$error }">
-          {{ $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.WECHAT_CHANNEL_APP_ID.LABEL') }}
+          {{ $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.APP_ID.LABEL') }}
           <input
             v-model="appId"
             type="text"
             :placeholder="
-              $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.WECHAT_CHANNEL_APP_ID.PLACEHOLDER')
+              $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.APP_ID.PLACEHOLDER')
             "
             @blur="v$.appId.$touch"
           />
@@ -128,12 +128,12 @@ export default {
 
       <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%]">
         <label :class="{ error: v$.appSecret.$error }">
-          {{ $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.WECHAT_CHANNEL_APP_SECRET.LABEL') }}
+          {{ $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.APP_SECRET.LABEL') }}
           <input
             v-model="appSecret"
             type="text"
             :placeholder="
-              $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.WECHAT_CHANNEL_APP_SECRET.PLACEHOLDER')
+              $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.APP_SECRET.PLACEHOLDER')
             "
             @blur="v$.appSecret.$touch"
           />
@@ -142,12 +142,12 @@ export default {
 
       <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%]">
         <label :class="{ error: v$.token.$error }">
-          {{ $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.WECHAT_CHANNEL_TOKEN.LABEL') }}
+          {{ $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.TOKEN.LABEL') }}
           <input
             v-model="token"
             type="text"
             :placeholder="
-              $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.WECHAT_CHANNEL_TOKEN.PLACEHOLDER')
+              $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.TOKEN.PLACEHOLDER')
             "
             @blur="v$.token.$touch"
           />
@@ -156,12 +156,12 @@ export default {
 
       <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%]">
         <label :class="{ error: v$.aesKey.$error }">
-          {{ $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.WECHAT_CHANNEL_AES_KEY.LABEL') }}
+          {{ $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.AES_KEY.LABEL') }}
           <input
             v-model="aesKey"
             type="text"
             :placeholder="
-              $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.WECHAT_CHANNEL_AES_KEY.PLACEHOLDER')
+              $t('INBOX_MGMT.ADD.WECHAT_CHANNEL.AES_KEY.PLACEHOLDER')
             "
             @blur="v$.aesKey.$touch"
           />

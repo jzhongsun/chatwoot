@@ -1,0 +1,43 @@
+{
+    "INBOX_MGMT": {
+        "ADD": {
+            "WECHAT_CHANNEL": {
+                "TITLE": "Add Wechat Official Account",
+                "DESC": "Add a Wechat Official Account to your inbox to start receiving messages from your customers.",
+                "SUBMIT_BUTTON": "Add",
+                "CHANNEL_NAME": {
+                    "LABEL": "Wechat Official Account Name",
+                    "PLACEHOLDER": "Please enter the name of the official account",
+                    "ERROR": "Official account name is required."
+                },
+                "APP_TYPE": {
+                    "LABEL": "App Type",
+                    "PLACEHOLDER": "Please select the app type",
+                    "ERROR": "App type is required.",
+                    "SUBSCRIPTION": "Subscription",
+                    "SERVICE": "Service"
+                },
+                "APP_ID": {
+                    "LABEL": "App ID",
+                    "PLACEHOLDER": "Please enter the App ID",
+                    "ERROR": "App ID is required."
+                },
+                "APP_SECRET": {
+                    "LABEL": "App Secret",
+                    "PLACEHOLDER": "Please enter the App Secret",
+                    "ERROR": "App Secret is required."
+                },
+                "TOKEN": {
+                    "LABEL": "Token",
+                    "PLACEHOLDER": "Please enter the Token",
+                    "ERROR": "Token is required."
+                },
+                "AES_KEY": {
+                    "LABEL": "AES Key",
+                    "PLACEHOLDER": "Please enter the AES Key",
+                    "ERROR": "AES Key is required."
+                }
+            }
+        }
+    }
+}
