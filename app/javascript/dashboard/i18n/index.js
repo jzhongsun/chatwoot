@@ -38,7 +38,10 @@ import zh_TW from './locale/zh_TW';
 import is from './locale/is';
 import lt from './locale/lt';
 
-export default {
+import merge from 'lodash/merge';
+import ext from '../i18n-ext';
+
+export default merge({
   ar,
   ca,
   cs,
@@ -78,4 +81,4 @@ export default {
   zh_TW,
   is,
   lt,
-};
+}, ext);
