@@ -9,6 +9,7 @@ export const INBOX_TYPES = {
   TELEGRAM: 'Channel::Telegram',
   LINE: 'Channel::Line',
   SMS: 'Channel::Sms',
+  WECHAT: 'Channel::WechatOfficial',
 };
 
 const INBOX_ICON_MAP = {
@@ -68,6 +69,9 @@ export const getReadableInboxByType = (type, phoneNumber) => {
 
     case INBOX_TYPES.LINE:
       return 'line';
+
+    case INBOX_TYPES.WECHAT:
+      return 'wechat';
 
     default:
       return 'chat';
