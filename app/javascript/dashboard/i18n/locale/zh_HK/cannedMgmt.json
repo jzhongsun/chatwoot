@@ -1,0 +1,77 @@
+{
+  "CANNED_MGMT": {
+    "HEADER": "預設回覆",
+    "LEARN_MORE": "了解更多關於預設回覆",
+    "DESCRIPTION": "預設回覆是預先寫好的回覆模板，可幫助您快速回應對話。代理可以輸入 '/' 字符後跟短碼來插入預設回覆。",
+    "HEADER_BTN_TXT": "新增預設回覆",
+    "LOADING": "正在獲取預設回覆...",
+    "SEARCH_404": "沒有任何項目符合此查詢。",
+    "LIST": {
+      "404": "此帳戶中沒有可用的預設回覆。",
+      "TITLE": "管理預設回覆",
+      "DESC": "預設回覆是預先定義的回覆模板，可以用來快速發送回覆。",
+      "TABLE_HEADER": [
+        "短碼",
+        "內容",
+        "操作"
+      ]
+    },
+    "ADD": {
+      "TITLE": "新增預設回覆",
+      "DESC": "預設回覆是預先定義的回覆模板，可以用來快速發送回覆。",
+      "CANCEL_BUTTON_TEXT": "取消操作",
+      "FORM": {
+        "SHORT_CODE": {
+          "LABEL": "短碼",
+          "PLACEHOLDER": "請輸入短碼。",
+          "ERROR": "短碼為必填。"
+        },
+        "CONTENT": {
+          "LABEL": "內容",
+          "PLACEHOLDER": "請輸入您希望保存為模板的消息。",
+          "ERROR": "內容為必填。"
+        },
+        "SUBMIT": "提交"
+      },
+      "API": {
+        "SUCCESS_MESSAGE": "預設回覆添加成功。",
+        "ERROR_MESSAGE": "無法連接到 Woot 服務器。請稍後再試。"
+      }
+    },
+    "EDIT": {
+      "TITLE": "編輯預設回覆",
+      "CANCEL_BUTTON_TEXT": "取消操作",
+      "FORM": {
+        "SHORT_CODE": {
+          "LABEL": "短碼",
+          "PLACEHOLDER": "請輸入短碼。",
+          "ERROR": "短碼為必填。"
+        },
+        "CONTENT": {
+          "LABEL": "內容",
+          "PLACEHOLDER": "請輸入您希望保存為模板的消息。",
+          "ERROR": "內容為必填。"
+        },
+        "SUBMIT": "提交"
+      },
+      "BUTTON_TEXT": "編輯",
+      "API": {
+        "SUCCESS_MESSAGE": "預設回覆更新成功。",
+        "ERROR_MESSAGE": "無法連接到 Woot 服務器。請稍後再試。"
+      }
+    },
+    "DELETE": {
+      "BUTTON_TEXT": "刪除",
+      "API": {
+        "SUCCESS_MESSAGE": "預設回覆删除成功。",
+        "ERROR_MESSAGE": "無法連接到 Woot 服務器。請稍後再試。"
+      },
+      "CONFIRM": {
+        "TITLE": "刪除確認",
+        "MESSAGE": "您確定要刪除嗎？",
+        "YES": "是，刪除",
+        "NO": "否，保留"
+      }
+    }
+  }
+}

@@ -74,7 +74,7 @@ export function mpa_route_plugin() {
           let html = fs.readFileSync(path.resolve(__dirname, 'v3app.html'), {encoding: 'utf-8'})
           html = htmlHandleApp(html, app);
           res.writeHead(200, { 'Content-Type': 'text/html; charset=UTF-8' }).end(html);
-        } else if (req.url?.startsWith('/app/accounts')) {
+        } else if (req.url?.startsWith('/app/accounts') || req.url === '/app/') {
           const config = await fetch(backend + '/dashboard', {
             method: 'GET',
             headers: {

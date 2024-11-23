@@ -1,0 +1,70 @@
+{
+  "AUDIT_LOGS": {
+    "HEADER": "審計日誌",
+    "HEADER_BTN_TXT": "添加審計日誌",
+    "LOADING": "正在獲取審計日誌",
+    "DESCRIPTION": "審計日誌記錄了您帳戶中的活動，允許您追蹤和審核您的帳戶、團隊或服務。",
+    "LEARN_MORE": "了解更多關於審計日誌",
+    "SEARCH_404": "沒有任何項目符合此查詢",
+    "SIDEBAR_TXT": "<p><b>審計日誌</b></p><p>審計日誌是 Chatwoot 系統中事件和操作的記錄。</p>",
+    "LIST": {
+      "404": "此帳戶中沒有可用的審計日誌。",
+      "TITLE": "管理審計日誌",
+      "DESC": "審計日誌是 Chatwoot 系統中事件和操作的記錄。",
+      "TABLE_HEADER": ["用戶", "操作", "IP 地址"]
+    },
+    "API": {
+      "SUCCESS_MESSAGE": "審計日誌獲取成功",
+      "ERROR_MESSAGE": "無法連接伺服器，請稍後再試"
+    },
+    "DEFAULT_USER": "系統",
+    "AUTOMATION_RULE": {
+      "ADD": "{agentName} 創建了一個新的自動化規則 (#{id})",
+      "EDIT": "{agentName} 更新了一個自動化規則 (#{id})",
+      "DELETE": "{agentName} 刪除了一個自動化規則 (#{id})"
+    },
+    "ACCOUNT_USER": {
+      "ADD": "{agentName} 邀請了 {invitee} 作為 {role} 加入帳戶",
+      "EDIT": {
+        "SELF": "{agentName} 將他們的 {attributes} 更改為 {values}",
+        "OTHER": "{agentName} 將 {user} 的 {attributes} 更改為 {values}",
+        "DELETED": "{agentName} 將已刪除用戶的 {attributes} 更改為 {values}"
+      }
+    },
+    "INBOX": {
+      "ADD": "{agentName} 創建了一個新的收件箱 (#{id})",
+      "EDIT": "{agentName} 更新了一個收件箱 (#{id})",
+      "DELETE": "{agentName} 刪除了一個收件箱 (#{id})"
+    },
+    "WEBHOOK": {
+      "ADD": "{agentName} 創建了一個新的 Webhook (#{id})",
+      "EDIT": "{agentName} 更新了一個 Webhook (#{id})",
+      "DELETE": "{agentName} 刪除了一個 Webhook (#{id})"
+    },
+    "USER_ACTION": {
+      "SIGN_IN": "{agentName} 登錄",
+      "SIGN_OUT": "{agentName} 登出"
+    },
+    "TEAM": {
+      "ADD": "{agentName} 創建了一個新的團隊 (#{id})",
+      "EDIT": "{agentName} 更新了一個團隊 (#{id})",
+      "DELETE": "{agentName} 刪除了一個團隊 (#{id})"
+    },
+    "MACRO": {
+      "ADD": "{agentName} 創建了一個新的宏 (#{id})",
+      "EDIT": "{agentName} 更新了一個宏 (#{id})",
+      "DELETE": "{agentName} 刪除了一個宏 (#{id})"
+    },
+    "INBOX_MEMBER": {
+      "ADD": "{agentName} 將 {user} 添加到收件箱 (#{inbox_id})",
+      "REMOVE": "{agentName} 從收件箱 (#{inbox_id}) 中移除了 {user}"
+    },
+    "TEAM_MEMBER": {
+      "ADD": "{agentName} 將 {user} 添加到團隊 (#{team_id})",
+      "REMOVE": "{agentName} 從團隊 (#{team_id}) 中移除了 {user}"
+    },
+    "ACCOUNT": {
+      "EDIT": "{agentName} 更新了帳戶配置 (#{id})"
+    }
+  }
+}

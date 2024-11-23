@@ -1,0 +1,130 @@
+{
+  "AUTOMATION": {
+    "HEADER": "自動化",
+    "DESCRIPTION": "自動化可以替代和簡化需要手動努力的現有流程，例如添加標籤和將對話分配給最合適的代理。這使團隊能夠專注於他們的強項，同時減少花在常規任務上的時間。",
+    "LEARN_MORE": "了解更多關於自動化",
+    "HEADER_BTN_TXT": "添加自動化規則",
+    "LOADING": "正在獲取自動化規則",
+    "ADD": {
+      "TITLE": "添加自動化規則",
+      "SUBMIT": "建立",
+      "CANCEL_BUTTON_TEXT": "取消",
+      "FORM": {
+        "NAME": {
+          "LABEL": "規則名稱",
+          "PLACEHOLDER": "輸入規則名稱",
+          "ERROR": "名稱為必填"
+        },
+        "DESC": {
+          "LABEL": "描述資訊",
+          "PLACEHOLDER": "輸入規則描述",
+          "ERROR": "描述為必填"
+        },
+        "EVENT": {
+          "LABEL": "事件",
+          "PLACEHOLDER": "請選擇其中一個",
+          "ERROR": "事件為必填"
+        },
+        "CONDITIONS": {
+          "LABEL": "條件"
+        },
+        "ACTIONS": {
+          "LABEL": "操作"
+        }
+      },
+      "CONDITION_BUTTON_LABEL": "添加條件",
+      "ACTION_BUTTON_LABEL": "添加操作",
+      "API": {
+        "SUCCESS_MESSAGE": "自動化規則添加成功",
+        "ERROR_MESSAGE": "無法創建自動化規則，請稍後再試"
+      }
+    },
+    "LIST": {
+      "TABLE_HEADER": [
+        "姓名",
+        "描述資訊",
+        "激活",
+        "創建日期"
+      ],
+      "404": "未找到自動化規則"
+    },
+    "DELETE": {
+      "TITLE": "刪除自動化規則",
+      "SUBMIT": "刪除",
+      "CANCEL_BUTTON_TEXT": "取消",
+      "CONFIRM": {
+        "TITLE": "確認刪除",
+        "MESSAGE": "您確定要刪除嗎？",
+        "YES": "是，刪除",
+        "NO": "不，保留"
+      },
+      "API": {
+        "SUCCESS_MESSAGE": "自動化規則删除成功",
+        "ERROR_MESSAGE": "無法刪除自動化規則，請稍後再試"
+      }
+    },
+    "EDIT": {
+      "TITLE": "編輯自動化規則",
+      "SUBMIT": "更新",
+      "CANCEL_BUTTON_TEXT": "取消",
+      "API": {
+        "SUCCESS_MESSAGE": "自動化規則更新成功",
+        "ERROR_MESSAGE": "無法更新自動化規則，請稍後再試"
+      }
+    },
+    "CLONE": {
+      "TOOLTIP": "複製",
+      "API": {
+        "SUCCESS_MESSAGE": "自動化規則複製成功",
+        "ERROR_MESSAGE": "無法複製自動化規則，請稍後再試"
+      }
+    },
+    "FORM": {
+      "EDIT": "編輯",
+      "CREATE": "建立",
+      "DELETE": "刪除",
+      "CANCEL": "取消",
+      "RESET_MESSAGE": "更改事件類型將重置您下方添加的條件和事件"
+    },
+    "CONDITION": {
+      "DELETE_MESSAGE": "至少需要一個條件才能保存",
+      "CONTACT_CUSTOM_ATTR_LABEL": "聯繫人自定義屬性",
+      "CONVERSATION_CUSTOM_ATTR_LABEL": "對話自定義屬性"
+    },
+    "ACTION": {
+      "DELETE_MESSAGE": "至少需要一個操作才能保存",
+      "TEAM_MESSAGE_INPUT_PLACEHOLDER": "在此處輸入您的消息",
+      "TEAM_DROPDOWN_PLACEHOLDER": "選擇團隊",
+      "EMAIL_INPUT_PLACEHOLDER": "輸入電子郵件",
+      "URL_INPUT_PLACEHOLDER": "輸入URL"
+    },
+    "TOGGLE": {
+      "ACTIVATION_TITLE": "激活自動化規則",
+      "DEACTIVATION_TITLE": "停用自動化規則",
+      "ACTIVATION_DESCRIPTION": "此操作將激活自動化規則 '{automationName}'。您確定要繼續嗎？",
+      "DEACTIVATION_DESCRIPTION": "此操作將停用自動化規則 '{automationName}'。您確定要繼續嗎？",
+      "ACTIVATION_SUCCESFUL": "自動化規則激活成功",
+      "DEACTIVATION_SUCCESFUL": "自動化規則停用成功",
+      "ACTIVATION_ERROR": "無法激活自動化，請稍後再試",
+      "DEACTIVATION_ERROR": "無法停用自動化，請稍後再試",
+      "CONFIRMATION_LABEL": "是",
+      "CANCEL_LABEL": "否"
+    },
+    "ATTACHMENT": {
+      "UPLOAD_ERROR": "無法上傳附件，請稍後再試",
+      "LABEL_IDLE": "上傳附件",
+      "LABEL_UPLOADING": "上傳中",
+      "LABEL_UPLOADED": "上傳成功",
+      "LABEL_UPLOAD_FAILED": "上傳失敗"
+    },
+    "ERRORS": {
+      "ATTRIBUTE_KEY_REQUIRED": "屬性鍵為必填",
+      "FILTER_OPERATOR_REQUIRED": "過濾器操作符為必填",
+      "VALUE_REQUIRED": "此欄位為必填項目",
+      "VALUE_MUST_BE_BETWEEN_1_AND_998": "值必須在 1 和 998 之間",
+      "ACTION_PARAMETERS_REQUIRED": "操作參數為必填",
+      "ATLEAST_ONE_CONDITION_REQUIRED": "至少需要一個條件",
+      "ATLEAST_ONE_ACTION_REQUIRED": "至少需要一個操作"
+    }
+  }
+}

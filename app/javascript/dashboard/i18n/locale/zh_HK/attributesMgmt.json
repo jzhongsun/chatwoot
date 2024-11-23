@@ -1,0 +1,117 @@
+{
+  "ATTRIBUTES_MGMT": {
+    "HEADER": "自訂屬性",
+    "HEADER_BTN_TXT": "新增自訂屬性",
+    "LOADING": "正在取得自訂屬性",
+    "DESCRIPTION": "自訂屬性用於追蹤關於你的聯繫人或對話的額外細節，例如訂閱計劃或首次購買日期。你可以添加不同類型的自訂屬性，如文本、列表或數字，以捕獲你需要的特定信息。",
+    "LEARN_MORE": "了解更多關於自訂屬性",
+    "ADD": {
+      "TITLE": "新增自訂屬性",
+      "SUBMIT": "建立",
+      "CANCEL_BUTTON_TEXT": "取消",
+      "FORM": {
+        "NAME": {
+          "LABEL": "顯示名稱",
+          "PLACEHOLDER": "請輸入自訂屬性的顯示名稱",
+          "ERROR": "名稱為必填"
+        },
+        "DESC": {
+          "LABEL": "描述資訊",
+          "PLACEHOLDER": "請輸入自訂屬性的描述",
+          "ERROR": "描述為必填"
+        },
+        "MODEL": {
+          "LABEL": "適用於",
+          "PLACEHOLDER": "請選擇其中一個",
+          "ERROR": "模型為必選"
+        },
+        "TYPE": {
+          "LABEL": "類別",
+          "PLACEHOLDER": "請選擇一個類別",
+          "ERROR": "類別為必填",
+          "LIST": {
+            "LABEL": "列表值",
+            "PLACEHOLDER": "請輸入值並按 Enter 鍵",
+            "ERROR": "至少需要一個值"
+          }
+        },
+        "KEY": {
+          "LABEL": "鍵",
+          "PLACEHOLDER": "請輸入自訂屬性的鍵",
+          "ERROR": "鍵為必填",
+          "IN_VALID": "無效的鍵"
+        },
+        "REGEX_PATTERN": {
+          "LABEL": "正則表達式模式",
+          "PLACEHOLDER": "請輸入自訂屬性的正則表達式模式（可選）"
+        },
+        "REGEX_CUE": {
+          "LABEL": "正則表達式提示",
+          "PLACEHOLDER": "請輸入正則表達式提示（可選）"
+        },
+        "ENABLE_REGEX": {
+          "LABEL": "啟用正則表達式驗證"
+        }
+      },
+      "API": {
+        "SUCCESS_MESSAGE": "自訂屬性添加成功！",
+        "ERROR_MESSAGE": "無法創建自訂屬性。請稍後再試。"
+      }
+    },
+    "DELETE": {
+      "BUTTON_TEXT": "刪除",
+      "API": {
+        "SUCCESS_MESSAGE": "自訂屬性删除成功。",
+        "ERROR_MESSAGE": "無法刪除自訂屬性。請再試一次。"
+      },
+      "CONFIRM": {
+        "TITLE": "確定要刪除 - {attributeName} ？",
+        "PLACE_HOLDER": "請輸入 {attributeName} 以確認",
+        "MESSAGE": "刪除將移除自訂屬性",
+        "YES": "刪除",
+        "NO": "取消"
+      }
+    },
+    "EDIT": {
+      "TITLE": "編輯自訂屬性",
+      "UPDATE_BUTTON_TEXT": "更新",
+      "TYPE": {
+        "LIST": {
+          "LABEL": "列表值",
+          "PLACEHOLDER": "請輸入值並按 Enter 鍵"
+        }
+      },
+      "API": {
+        "SUCCESS_MESSAGE": "自訂屬性更新成功",
+        "ERROR_MESSAGE": "更新自訂屬性時出錯，請再試一次"
+      }
+    },
+    "TABS": {
+      "HEADER": "自訂屬性",
+      "CONVERSATION": "對話",
+      "CONTACT": "聯絡人"
+    },
+    "LIST": {
+      "TABLE_HEADER": ["顯示名稱", "描述資訊", "類別", "鍵"],
+      "BUTTONS": {
+        "EDIT": "編輯",
+        "DELETE": "刪除"
+      },
+      "EMPTY_RESULT": {
+        "404": "尚未創建任何自訂屬性",
+        "NOT_FOUND": "尚未配置任何自訂屬性"
+      },
+      "REGEX_PATTERN": {
+        "LABEL": "正則表達式模式",
+        "PLACEHOLDER": "請輸入自訂屬性的正則表達式模式（可選）"
+      },
+      "REGEX_CUE": {
+        "LABEL": "正則表達式提示",
+        "PLACEHOLDER": "請輸入正則表達式提示（可選）"
+      },
+      "ENABLE_REGEX": {
+        "LABEL": "啟用正則表達式驗證"
+      }
+    }
+  }
+}
