@@ -1,64 +1,64 @@
 {
   "INBOX": {
     "LIST": {
-      "TITLE": "收件匣",
-      "DISPLAY_DROPDOWN": "Display",
-      "LOADING": "Fetching notifications",
-      "404": "There are no active notifications in this group.",
-      "NO_NOTIFICATIONS": "No notifications",
-      "NOTE": "Notifications from all subscribed inboxes",
-      "NO_MESSAGES_AVAILABLE": "Oops! Not able to fetch messages",
-      "SNOOZED_UNTIL": "Snoozed until",
-      "SNOOZED_UNTIL_TOMORROW": "Snoozed until tomorrow",
-      "SNOOZED_UNTIL_NEXT_WEEK": "Snoozed until next week"
+      "TITLE": "收件箱",
+      "DISPLAY_DROPDOWN": "顯示",
+      "LOADING": "正在獲取通知",
+      "404": "此組中沒有活動通知。",
+      "NO_NOTIFICATIONS": "沒有通知",
+      "NOTE": "來自所有已訂閱收件箱的通知",
+      "NO_MESSAGES_AVAILABLE": "oops！無法獲取消息",
+      "SNOOZED_UNTIL": "已延遲至",
+      "SNOOZED_UNTIL_TOMORROW": "已延遲至明天",
+      "SNOOZED_UNTIL_NEXT_WEEK": "已延遲至下週"
     },
     "ACTION_HEADER": {
-      "SNOOZE": "Snooze notification",
-      "DELETE": "Delete notification",
+      "SNOOZE": "延遲通知",
+      "DELETE": "刪除通知",
       "BACK": "返回"
     },
     "TYPES": {
-      "CONVERSATION_MENTION": "You have been mentioned in a conversation",
-      "CONVERSATION_CREATION": "New conversation created",
-      "CONVERSATION_ASSIGNMENT": "A conversation has been assigned to you",
-      "ASSIGNED_CONVERSATION_NEW_MESSAGE": "New message in an assigned conversation",
-      "PARTICIPATING_CONVERSATION_NEW_MESSAGE": "New message in a conversation you are participating in",
-      "SLA_MISSED_FIRST_RESPONSE": "SLA target first response missed for conversation",
-      "SLA_MISSED_NEXT_RESPONSE": "SLA target next response missed for conversation",
-      "SLA_MISSED_RESOLUTION": "SLA target resolution missed for conversation"
+      "CONVERSATION_MENTION": "您在對話中被提及",
+      "CONVERSATION_CREATION": "新的對話已創建",
+      "CONVERSATION_ASSIGNMENT": "一對話已分配給您",
+      "ASSIGNED_CONVERSATION_NEW_MESSAGE": "已分配的對話中有新消息",
+      "PARTICIPATING_CONVERSATION_NEW_MESSAGE": "您參與的對話中有新消息",
+      "SLA_MISSED_FIRST_RESPONSE": "對話的第一響應SLA目標未達成",
+      "SLA_MISSED_NEXT_RESPONSE": "對話的下一響應SLA目標未達成",
+      "SLA_MISSED_RESOLUTION": "對話的解決SLA目標未達成"
     },
     "MENU_ITEM": {
-      "MARK_AS_READ": "Mark as read",
-      "MARK_AS_UNREAD": "Mark as unread",
-      "SNOOZE": "Snooze",
+      "MARK_AS_READ": "標記為已讀",
+      "MARK_AS_UNREAD": "標記為未讀",
+      "SNOOZE": "延遲",
       "DELETE": "刪除",
-      "MARK_ALL_READ": "Mark all as read",
-      "DELETE_ALL": "Delete all",
-      "DELETE_ALL_READ": "Delete all read"
+      "MARK_ALL_READ": "全部標記為已讀",
+      "DELETE_ALL": "全部刪除",
+      "DELETE_ALL_READ": "刪除所有已讀"
     },
     "DISPLAY_MENU": {
-      "SORT": "Sort",
-      "DISPLAY": "Display :",
+      "SORT": "排序",
+      "DISPLAY": "顯示 :",
       "SORT_OPTIONS": {
-        "NEWEST": "Newest",
-        "OLDEST": "Oldest",
+        "NEWEST": "最新",
+        "OLDEST": "最舊",
         "PRIORITY": "優先"
       },
       "DISPLAY_OPTIONS": {
-        "SNOOZED": "已关闭",
-        "READ": "Read",
+        "SNOOZED": "已延遲",
+        "READ": "已讀",
         "LABELS": "標籤",
-        "CONVERSATION_ID": "Conversation ID"
+        "CONVERSATION_ID": "對話ID"
       }
     },
     "ALERTS": {
-      "MARK_AS_READ": "Notification marked as read",
-      "MARK_AS_UNREAD": "Notification marked as unread",
-      "SNOOZE": "Notification snoozed",
-      "DELETE": "Notification deleted",
-      "MARK_ALL_READ": "All notifications marked as read",
-      "DELETE_ALL": "All notifications deleted",
-      "DELETE_ALL_READ": "All read notifications deleted"
+      "MARK_AS_READ": "通知已標記為已讀",
+      "MARK_AS_UNREAD": "通知已標記為未讀",
+      "SNOOZE": "通知已延遲",
+      "DELETE": "通知已刪除",
+      "MARK_ALL_READ": "所有通知已標記為已讀",
+      "DELETE_ALL": "所有通知已刪除",
+      "DELETE_ALL_READ": "所有已讀通知已刪除"
     }
   }
 }
