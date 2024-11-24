@@ -1,488 +1,488 @@
 {
   "HELP_CENTER": {
     "HEADER": {
-      "FILTER": "Filter by",
-      "SORT": "Sort by",
-      "LOCALE": "Locale",
+      "FILTER": "篩選",
+      "SORT": "排序",
+      "LOCALE": "語言",
       "SETTINGS_BUTTON": "設定",
-      "NEW_BUTTON": "New Article",
+      "NEW_BUTTON": "新增文章",
       "DROPDOWN_OPTIONS": {
-        "PUBLISHED": "Published",
-        "DRAFT": "Draft",
-        "ARCHIVED": "Archived"
+        "PUBLISHED": "已發佈",
+        "DRAFT": "草稿",
+        "ARCHIVED": "已歸檔"
       },
       "TITLES": {
-        "ALL_ARTICLES": "All Articles",
-        "MINE": "My Articles",
-        "DRAFT": "Draft Articles",
-        "ARCHIVED": "Archived Articles"
+        "ALL_ARTICLES": "所有文章",
+        "MINE": "我的文章",
+        "DRAFT": "草稿文章",
+        "ARCHIVED": "已歸檔文章"
       },
       "LOCALE_SELECT": {
-        "TITLE": "Select locale",
-        "PLACEHOLDER": "Select locale",
-        "NO_RESULT": "No locale found",
-        "SEARCH_PLACEHOLDER": "Search locale"
+        "TITLE": "選擇語言",
+        "PLACEHOLDER": "選擇語言",
+        "NO_RESULT": "無符合語言",
+        "SEARCH_PLACEHOLDER": "搜索語言"
       }
     },
     "EDIT_HEADER": {
-      "ALL_ARTICLES": "All Articles",
-      "PUBLISH_BUTTON": "Publish",
-      "MOVE_TO_ARCHIVE_BUTTON": "Move to archived",
-      "PREVIEW": "Preview",
-      "ADD_TRANSLATION": "Add translation",
-      "OPEN_SIDEBAR": "Open sidebar",
-      "CLOSE_SIDEBAR": "Close sidebar",
-      "SAVING": "Saving...",
-      "SAVED": "Saved"
+      "ALL_ARTICLES": "所有文章",
+      "PUBLISH_BUTTON": "發佈",
+      "MOVE_TO_ARCHIVE_BUTTON": "移至歸檔",
+      "PREVIEW": "預覽",
+      "ADD_TRANSLATION": "添加翻譯",
+      "OPEN_SIDEBAR": "打開側邊欄",
+      "CLOSE_SIDEBAR": "關閉側邊欄",
+      "SAVING": "保存中...",
+      "SAVED": "已保存"
     },
     "ARTICLE_EDITOR": {
       "IMAGE_UPLOAD": {
-        "TITLE": "上傳頭像",
+        "TITLE": "上傳圖片",
         "UPLOADING": "上傳中",
-        "SUCCESS": "Image uploaded successfully",
-        "ERROR": "Error while uploading image",
-        "UN_AUTHORIZED_ERROR": "You are not authorized to upload images",
-        "ERROR_FILE_SIZE": "Image size should be less than {size}MB",
-        "ERROR_FILE_FORMAT": "Image format should be jpg, jpeg or png",
-        "ERROR_FILE_DIMENSIONS": "Image dimensions should be less than 2000 x 2000"
+        "SUCCESS": "圖片上傳成功",
+        "ERROR": "圖片上傳失敗",
+        "UN_AUTHORIZED_ERROR": "您沒有權限上傳圖片",
+        "ERROR_FILE_SIZE": "圖片大小應小於{size}MB",
+        "ERROR_FILE_FORMAT": "圖片格式應為jpg, jpeg 或 png",
+        "ERROR_FILE_DIMENSIONS": "圖片尺寸應小於2000 x 2000"
       }
     },
     "ARTICLE_SETTINGS": {
-      "TITLE": "Article Settings",
+      "TITLE": "文章設置",
       "FORM": {
         "CATEGORY": {
-          "LABEL": "Category",
-          "TITLE": "Select category",
-          "PLACEHOLDER": "Select category",
-          "NO_RESULT": "No category found",
-          "SEARCH_PLACEHOLDER": "Search category"
+          "LABEL": "類別",
+          "TITLE": "選擇類別",
+          "PLACEHOLDER": "選擇類別",
+          "NO_RESULT": "無符合類別",
+          "SEARCH_PLACEHOLDER": "搜索類別"
         },
         "AUTHOR": {
-          "LABEL": "Author",
-          "TITLE": "Select author",
-          "PLACEHOLDER": "Select author",
-          "NO_RESULT": "No authors found",
-          "SEARCH_PLACEHOLDER": "Search author"
+          "LABEL": "作者",
+          "TITLE": "選擇作者",
+          "PLACEHOLDER": "選擇作者",
+          "NO_RESULT": "無符合作者",
+          "SEARCH_PLACEHOLDER": "搜索作者"
         },
         "META_TITLE": {
-          "LABEL": "Meta title",
-          "PLACEHOLDER": "Add a meta title"
+          "LABEL": "元標題",
+          "PLACEHOLDER": "添加元標題"
         },
         "META_DESCRIPTION": {
-          "LABEL": "Meta description",
-          "PLACEHOLDER": "Add your meta description for better SEO results..."
+          "LABEL": "元描述",
+          "PLACEHOLDER": "添加元描述以提高SEO效果..."
         },
         "META_TAGS": {
-          "LABEL": "Meta tags",
-          "PLACEHOLDER": "Add meta tags separated by comma..."
+          "LABEL": "元標籤",
+          "PLACEHOLDER": "添加元標籤，以逗號分隔..."
         }
       },
       "BUTTONS": {
-        "ARCHIVE": "Archive article",
-        "DELETE": "Delete article"
+        "ARCHIVE": "歸檔文章",
+        "DELETE": "刪除文章"
       }
     },
     "ARTICLE_SEARCH_RESULT": {
-      "UNCATEGORIZED": "Uncategorized",
-      "SEARCH_RESULTS": "Search results for {query}",
-      "EMPTY_TEXT": "Search for articles to insert into replies.",
-      "SEARCH_LOADER": "Searching...",
-      "INSERT_ARTICLE": "Insert",
-      "NO_RESULT": "No articles found",
-      "COPY_LINK": "Copy article link to clipboard",
-      "OPEN_LINK": "Open article in new tab",
-      "PREVIEW_LINK": "Preview article"
+      "UNCATEGORIZED": "未分類",
+      "SEARCH_RESULTS": "搜索結果：{query}",
+      "EMPTY_TEXT": "搜索文章以插入回覆。",
+      "SEARCH_LOADER": "搜索中...",
+      "INSERT_ARTICLE": "插入",
+      "NO_RESULT": "無符合文章",
+      "COPY_LINK": "複製文章鏈接到剪貼板",
+      "OPEN_LINK": "在新標籤頁中打開文章",
+      "PREVIEW_LINK": "預覽文章"
     },
     "PORTAL": {
-      "HEADER": "Portals",
-      "DEFAULT": "Default",
-      "NEW_BUTTON": "New Portal",
-      "ACTIVE_BADGE": "active",
-      "CHOOSE_LOCALE_LABEL": "Choose a locale",
-      "LOADING_MESSAGE": "Loading portals...",
-      "ARTICLES_LABEL": "articles",
-      "NO_PORTALS_MESSAGE": "There are no available portals",
-      "ADD_NEW_LOCALE": "Add a new locale",
+      "HEADER": "門戶",
+      "DEFAULT": "默認",
+      "NEW_BUTTON": "新建門戶",
+      "ACTIVE_BADGE": "激活",
+      "CHOOSE_LOCALE_LABEL": "選擇語言",
+      "LOADING_MESSAGE": "加載門戶...",
+      "ARTICLES_LABEL": "文章",
+      "NO_PORTALS_MESSAGE": "無可用門戶",
+      "ADD_NEW_LOCALE": "添加新語言",
       "POPOVER": {
-        "TITLE": "Portals",
-        "PORTAL_SETTINGS": "Portal settings",
-        "SUBTITLE": "You have multiple portals and can have different locales for each portal.",
+        "TITLE": "門戶",
+        "PORTAL_SETTINGS": "門戶設置",
+        "SUBTITLE": "您可以有多個門戶，每個門戶可以有不同的語言。",
         "CANCEL_BUTTON_LABEL": "取消",
-        "CHOOSE_LOCALE_BUTTON": "Choose Locale"
+        "CHOOSE_LOCALE_BUTTON": "選擇語言"
       },
       "PORTAL_SETTINGS": {
         "LIST_ITEM": {
           "HEADER": {
-            "COUNT_LABEL": "articles",
-            "ADD": "Add locale",
-            "VISIT": "Visit site",
-            "SETTINGS": "設定",
+            "COUNT_LABEL": "文章",
+            "ADD": "添加語言",
+            "VISIT": "訪問網站",
+            "SETTINGS": "設置",
             "DELETE": "刪除"
           },
           "PORTAL_CONFIG": {
-            "TITLE": "Portal Configurations",
+            "TITLE": "門戶配置",
             "ITEMS": {
-              "NAME": "姓名",
-              "DOMAIN": "Custom domain",
-              "SLUG": "Slug",
-              "TITLE": "Portal title",
-              "THEME": "Theme color",
-              "SUB_TEXT": "Portal sub text"
+              "NAME": "名稱",
+              "DOMAIN": "自定義域名",
+              "SLUG": "路徑",
+              "TITLE": "門戶標題",
+              "THEME": "主題顏色",
+              "SUB_TEXT": "門戶副標題"
             }
           },
           "AVAILABLE_LOCALES": {
-            "TITLE": "Available locales",
+            "TITLE": "可用語言",
             "TABLE": {
-              "NAME": "Locale name",
-              "CODE": "Locale code",
-              "ARTICLE_COUNT": "No. of articles",
-              "CATEGORIES": "No. of categories",
-              "SWAP": "Swap",
+              "NAME": "語言名稱",
+              "CODE": "語言代碼",
+              "ARTICLE_COUNT": "文章數量",
+              "CATEGORIES": "類別數量",
+              "SWAP": "切換",
               "DELETE": "刪除",
-              "DEFAULT_LOCALE": "Default"
+              "DEFAULT_LOCALE": "默認"
             }
           }
         },
         "DELETE_PORTAL": {
-          "TITLE": "Delete portal",
-          "MESSAGE": "Are you sure you want to delete this portal",
-          "YES": "Yes, delete portal",
-          "NO": "No, keep portal",
+          "TITLE": "刪除門戶",
+          "MESSAGE": "您確定要刪除此門戶嗎？",
+          "YES": "是，刪除門戶",
+          "NO": "否，保留門戶",
           "API": {
-            "DELETE_SUCCESS": "Portal deleted successfully",
-            "DELETE_ERROR": "Error while deleting portal"
+            "DELETE_SUCCESS": "門戶删除成功",
+            "DELETE_ERROR": "刪除門戶時出錯"
           }
         }
       },
       "EDIT": {
-        "HEADER_TEXT": "Edit portal",
+        "HEADER_TEXT": "編輯門戶",
         "TABS": {
           "BASIC_SETTINGS": {
-            "TITLE": "Basic information"
+            "TITLE": "基本信息"
           },
           "CUSTOMIZATION_SETTINGS": {
-            "TITLE": "Portal customization"
+            "TITLE": "門戶定制"
           },
           "CATEGORY_SETTINGS": {
-            "TITLE": "Categories"
+            "TITLE": "類別"
           },
           "LOCALE_SETTINGS": {
-            "TITLE": "Locales"
+            "TITLE": "語言"
           }
         },
         "CATEGORIES": {
-          "TITLE": "Categories in",
-          "NEW_CATEGORY": "New category",
+          "TITLE": "類別",
+          "NEW_CATEGORY": "新建類別",
           "TABLE": {
-            "NAME": "姓名",
-            "DESCRIPTION": "描述資訊",
-            "LOCALE": "Locale",
-            "ARTICLE_COUNT": "No. of articles",
+            "NAME": "名稱",
+            "DESCRIPTION": "描述",
+            "LOCALE": "語言",
+            "ARTICLE_COUNT": "文章數量",
             "ACTION_BUTTON": {
-              "EDIT": "Edit category",
-              "DELETE": "Delete category"
+              "EDIT": "編輯類別",
+              "DELETE": "刪除類別"
             },
-            "EMPTY_TEXT": "No categories found"
+            "EMPTY_TEXT": "無符合類別"
           }
         },
         "EDIT_BASIC_INFO": {
-          "BUTTON_TEXT": "Update basic settings"
+          "BUTTON_TEXT": "更新基本信息"
         }
       },
       "ADD": {
         "CREATE_FLOW": [
           {
-            "title": "Help center information",
+            "title": "幫助中心信息",
             "route": "new_portal_information",
-            "body": "Basic information about portal",
-            "CREATE_BASIC_SETTING_BUTTON": "Create portal basic settings"
+            "body": "門戶的基本信息",
+            "CREATE_BASIC_SETTING_BUTTON": "創建門戶基本信息"
           },
           {
-            "title": "Help center customization",
+            "title": "幫助中心定制",
             "route": "portal_customization",
-            "body": "Customize portal",
-            "UPDATE_PORTAL_BUTTON": "Update portal settings"
+            "body": "定制門戶",
+            "UPDATE_PORTAL_BUTTON": "更新門戶設置"
           },
           {
-            "title": "Voila! 🎉",
+            "title": "大功告成！🎉",
             "route": "portal_finish",
-            "body": "You're all set!",
+            "body": "一切就緒！",
             "FINISH": "完成"
           }
         ],
         "CREATE_FLOW_PAGE": {
           "BACK_BUTTON": "返回",
           "BASIC_SETTINGS_PAGE": {
-            "HEADER": "Create Portal",
-            "TITLE": "Help center information",
-            "CREATE_BASIC_SETTING_BUTTON": "Create portal basic settings"
+            "HEADER": "創建門戶",
+            "TITLE": "幫助中心信息",
+            "CREATE_BASIC_SETTING_BUTTON": "創建門戶基本信息"
           },
           "CUSTOMIZATION_PAGE": {
-            "HEADER": "Portal customisation",
-            "TITLE": "Help center customization",
-            "UPDATE_PORTAL_BUTTON": "Update portal settings"
+            "HEADER": "門戶定制",
+            "TITLE": "幫助中心定制",
+            "UPDATE_PORTAL_BUTTON": "更新門戶設置"
           },
           "FINISH_PAGE": {
-            "TITLE": "Voila!🎉 You're all set up!",
-            "MESSAGE": "You can now see this created portal on your all portals page.",
-            "FINISH": "Go to all portals page"
+            "TITLE": "大功告成！🎉 一切就緒！",
+            "MESSAGE": "現在您可以在所有門戶頁面中看到此門戶。",
+            "FINISH": "前往所有門戶頁面"
           }
         },
         "LOGO": {
-          "LABEL": "Logo",
-          "UPLOAD_BUTTON": "Upload logo",
-          "HELP_TEXT": "This logo will be displayed on the portal header.",
-          "IMAGE_UPLOAD_SUCCESS": "Logo uploaded successfully",
-          "IMAGE_UPLOAD_ERROR": "Logo deleted successfully",
-          "IMAGE_DELETE_ERROR": "Error while deleting logo"
+          "LABEL": "徽標",
+          "UPLOAD_BUTTON": "上傳徽標",
+          "HELP_TEXT": "此徽標將顯示在門戶標題欄中。",
+          "IMAGE_UPLOAD_SUCCESS": "徽標上傳成功",
+          "IMAGE_UPLOAD_ERROR": "徽標刪除成功",
+          "IMAGE_DELETE_ERROR": "刪除徽標時出錯"
         },
         "NAME": {
-          "LABEL": "姓名",
-          "PLACEHOLDER": "Portal name",
-          "HELP_TEXT": "The name will be used in the public facing portal internally.",
+          "LABEL": "名稱",
+          "PLACEHOLDER": "門戶名稱",
+          "HELP_TEXT": "此名稱將在公開門戶中內部使用。",
           "ERROR": "名稱為必填"
         },
         "SLUG": {
-          "LABEL": "Slug",
-          "PLACEHOLDER": "Portal slug for urls",
-          "ERROR": "Slug is required"
+          "LABEL": "路徑",
+          "PLACEHOLDER": "門戶URL路徑",
+          "ERROR": "路徑為必填"
         },
         "DOMAIN": {
-          "LABEL": "Custom Domain",
-          "PLACEHOLDER": "Portal custom domain",
-          "HELP_TEXT": "Add only If you want to use a custom domain for your portals. Eg: https://example.com",
-          "ERROR": "Enter a valid domain URL"
+          "LABEL": "自定義域名",
+          "PLACEHOLDER": "門戶自定義域名",
+          "HELP_TEXT": "如果您希望使用自定義域名，請在此處添加。例如：https://example.com",
+          "ERROR": "請輸入有效的域名URL"
         },
         "HOME_PAGE_LINK": {
-          "LABEL": "Home Page Link",
-          "PLACEHOLDER": "Portal home page link",
-          "HELP_TEXT": "The link used to return from the portal to the home page. Eg: https://example.com",
-          "ERROR": "Enter a valid home page URL"
+          "LABEL": "首頁鏈接",
+          "PLACEHOLDER": "門戶首頁鏈接",
+          "HELP_TEXT": "從門戶返回首頁的鏈接。例如：https://example.com",
+          "ERROR": "請輸入有效的首頁URL"
         },
         "THEME_COLOR": {
-          "LABEL": "Portal theme color",
-          "HELP_TEXT": "This color will show as the theme color for the portal."
+          "LABEL": "門戶主題顏色",
+          "HELP_TEXT": "此顏色將作為門戶的主題顏色。"
         },
         "PAGE_TITLE": {
-          "LABEL": "Page Title",
-          "PLACEHOLDER": "Portal page title",
-          "HELP_TEXT": "The page title will be used in the public facing portal.",
-          "ERROR": "Page title is required"
+          "LABEL": "頁面標題",
+          "PLACEHOLDER": "門戶頁面標題",
+          "HELP_TEXT": "此頁面標題將在公開門戶中使用。",
+          "ERROR": "頁面標題為必填"
         },
         "HEADER_TEXT": {
-          "LABEL": "Header Text",
-          "PLACEHOLDER": "Portal header text",
-          "HELP_TEXT": "The Portal header text will be used in the public facing portal.",
-          "ERROR": "Portal header text is required"
+          "LABEL": "標題文字",
+          "PLACEHOLDER": "門戶標題文字",
+          "HELP_TEXT": "此標題文字將在公開門戶中使用。",
+          "ERROR": "標題文字為必填"
         },
         "API": {
-          "SUCCESS_MESSAGE_FOR_BASIC": "Portal created successfully.",
-          "ERROR_MESSAGE_FOR_BASIC": "Couldn't create the portal. Try again.",
-          "SUCCESS_MESSAGE_FOR_UPDATE": "Portal updated successfully.",
-          "ERROR_MESSAGE_FOR_UPDATE": "Couldn't update the portal. Try again."
+          "SUCCESS_MESSAGE_FOR_BASIC": "門戶創建成功。",
+          "ERROR_MESSAGE_FOR_BASIC": "無法創建門戶。請再試一次。",
+          "SUCCESS_MESSAGE_FOR_UPDATE": "門戶更新成功。",
+          "ERROR_MESSAGE_FOR_UPDATE": "無法更新門戶。請再試一次。"
         }
       },
       "ADD_LOCALE": {
-        "TITLE": "Add a new locale",
-        "SUB_TITLE": "This adds a new locale to your available translation list.",
-        "PORTAL": "Portal",
+        "TITLE": "添加新語言",
+        "SUB_TITLE": "這將添加新的語言到您的可用翻譯列表中。",
+        "PORTAL": "門戶",
         "LOCALE": {
-          "LABEL": "Locale",
-          "PLACEHOLDER": "Choose a locale",
-          "ERROR": "Locale is required"
+          "LABEL": "語言",
+          "PLACEHOLDER": "選擇語言",
+          "ERROR": "語言為必填"
         },
         "BUTTONS": {
-          "CREATE": "Create locale",
+          "CREATE": "創建語言",
           "CANCEL": "取消"
         },
         "API": {
-          "SUCCESS_MESSAGE": "Locale added successfully",
-          "ERROR_MESSAGE": "Unable to add locale. Try again."
+          "SUCCESS_MESSAGE": "語言添加成功",
+          "ERROR_MESSAGE": "無法添加語言。請再試一次。"
         }
       },
       "CHANGE_DEFAULT_LOCALE": {
         "API": {
-          "SUCCESS_MESSAGE": "Default locale updated successfully",
-          "ERROR_MESSAGE": "Unable to update default locale. Try again."
+          "SUCCESS_MESSAGE": "默認語言更新成功",
+          "ERROR_MESSAGE": "無法更新默認語言。請再試一次。"
         }
       },
       "DELETE_LOCALE": {
         "API": {
-          "SUCCESS_MESSAGE": "Locale removed from portal successfully",
-          "ERROR_MESSAGE": "Unable to remove locale from portal. Try again."
+          "SUCCESS_MESSAGE": "語言從門戶中删除成功",
+          "ERROR_MESSAGE": "無法從門戶中刪除語言。請再試一次。"
         }
       }
     },
     "TABLE": {
-      "LOADING_MESSAGE": "Loading articles...",
-      "404": "No articles matches your search 🔍",
-      "NO_ARTICLES": "There are no available articles",
+      "LOADING_MESSAGE": "加載文章...",
+      "404": "無符合文章 🔍",
+      "NO_ARTICLES": "無可用文章",
       "HEADERS": {
         "TITLE": "標題",
-        "CATEGORY": "Category",
-        "READ_COUNT": "Views",
+        "CATEGORY": "類別",
+        "READ_COUNT": "閱讀次數",
         "STATUS": "狀態",
-        "LAST_EDITED": "Last edited"
+        "LAST_EDITED": "最後編輯"
       },
       "COLUMNS": {
-        "BY": "by",
-        "AUTHOR_NOT_AVAILABLE": "Author is not available"
+        "BY": "由",
+        "AUTHOR_NOT_AVAILABLE": "作者不可用"
       }
     },
     "EDIT_ARTICLE": {
-      "LOADING": "Loading article...",
-      "TITLE_PLACEHOLDER": "Article title goes here",
-      "CONTENT_PLACEHOLDER": "Write your article here",
+      "LOADING": "加載文章...",
+      "TITLE_PLACEHOLDER": "文章標題",
+      "CONTENT_PLACEHOLDER": "撰寫您的文章",
       "API": {
-        "ERROR": "Error while saving article"
+        "ERROR": "保存文章時出錯"
       }
     },
     "PUBLISH_ARTICLE": {
       "API": {
-        "ERROR": "Error while publishing article",
-        "SUCCESS": "Article published successfully"
+        "ERROR": "發佈文章時出錯",
+        "SUCCESS": "文章發佈成功"
       }
     },
     "ARCHIVE_ARTICLE": {
       "API": {
-        "ERROR": "Error while archiving article",
-        "SUCCESS": "Article archived successfully"
+        "ERROR": "歸檔文章時出錯",
+        "SUCCESS": "文章歸檔成功"
       }
     },
     "DELETE_ARTICLE": {
       "MODAL": {
         "CONFIRM": {
           "TITLE": "確認刪除",
-          "MESSAGE": "Are you sure to delete the article?",
+          "MESSAGE": "您確定要刪除此文嗎？",
           "YES": "是，刪除",
           "NO": "否，保留它"
         }
       },
       "API": {
-        "SUCCESS_MESSAGE": "Article deleted successfully",
-        "ERROR_MESSAGE": "Error while deleting article"
+        "SUCCESS_MESSAGE": "文章删除成功",
+        "ERROR_MESSAGE": "刪除文章時出錯"
       }
     },
     "CREATE_ARTICLE": {
-      "ERROR_MESSAGE": "Please add the article heading and content then only you can update the settings"
+      "ERROR_MESSAGE": "請添加文章標題和內容，然後才能更新設置"
     },
     "SIDEBAR": {
       "SEARCH": {
-        "PLACEHOLDER": "Search for articles"
+        "PLACEHOLDER": "搜索文章"
       }
     },
     "CATEGORY": {
       "ADD": {
-        "TITLE": "Create a category",
-        "SUB_TITLE": "The category will be used in the public facing portal to categorize articles.",
-        "PORTAL": "Portal",
-        "LOCALE": "Locale",
+        "TITLE": "創建類別",
+        "SUB_TITLE": "此類別將用於公開門戶中的文章分類。",
+        "PORTAL": "門戶",
+        "LOCALE": "語言",
         "NAME": {
-          "LABEL": "姓名",
-          "PLACEHOLDER": "Category name",
-          "HELP_TEXT": "The category name and icon will be used in the public facing portal to categorize articles.",
+          "LABEL": "名稱",
+          "PLACEHOLDER": "類別名稱",
+          "HELP_TEXT": "此類別名稱和圖標將用於公開門戶中的文章分類。",
           "ERROR": "名稱為必填"
         },
         "SLUG": {
-          "LABEL": "Slug",
-          "PLACEHOLDER": "Category slug for urls",
+          "LABEL": "路徑",
+          "PLACEHOLDER": "類別URL路徑",
           "HELP_TEXT": "app.chatwoot.com/hc/my-portal/en-US/categories/my-slug",
-          "ERROR": "Slug is required"
+          "ERROR": "路徑為必填"
         },
         "DESCRIPTION": {
-          "LABEL": "描述資訊",
-          "PLACEHOLDER": "Give a short description about the category.",
+          "LABEL": "描述",
+          "PLACEHOLDER": "簡要描述此類別。",
           "ERROR": "描述為必填"
         },
         "BUTTONS": {
-          "CREATE": "Create category",
+          "CREATE": "創建類別",
           "CANCEL": "取消"
         },
         "API": {
-          "SUCCESS_MESSAGE": "Category created successfully",
-          "ERROR_MESSAGE": "Unable to create category"
+          "SUCCESS_MESSAGE": "類別創建成功",
+          "ERROR_MESSAGE": "無法創建類別"
         }
       },
       "EDIT": {
-        "TITLE": "Edit a category",
-        "SUB_TITLE": "Editing a category will update the category in the public facing portal.",
-        "PORTAL": "Portal",
-        "LOCALE": "Locale",
+        "TITLE": "編輯類別",
+        "SUB_TITLE": "編輯類別將更新公開門戶中的類別。",
+        "PORTAL": "門戶",
+        "LOCALE": "語言",
         "NAME": {
-          "LABEL": "姓名",
-          "PLACEHOLDER": "Category name",
-          "HELP_TEXT": "The category name and icon will be used in the public facing portal to categorize articles.",
+          "LABEL": "名稱",
+          "PLACEHOLDER": "類別名稱",
+          "HELP_TEXT": "此類別名稱和圖標將用於公開門戶中的文章分類。",
           "ERROR": "名稱為必填"
         },
         "SLUG": {
-          "LABEL": "Slug",
-          "PLACEHOLDER": "Category slug for urls",
+          "LABEL": "路徑",
+          "PLACEHOLDER": "類別URL路徑",
           "HELP_TEXT": "app.chatwoot.com/hc/my-portal/en-US/categories/my-slug",
-          "ERROR": "Slug is required"
+          "ERROR": "路徑為必填"
         },
         "DESCRIPTION": {
-          "LABEL": "描述資訊",
-          "PLACEHOLDER": "Give a short description about the category.",
+          "LABEL": "描述",
+          "PLACEHOLDER": "簡要描述此類別。",
           "ERROR": "描述為必填"
         },
         "BUTTONS": {
-          "CREATE": "Update category",
+          "CREATE": "更新類別",
           "CANCEL": "取消"
         },
         "API": {
-          "SUCCESS_MESSAGE": "Category updated successfully",
-          "ERROR_MESSAGE": "Unable to update category"
+          "SUCCESS_MESSAGE": "類別更新成功",
+          "ERROR_MESSAGE": "無法更新類別"
         }
       },
       "DELETE": {
         "API": {
-          "SUCCESS_MESSAGE": "Category deleted successfully",
-          "ERROR_MESSAGE": "Unable to delete category"
+          "SUCCESS_MESSAGE": "類別删除成功",
+          "ERROR_MESSAGE": "無法刪除類別"
         }
       }
     },
     "ARTICLE_SEARCH": {
-      "TITLE": "Search articles",
-      "PLACEHOLDER": "Search articles",
-      "NO_RESULT": "No articles found",
-      "SEARCHING": "Searching...",
-      "SEARCH_BUTTON": "搜尋",
-      "INSERT_ARTICLE": "Insert link",
-      "IFRAME_ERROR": "URL is empty or invalid. Unable to display content.",
-      "OPEN_ARTICLE_SEARCH": "Insert article from Help Center",
-      "SUCCESS_ARTICLE_INSERTED": "Article inserted successfully",
-      "PREVIEW_LINK": "Preview article",
+      "TITLE": "搜索文章",
+      "PLACEHOLDER": "搜索文章",
+      "NO_RESULT": "無符合文章",
+      "SEARCHING": "搜索中...",
+      "SEARCH_BUTTON": "搜索",
+      "INSERT_ARTICLE": "插入鏈接",
+      "IFRAME_ERROR": "URL 為空或無效。無法顯示內容。",
+      "OPEN_ARTICLE_SEARCH": "從幫助中心插入文章",
+      "SUCCESS_ARTICLE_INSERTED": "文章插入成功",
+      "PREVIEW_LINK": "預覽文章",
       "CANCEL": "關閉",
       "BACK": "返回",
-      "BACK_RESULTS": "Back to results"
+      "BACK_RESULTS": "返回結果"
     },
     "UPGRADE_PAGE": {
-      "TITLE": "Help Center",
-      "DESCRIPTION": "Create user-friendly self-service portals. Help your users to access the articles and get support 24/7. Upgrade your subscription to enable this feature.",
-      "SELF_HOSTED_DESCRIPTION": "Create user-friendly self-service portals. Help your users to access the articles and get support 24/7. Please contact your administrator to enable this feature.",
+      "TITLE": "幫助中心",
+      "DESCRIPTION": "創建用戶友好的自助服務門戶。幫助您的用戶全天候訪問文章並獲得支持。升級您的訂閱以啟用此功能。",
+      "SELF_HOSTED_DESCRIPTION": "創建用戶友好的自助服務門戶。幫助您的用戶全天候訪問文章並獲得支持。請聯繫您的管理員以啟用此功能。",
       "BUTTON": {
-        "LEARN_MORE": "Learn more",
-        "UPGRADE": "Upgrade"
+        "LEARN_MORE": "了解更多",
+        "UPGRADE": "升級"
       },
       "FEATURES": {
         "PORTALS": {
-          "TITLE": "Multiple portals",
-          "DESCRIPTION": "Create multiple help center portals for different products using the same account."
+          "TITLE": "多個門戶",
+          "DESCRIPTION": "使用同一賬戶為不同產品創建多個幫助中心門戶。"
         },
         "LOCALES": {
-          "TITLE": "Full support for locales",
-          "DESCRIPTION": "Localize the portal in your language. We support all locales and allow translations for every article."
+          "TITLE": "全面支持語言",
+          "DESCRIPTION": "將門戶本地化為您的語言。我們支持所有語言並允許每篇文章進行翻譯。"
         },
         "SEO": {
-          "TITLE": "SEO-friendly design",
-          "DESCRIPTION": "Customize your meta tags to improve your visibility on search engines with our SEO-friendly pages."
+          "TITLE": "SEO 友好設計",
+          "DESCRIPTION": "自定義您的元標籤以提高搜索引擎上的可見性。"
         },
         "API": {
-          "TITLE": "Full API support",
-          "DESCRIPTION": "Use the portal as a headless CMS with third party front-end frameworks using our APIs."
+          "TITLE": "全面 API 支持",
+          "DESCRIPTION": "使用我們的 API 和第三方前端框架將門戶作為無頭 CMS 使用。"
         }
       }
     },
-    "LOADING": "Loading..."
+    "LOADING": "加載中..."
   }
 }

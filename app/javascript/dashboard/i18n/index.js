@@ -35,6 +35,7 @@ import uk from './locale/uk';
 import vi from './locale/vi';
 import zh_CN from './locale/zh_CN';
 import zh_TW from './locale/zh_TW';
+import zh_HK from './locale/zh_HK';
 import is from './locale/is';
 import lt from './locale/lt';
 
@@ -79,6 +80,7 @@ export default merge({
   vi,
   zh_CN,
   zh_TW,
+  zh_HK,
   is,
   lt,
 }, ext);

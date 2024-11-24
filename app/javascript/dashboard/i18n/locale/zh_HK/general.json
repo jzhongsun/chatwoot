@@ -1,9 +1,9 @@
 {
   "GENERAL": {
-    "SHOWING_RESULTS": "Showing {firstIndex}-{lastIndex} of {totalCount} items",
+    "SHOWING_RESULTS": "顯示 {firstIndex}-{lastIndex} 項，共 {totalCount} 項",
     "PHONE_INPUT": {
       "PLACEHOLDER": "搜尋",
-      "EMPTY_STATE": "No results found"
+      "EMPTY_STATE": "未找到結果"
     }
   }
 }

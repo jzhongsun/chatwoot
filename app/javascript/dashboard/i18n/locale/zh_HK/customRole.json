@@ -1,90 +1,90 @@
 {
   "CUSTOM_ROLE": {
-    "HEADER": "Custom Roles",
-    "LEARN_MORE": "Learn more about custom roles",
-    "DESCRIPTION": "Custom roles are roles that are created by the account owner or admin. These roles can be assigned to agents to define their access and permissions within the account. Custom roles can be created with specific permissions and access levels to suit the requirements of the organization.",
-    "HEADER_BTN_TXT": "Add custom role",
-    "LOADING": "Fetching custom roles...",
-    "SEARCH_404": "沒有任何項目符合此查詢.",
+    "HEADER": "自訂角色",
+    "LEARN_MORE": "了解更多關於自訂角色",
+    "DESCRIPTION": "自訂角色是由帳戶擁有者或管理員創建的角色。這些角色可以分配給代理，以定義他們在帳戶中的訪問和權限。自訂角色可以根據組織的需求，創建具有特定權限和訪問級別的角色。",
+    "HEADER_BTN_TXT": "新增自訂角色",
+    "LOADING": "正在獲取自訂角色...",
+    "SEARCH_404": "沒有任何項目符合此查詢。",
     "PAYWALL": {
-      "TITLE": "Upgrade to create custom roles",
-      "AVAILABLE_ON": "The custom role feature is only available in the Business and Enterprise plans.",
-      "UPGRADE_PROMPT": "Upgrade your plan to get access to advanced features like team management, automations, custom attributes, and more.",
-      "UPGRADE_NOW": "Upgrade now",
-      "CANCEL_ANYTIME": "You can change or cancel your plan anytime"
+      "TITLE": "升級以創建自訂角色",
+      "AVAILABLE_ON": "自訂角色功能僅在商業和企業計劃中可用。",
+      "UPGRADE_PROMPT": "升級您的計劃以獲得團隊管理、自動化、自定義屬性等高級功能。",
+      "UPGRADE_NOW": "立即升級",
+      "CANCEL_ANYTIME": "您可以隨時更改或取消您的計劃"
     },
     "ENTERPRISE_PAYWALL": {
-      "AVAILABLE_ON": "The custom role feature is only available in the paid plans.",
-      "UPGRADE_PROMPT": "Upgrade to a paid plan to access advanced features like audit logs, agent capacity, and more.",
-      "ASK_ADMIN": "Please reach out to your administrator for the upgrade."
+      "AVAILABLE_ON": "自訂角色功能僅在付費計劃中可用。",
+      "UPGRADE_PROMPT": "升級到付費計劃以訪問審計日誌、代理容量等高級功能。",
+      "ASK_ADMIN": "請聯繫您的管理員進行升級。"
     },
     "LIST": {
-      "404": "There are no custom roles available in this account.",
-      "TITLE": "Manage custom roles",
-      "DESC": "Custom roles are roles that are created by the account owner or admin. These roles can be assigned to agents to define their access and permissions within the account. Custom roles can be created with specific permissions and access levels to suit the requirements of the organization.",
+      "404": "此帳戶中沒有可用的自訂角色。",
+      "TITLE": "管理自訂角色",
+      "DESC": "自訂角色是由帳戶擁有者或管理員創建的角色。這些角色可以分配給代理，以定義他們在帳戶中的訪問和權限。自訂角色可以根據組織的需求，創建具有特定權限和訪問級別的角色。",
       "TABLE_HEADER": [
-        "姓名",
-        "描述資訊",
-        "Permissions",
+        "名稱",
+        "描述",
+        "權限",
         "操作"
       ]
     },
     "PERMISSIONS": {
-      "CONVERSATION_MANAGE": "Manage all conversations",
-      "CONVERSATION_UNASSIGNED_MANAGE": "Manage unassigned conversations and those assigned to them",
-      "CONVERSATION_PARTICIPATING_MANAGE": "Manage participating conversations and those assigned to them",
-      "CONTACT_MANAGE": "Manage contacts",
-      "REPORT_MANAGE": "Manage reports",
-      "KNOWLEDGE_BASE_MANAGE": "Manage knowledge base"
+      "CONVERSATION_MANAGE": "管理所有對話",
+      "CONVERSATION_UNASSIGNED_MANAGE": "管理未分配的對話和已分配給他們的對話",
+      "CONVERSATION_PARTICIPATING_MANAGE": "管理參與的對話和已分配給他們的對話",
+      "CONTACT_MANAGE": "管理聯繫人",
+      "REPORT_MANAGE": "管理報告",
+      "KNOWLEDGE_BASE_MANAGE": "管理知識庫"
     },
     "FORM": {
       "NAME": {
-        "LABEL": "姓名",
-        "PLACEHOLDER": "Please enter a name.",
-        "ERROR": "名稱為必填."
+        "LABEL": "名稱",
+        "PLACEHOLDER": "請輸入名稱。",
+        "ERROR": "名稱為必填項。"
       },
       "DESCRIPTION": {
-        "LABEL": "描述資訊",
-        "PLACEHOLDER": "Please enter a description.",
-        "ERROR": "描述為必填."
+        "LABEL": "描述",
+        "PLACEHOLDER": "請輸入描述。",
+        "ERROR": "描述為必填項。"
       },
       "PERMISSIONS": {
-        "LABEL": "Permissions",
-        "ERROR": "Permissions are required."
+        "LABEL": "權限",
+        "ERROR": "權限為必填項。"
       },
       "CANCEL_BUTTON_TEXT": "取消",
       "API": {
-        "ERROR_MESSAGE": "Could not connect to Woot server. Please try again."
+        "ERROR_MESSAGE": "無法連接到 Woot 伺服器。請稍後再試。"
       }
     },
     "ADD": {
-      "TITLE": "Add custom role",
-      "DESC": " Custom roles allows you to create roles with specific permissions and access levels to suit the requirements of the organization.",
-      "SUBMIT": "送出",
+      "TITLE": "新增自訂角色",
+      "DESC": "自訂角色允許您創建具有特定權限和訪問級別的角色，以滿足組織的需求。",
+      "SUBMIT": "提交",
       "API": {
-        "SUCCESS_MESSAGE": "Custom role added successfully."
+        "SUCCESS_MESSAGE": "自訂角色已成功添加。"
       }
     },
     "EDIT": {
       "BUTTON_TEXT": "編輯",
-      "TITLE": "Edit custom role",
-      "DESC": " Custom roles allows you to create roles with specific permissions and access levels to suit the requirements of the organization.",
+      "TITLE": "編輯自訂角色",
+      "DESC": "自訂角色允許您創建具有特定權限和訪問級別的角色，以滿足組織的需求。",
       "SUBMIT": "更新",
       "API": {
-        "SUCCESS_MESSAGE": "Custom role updated successfully."
+        "SUCCESS_MESSAGE": "自訂角色已成功更新。"
       }
     },
     "DELETE": {
       "BUTTON_TEXT": "刪除",
       "API": {
-        "SUCCESS_MESSAGE": "Custom role deleted successfully.",
-        "ERROR_MESSAGE": "Could not connect to Woot server. Please try again."
+        "SUCCESS_MESSAGE": "自訂角色已成功刪除。",
+        "ERROR_MESSAGE": "無法連接到 Woot 伺服器。請稍後再試。"
       },
       "CONFIRM": {
         "TITLE": "刪除確認",
-        "MESSAGE": "您確定要刪除嗎？ ",
-        "YES": "是的，刪除 ",
-        "NO": "No, keep "
+        "MESSAGE": "您確定要刪除嗎？",
+        "YES": "是的，刪除",
+        "NO": "否，保留"
       }
     }
   }

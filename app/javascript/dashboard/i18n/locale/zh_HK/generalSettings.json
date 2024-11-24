@@ -3,7 +3,7 @@
     "TITLE": "帳戶設定",
     "SUBMIT": "更新設定",
     "BACK": "返回",
-    "DISMISS": "Dismiss",
+    "DISMISS": "取消",
     "UPDATE": {
       "ERROR": "無法更新設定，請重試！",
       "SUCCESS": "已成功更新帳戶設定"
@@ -15,8 +15,8 @@
         "NOTE": ""
       },
       "ACCOUNT_ID": {
-        "TITLE": "Account ID",
-        "NOTE": "This ID is required if you are building an API based integration"
+        "TITLE": "帳戶 ID",
+        "NOTE": "如果您正在構建基於 API 的集成，此 ID 是必需的"
       },
       "NAME": {
         "LABEL": "帳戶名稱",
@@ -24,8 +24,8 @@
         "ERROR": "請輸入有效的帳戶名稱"
       },
       "LANGUAGE": {
-        "LABEL": "Site language",
-        "PLACEHOLDER": "您的帳戶名稱",
+        "LABEL": "網站語言",
+        "PLACEHOLDER": "選擇您的網站語言",
         "ERROR": ""
       },
       "DOMAIN": {
@@ -39,131 +39,131 @@
         "ERROR": ""
       },
       "AUTO_RESOLVE_DURATION": {
-        "LABEL": "Number of days after a ticket should auto resolve if there is no activity",
+        "LABEL": "無活動天數後自動解決票據",
         "PLACEHOLDER": "30",
-        "ERROR": "Please enter a valid auto resolve duration (minimum 1 day and maximum 999 days)"
+        "ERROR": "請輸入有效的自動解決天數（最少 1 天，最多 999 天）"
       },
       "FEATURES": {
-        "INBOUND_EMAIL_ENABLED": "您的帳戶啟用了電子信箱與對話的持續性功能。",
-        "CUSTOM_EMAIL_DOMAIN_ENABLED": "您現在可以在您的自定義域名的電子信箱中接收消息。"
+        "INBOUND_EMAIL_ENABLED": "您的帳戶已啟用電子郵件和對話的持續性功能。",
+        "CUSTOM_EMAIL_DOMAIN_ENABLED": "您現在可以在自定義域名的電子郵件地址中接收消息。"
       }
     },
-    "UPDATE_CHATWOOT": "An update {latestChatwootVersion} for Chatwoot is available. Please update your instance.",
-    "LEARN_MORE": "Learn more",
-    "PAYMENT_PENDING": "Your payment is pending. Please update your payment information to continue using Chatwoot",
-    "LIMITS_UPGRADE": "Your account has exceeded the usage limits, please upgrade your plan to continue using Chatwoot",
-    "OPEN_BILLING": "Open billing"
+    "UPDATE_CHATWOOT": "有新的 Chatwoot 更新 {latestChatwootVersion} 可用。請更新您的實例。",
+    "LEARN_MORE": "了解更多",
+    "PAYMENT_PENDING": "您的付款尚未完成。請更新您的付款信息以繼續使用 Chatwoot。",
+    "LIMITS_UPGRADE": "您的帳戶已超出使用限制，請升級您的套餐以繼續使用 Chatwoot。",
+    "OPEN_BILLING": "打開賬單"
   },
   "FORMS": {
     "MULTISELECT": {
-      "ENTER_TO_SELECT": "按下 enter 以選擇",
-      "ENTER_TO_REMOVE": "按下 enter 以移除",
-      "SELECT_ONE": "選擇其中一項",
+      "ENTER_TO_SELECT": "按 Enter 選擇",
+      "ENTER_TO_REMOVE": "按 Enter 移除",
+      "SELECT_ONE": "選擇一項",
       "SELECT": "選擇"
     }
   },
   "NOTIFICATIONS_PAGE": {
     "HEADER": "通知",
-    "MARK_ALL_DONE": "全部標記完成",
+    "MARK_ALL_DONE": "全部標記為已完成",
     "DELETE_TITLE": "刪除",
     "UNREAD_NOTIFICATION": {
       "TITLE": "未讀通知",
       "ALL_NOTIFICATIONS": "查看所有通知",
       "LOADING_UNREAD_MESSAGE": "正在讀取未讀通知",
-      "EMPTY_MESSAGE": "You have no unread notifications"
+      "EMPTY_MESSAGE": "您沒有未讀通知"
     },
     "LIST": {
       "LOADING_MESSAGE": "載入更多通知...",
       "404": "沒有通知",
-      "TABLE_HEADER": ["姓名", "聯絡人電話", "對話", "最後聯絡"]
+      "TABLE_HEADER": ["姓名", "聯絡電話", "對話", "最後聯絡"]
     },
     "TYPE_LABEL": {
       "conversation_creation": "新對話",
       "conversation_assignment": "對話已被指派",
-      "assigned_conversation_new_message": "新訊息",
-      "participating_conversation_new_message": "新訊息",
+      "assigned_conversation_new_message": "新消息",
+      "participating_conversation_new_message": "新消息",
       "conversation_mention": "被提及",
-      "sla_missed_first_response": "SLA Missed",
-      "sla_missed_next_response": "SLA Missed",
-      "sla_missed_resolution": "SLA Missed"
+      "sla_missed_first_response": "SLA 未達標",
+      "sla_missed_next_response": "SLA 未達標",
+      "sla_missed_resolution": "SLA 未達標"
     }
   },
   "NETWORK": {
     "NOTIFICATION": {
-      "OFFLINE": "離線的",
-      "RECONNECTING": "Reconnecting...",
-      "RECONNECT_SUCCESS": "Reconnected"
+      "OFFLINE": "離線",
+      "RECONNECTING": "重新連接中...",
+      "RECONNECT_SUCCESS": "已重新連接"
     },
     "BUTTON": {
-      "REFRESH": "Refresh"
+      "REFRESH": "刷新"
     }
   },
   "COMMAND_BAR": {
-    "SEARCH_PLACEHOLDER": "Search or jump to",
+    "SEARCH_PLACEHOLDER": "搜索或跳轉到",
     "SECTIONS": {
-      "GENERAL": "General",
-      "REPORTS": "報表",
+      "GENERAL": "常規",
+      "REPORTS": "報告",
       "CONVERSATION": "對話",
-      "BULK_ACTIONS": "Bulk Actions",
-      "CHANGE_ASSIGNEE": "Change Assignee",
-      "CHANGE_PRIORITY": "Change Priority",
-      "CHANGE_TEAM": "Change Team",
-      "SNOOZE_CONVERSATION": "Snooze Conversation",
-      "ADD_LABEL": "Add label to the conversation",
-      "REMOVE_LABEL": "Remove label from the conversation",
-      "SETTINGS": "設定",
-      "AI_ASSIST": "AI Assist",
-      "APPEARANCE": "Appearance",
-      "SNOOZE_NOTIFICATION": "Snooze Notification"
+      "BULK_ACTIONS": "批量操作",
+      "CHANGE_ASSIGNEE": "更改指派者",
+      "CHANGE_PRIORITY": "更改優先級",
+      "CHANGE_TEAM": "更改團隊",
+      "SNOOZE_CONVERSATION": "延遲對話",
+      "ADD_LABEL": "添加標籤到對話",
+      "REMOVE_LABEL": "從對話中移除標籤",
+      "SETTINGS": "設置",
+      "AI_ASSIST": "AI 助手",
+      "APPEARANCE": "外觀",
+      "SNOOZE_NOTIFICATION": "延遲通知"
     },
     "COMMANDS": {
-      "GO_TO_CONVERSATION_DASHBOARD": "Go to Conversation Dashboard",
-      "GO_TO_CONTACTS_DASHBOARD": "Go to Contacts Dashboard",
-      "GO_TO_REPORTS_OVERVIEW": "Go to Reports Overview",
-      "GO_TO_CONVERSATION_REPORTS": "Go to Conversation Reports",
-      "GO_TO_AGENT_REPORTS": "Go to Agent Reports",
-      "GO_TO_LABEL_REPORTS": "Go to Label Reports",
-      "GO_TO_INBOX_REPORTS": "Go to Inbox Reports",
-      "GO_TO_TEAM_REPORTS": "Go to Team Reports",
-      "GO_TO_SETTINGS_AGENTS": "Go to Agent Settings",
-      "GO_TO_SETTINGS_TEAMS": "Go to Team Settings",
-      "GO_TO_SETTINGS_INBOXES": "Go to Inbox Settings",
-      "GO_TO_SETTINGS_LABELS": "Go to Label Settings",
-      "GO_TO_SETTINGS_CANNED_RESPONSES": "Go to Canned Response Settings",
-      "GO_TO_SETTINGS_APPLICATIONS": "Go to Application Settings",
-      "GO_TO_SETTINGS_ACCOUNT": "Go to Account Settings",
-      "GO_TO_SETTINGS_PROFILE": "Go to Profile Settings",
-      "GO_TO_NOTIFICATIONS": "Go to Notifications",
-      "ADD_LABELS_TO_CONVERSATION": "Add label to the conversation",
+      "GO_TO_CONVERSATION_DASHBOARD": "前往對話儀表板",
+      "GO_TO_CONTACTS_DASHBOARD": "前往聯繫人儀表板",
+      "GO_TO_REPORTS_OVERVIEW": "前往報告總覽",
+      "GO_TO_CONVERSATION_REPORTS": "前往對話報告",
+      "GO_TO_AGENT_REPORTS": "前往客服報告",
+      "GO_TO_LABEL_REPORTS": "前往標籤報告",
+      "GO_TO_INBOX_REPORTS": "前往收件箱報告",
+      "GO_TO_TEAM_REPORTS": "前往團隊報告",
+      "GO_TO_SETTINGS_AGENTS": "前往客服設置",
+      "GO_TO_SETTINGS_TEAMS": "前往團隊設置",
+      "GO_TO_SETTINGS_INBOXES": "前往收件箱設置",
+      "GO_TO_SETTINGS_LABELS": "前往標籤設置",
+      "GO_TO_SETTINGS_CANNED_RESPONSES": "前往預設回應設置",
+      "GO_TO_SETTINGS_APPLICATIONS": "前往應用設置",
+      "GO_TO_SETTINGS_ACCOUNT": "前往帳戶設置",
+      "GO_TO_SETTINGS_PROFILE": "前往個人資料設置",
+      "GO_TO_NOTIFICATIONS": "前往通知",
+      "ADD_LABELS_TO_CONVERSATION": "添加標籤到對話",
       "ASSIGN_AN_AGENT": "指派客服",
-      "AI_ASSIST": "AI Assist",
-      "ASSIGN_PRIORITY": "Assign priority",
+      "AI_ASSIST": "AI 助手",
+      "ASSIGN_PRIORITY": "指派優先級",
       "ASSIGN_A_TEAM": "指派團隊",
-      "MUTE_CONVERSATION": "將對話靜音",
-      "UNMUTE_CONVERSATION": "將對話解除靜音",
-      "REMOVE_LABEL_FROM_CONVERSATION": "Remove label from the conversation",
-      "REOPEN_CONVERSATION": "重新開啟對話",
+      "MUTE_CONVERSATION": "靜音對話",
+      "UNMUTE_CONVERSATION": "取消靜音對話",
+      "REMOVE_LABEL_FROM_CONVERSATION": "從對話中移除標籤",
+      "REOPEN_CONVERSATION": "重新打開對話",
       "RESOLVE_CONVERSATION": "解決對話",
-      "SEND_TRANSCRIPT": "Send an email transcript",
-      "SNOOZE_CONVERSATION": "Snooze Conversation",
-      "UNTIL_NEXT_REPLY": "Until next reply",
-      "UNTIL_NEXT_WEEK": "Until next week",
-      "UNTIL_TOMORROW": "Until tomorrow",
-      "UNTIL_NEXT_MONTH": "Until next month",
-      "AN_HOUR_FROM_NOW": "Until an hour from now",
-      "UNTIL_CUSTOM_TIME": "Custom...",
-      "CHANGE_APPEARANCE": "Change Appearance",
-      "LIGHT_MODE": "Light",
-      "DARK_MODE": "Dark",
-      "SYSTEM_MODE": "System",
-      "SNOOZE_NOTIFICATION": "Snooze Notification"
+      "SEND_TRANSCRIPT": "發送電子郵件記錄",
+      "SNOOZE_CONVERSATION": "延遲對話",
+      "UNTIL_NEXT_REPLY": "直到下次回覆",
+      "UNTIL_NEXT_WEEK": "直到下週",
+      "UNTIL_TOMORROW": "直到明天",
+      "UNTIL_NEXT_MONTH": "直到下個月",
+      "AN_HOUR_FROM_NOW": "一小時後",
+      "UNTIL_CUSTOM_TIME": "自定義...",
+      "CHANGE_APPEARANCE": "更改外觀",
+      "LIGHT_MODE": "淺色模式",
+      "DARK_MODE": "深色模式",
+      "SYSTEM_MODE": "系統模式",
+      "SNOOZE_NOTIFICATION": "延遲通知"
     }
   },
   "DASHBOARD_APPS": {
-    "LOADING_MESSAGE": "Loading Dashboard App..."
+    "LOADING_MESSAGE": "正在加載儀表板應用..."
   },
   "COMMON": {
-    "OR": "Or",
+    "OR": "或",
     "CLICK_HERE": "點擊這裡"
   }
 }
