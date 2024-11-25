@@ -22,15 +22,15 @@
     "IN_A_DAY": "通常在一天之内回复您",
     "BACK_IN": "我们回到了线上"
   },
-  "DAY_NAMES": [
-    "周日",
-    "周一",
-    "周二",
-    "周三",
-    "周四",
-    "周五",
-    "周六"
-  ],
+  "DAY_NAMES": {
+    "SUNDAY": "星期日",
+    "MONDAY": "星期一",
+    "TUESDAY": "星期二",
+    "WEDNESDAY": "星期三",
+    "THURSDAY": "星期四",
+    "FRIDAY": "星期五",
+    "SATURDAY": "星期六"
+  },
   "START_CONVERSATION": "开始会话",
   "END_CONVERSATION": "结束对话",
   "CONTINUE_CONVERSATION": "继续对话",

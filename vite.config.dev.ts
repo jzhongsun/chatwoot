@@ -30,6 +30,54 @@ export function mpa_route_plugin() {
     html = html.replace('{{{json browser_config}}}', JSON.stringify(app.browser_config))
     return html;
   };
+
+  const widgetApp = async (req, res) => {
+    const config = await fetch(backend + req.url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Cookie': req.headers['cookie'],
+        'User-Agent': req.headers['user-agent'],
+      },
+    });
+    const app = await config.json();
+    console.info('config', app);
+    let html = fs.readFileSync(path.resolve(__dirname, 'widget.html'), {encoding: 'utf-8'})
+    html = html.replace('{{{global_config.INSTALLATION_NAME}}}', app.global_config.INSTALLATION_NAME)
+
+    html = html.replace('{{inbox.avatar_url}}', app.inbox.avatar_url)
+    html = html.replace('{{agent_bot.name}}', app.agent_bot.name)
+    html = html.replace('{{account.locale}}', app.account.locale)
+
+    html = html.replace('{{inbox.name}}', app.inbox.name)
+    html = html.replace('{{inbox.working_hours_enabled}}', app.inbox.working_hours_enabled)
+    html = html.replace('{{inbox.csat_survey_enabled}}', app.inbox.csat_survey_enabled)
+    html = html.replace('{{inbox.out_of_office_message}}', app.inbox.out_of_office_message)
+    html = html.replace('{{inbox.allow_messages_after_resolved}}', app.inbox.allow_messages_after_resolved)
+    html = html.replace('{{{json inbox.portal}}}', JSON.stringify(app.inbox.portal))
+    html = html.replace('{{{json inbox.feature_flags}}}', JSON.stringify(app.inbox.feature_flags))
+    html = html.replace('{{{json inbox.working_hours}}}', JSON.stringify(app.inbox.working_hours))
+
+    html = html.replace('{{web_widget.website_token}}', app.web_widget.website_token)
+    html = html.replace('{{web_widget.welcome_tagline}}', app.web_widget.welcome_tagline)
+    html = html.replace('{{web_widget.welcome_title}}', app.web_widget.welcome_title)
+    html = html.replace('{{web_widget.widget_color}}', app.web_widget.widget_color)
+    html = html.replace('{{web_widget.reply_time}}', app.web_widget.reply_time)
+    html = html.replace('{{web_widget.pre_chat_form_enabled}}', app.web_widget.pre_chat_form_enabled)
+    html = html.replace('{{{json web_widget.pre_chat_form_options}}}', JSON.stringify(app.web_widget.pre_chat_form_options))
+
+
+    html = html.replace('{{{json languages}}}', JSON.stringify(app.languages))
+
+
+    html = html.replace('{{account.features.disable_branding}}', app.account.features.disable_branding)
+    html = html.replace('{{contact_inbox.pubsub_token}}', app.contact_inbox.pubsub_token)
+    html = html.replace('{{conversationToken}}', app.conversation_token)
+
+    html = html.replace('{{{json global_config}}}', JSON.stringify(app.global_config))
+    html = html.replace('{{{json browser_config}}}', JSON.stringify(app.browser_config))
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=UTF-8' }).end(html);    
+  }
   return {
     name: 'route_plugin',
     apply: 'serve',
@@ -61,50 +109,9 @@ export function mpa_route_plugin() {
           html = htmlHandleApp(html, app);
           res.writeHead(200, { 'Content-Type': 'text/html; charset=UTF-8' }).end(html);
         } else if (req.url?.startsWith('/widget?website_token=')) {
-          const config = await fetch(backend + req.url, {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              'Cookie': req.headers['cookie'],
-              'User-Agent': req.headers['user-agent'],
-            },
-          });
-          console.info('config', config);
-          const app = await config.json();
-          let html = fs.readFileSync(path.resolve(__dirname, 'widget.html'), {encoding: 'utf-8'})
-          html = html.replace('{{{global_config.INSTALLATION_NAME}}}', app.global_config.INSTALLATION_NAME)
-
-          html = html.replace('{{inbox.avatar_url}}', app.inbox.avatar_url)
-          html = html.replace('{{agent_bot.name}}', app.agent_bot.name)
-          html = html.replace('{{account.locale}}', app.account.locale)
-
-          html = html.replace('{{inbox.name}}', app.inbox.name)
-          html = html.replace('{{inbox.working_hours_enabled}}', app.inbox.working_hours_enabled)
-          html = html.replace('{{inbox.csat_survey_enabled}}', app.inbox.csat_survey_enabled)
-          html = html.replace('{{inbox.out_of_office_message}}', app.inbox.out_of_office_message)
-          html = html.replace('{{inbox.allow_messages_after_resolved}}', app.inbox.allow_messages_after_resolved)
-          html = html.replace('{{{json inbox.portal}}}', JSON.stringify(app.inbox.portal))
-          html = html.replace('{{{json inbox.feature_flags}}}', JSON.stringify(app.inbox.feature_flags))
-          html = html.replace('{{{json inbox.working_hours}}}', JSON.stringify(app.inbox.working_hours))
-
-          html = html.replace('{{web_widget.website_token}}', app.web_widget.website_token)
-          html = html.replace('{{web_widget.welcome_tagline}}', app.web_widget.welcome_tagline)
-          html = html.replace('{{web_widget.welcome_title}}', app.web_widget.welcome_title)
-          html = html.replace('{{web_widget.widget_color}}', app.web_widget.widget_color)
-          html = html.replace('{{web_widget.reply_time}}', app.web_widget.reply_time)
-          html = html.replace('{{web_widget.pre_chat_form_enabled}}', app.web_widget.pre_chat_form_enabled)
-
-
-          html = html.replace('{{{json languages}}}', JSON.stringify(app.languages))
-
-
-          html = html.replace('{{account.features.disable_branding}}', app.features.disable_branding)
-          html = html.replace('{{contact_inbox.pubsub_token}}', app.contact_inbox.pubsub_token)
-          html = html.replace('{{auth_token}}', app.auth_token)
-
-          html = html.replace('{{{json global_config}}}', JSON.stringify(app.global_config))
-          html = html.replace('{{{json browser_config}}}', JSON.stringify(app.browser_config))
-          res.writeHead(200, { 'Content-Type': 'text/html; charset=UTF-8' }).end(html);
+          widgetApp(req, res);
+        } else if (req.url?.startsWith('/ekbooking?website_token=')) {
+          widgetApp(req, res);
         } else {
           next();
         }

@@ -27,12 +27,12 @@
             workingHours: {{{json inbox.working_hours}}},
             outOfOfficeMessage: '{{inbox.out_of_office_message}}',
             utcOffset: '+0800',
-            timezone: '{{inbox.timezone}}',
+            timezone: 'hkt',
             allowMessagesAfterResolved: {{inbox.allow_messages_after_resolved}},
             disableBranding: {{account.features.disable_branding}},
         }
         window.chatwootPubsubToken = '{{contact_inbox.pubsub_token}}'
-        window.authToken = '{{auth_token}}'
+        window.authToken = '{{conversationToken}}'
         window.globalConfig = {{{json global_config}}}
     </script>
     <script type="module" src="/app/javascript/entrypoints/widget.js"></script>
