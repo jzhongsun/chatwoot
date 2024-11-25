@@ -39,7 +39,7 @@ import zh_HK from './locale/zh_HK';
 import is from './locale/is';
 import lt from './locale/lt';
 
-import merge from 'lodash';
+import merge from 'lodash.merge';
 import ext from '../i18n-ext';
 
 export default merge({
