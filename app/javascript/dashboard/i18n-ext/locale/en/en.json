@@ -37,6 +37,47 @@
                     "PLACEHOLDER": "Please enter the AES Key",
                     "ERROR": "AES Key is required."
                 }
+            },
+            "EKBOOKING_CHANNEL": {
+                "TITLE": "Ekbooking channel",
+                "DESC": "Create a channel for your Ekbooking account and start supporting your customers via our Ekbooking integration.",
+                "LOADING_MESSAGE": "Creating Ekbooking Support Channel",
+                "CHANNEL_AVATAR": {
+                    "LABEL": "Channel Avatar"
+                },
+                "CHANNEL_WELCOME_TITLE": {
+                    "LABEL": "Welcome Heading",
+                    "PLACEHOLDER": "Hi there !"
+                },
+                "CHANNEL_WELCOME_TAGLINE": {
+                    "LABEL": "Welcome Tagline",
+                    "PLACEHOLDER": "We make it simple to connect with us. Ask us anything, or share your feedback."
+                },
+                "CHANNEL_GREETING_MESSAGE": {
+                    "LABEL": "Channel greeting message",
+                    "PLACEHOLDER": "Acme Inc typically replies in a few hours."
+                },
+                "CHANNEL_GREETING_TOGGLE": {
+                    "LABEL": "Enable channel greeting",
+                    "HELP_TEXT": "Auto-send greeting messages when customers start a conversation and send their first message.",
+                    "ENABLED": "Enabled",
+                    "DISABLED": "Disabled"
+                },
+                "REPLY_TIME": {
+                    "TITLE": "Set Reply time",
+                    "IN_A_FEW_MINUTES": "In a few minutes",
+                    "IN_A_FEW_HOURS": "In a few hours",
+                    "IN_A_DAY": "In a day",
+                    "HELP_TEXT": "This reply time will be displayed on the live chat widget"
+                },
+                "WIDGET_COLOR": {
+                    "LABEL": "Widget Color",
+                    "PLACEHOLDER": "Update the widget color used in widget"
+                },
+                "SUBMIT_BUTTON": "Create inbox",
+                "API": {
+                    "ERROR_MESSAGE": "We were not able to create a Ekbooking channel, please try again"
+                }
             }
         }
     }

@@ -28,6 +28,7 @@ const i18nMap = {
   'Channel::Telegram': 'TELEGRAM',
   'Channel::Line': 'LINE',
   'Channel::WechatOfficial': 'WECHAT',
+  'Channel::Ekbooking': 'EKBOOKING',
   'Channel::Api': 'API',
 };
 

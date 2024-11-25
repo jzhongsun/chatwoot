@@ -37,6 +37,47 @@
                     "PLACEHOLDER": "请输入AES Key",
                     "ERROR": "AES Key是必填项。"
                 }
+            },
+            "EKBOOKING_CHANNEL": {
+                "TITLE": "添加医健约频道",
+                "DESC": "为您的医健约账户创建一个频道，并通过我们的医健约集成开始支持您的客户。",
+                "LOADING_MESSAGE": "正在创建医健约支持频道",
+                "CHANNEL_AVATAR": {
+                    "LABEL": "频道头像"
+                },
+                "CHANNEL_WELCOME_TITLE": {
+                    "LABEL": "欢迎标题",
+                    "PLACEHOLDER": "你好！"
+                },
+                "CHANNEL_WELCOME_TAGLINE": {
+                    "LABEL": "欢迎副标题",
+                    "PLACEHOLDER": "我们让联系变得简单。有什么问题都可以问我们，或者分享您的反馈。"
+                },
+                "CHANNEL_GREETING_MESSAGE": {
+                    "LABEL": "频道欢迎消息",
+                    "PLACEHOLDER": "通常在几个小时内回复。"
+                },
+                "CHANNEL_GREETING_TOGGLE": {
+                    "LABEL": "启用频道欢迎消息",
+                    "HELP_TEXT": "当客户开始对话并发送第一条消息时，自动发送欢迎消息。",
+                    "ENABLED": "启用",
+                    "DISABLED": "禁用"
+                },
+                "REPLY_TIME": {
+                    "TITLE": "设置回复时间",
+                    "IN_A_FEW_MINUTES": "几分钟内",
+                    "IN_A_FEW_HOURS": "几小时内",
+                    "IN_A_DAY": "一天内",
+                    "HELP_TEXT": "此回复时间将显示在在线聊天小部件上。"
+                },
+                "WIDGET_COLOR": {
+                    "LABEL": "小部件颜色",
+                    "PLACEHOLDER": "更新小部件中使用的颜色"
+                },
+                "SUBMIT_BUTTON": "创建收件箱",
+                "API": {
+                    "ERROR_MESSAGE": "我们无法创建医健约频道，请稍后再试。"
+                }
             }
         }
     }

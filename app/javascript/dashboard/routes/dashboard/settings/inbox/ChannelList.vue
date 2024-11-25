@@ -36,6 +36,7 @@ export default {
         { key: 'telegram', name: 'Telegram' },
         { key: 'line', name: 'Line' },
         { key: 'wechat', name: 'Wechat Official' },
+        { key: 'ekbooking', name: 'Ekbooking' },
       ];
     },
     ...mapGetters({

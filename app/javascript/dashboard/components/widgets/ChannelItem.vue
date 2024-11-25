@@ -41,6 +41,7 @@ export default {
         'telegram',
         'line',
         'wechat',
+        'ekbooking',
       ].includes(key);
     },
   },
