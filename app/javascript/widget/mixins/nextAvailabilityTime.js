@@ -243,7 +243,7 @@ export default {
 
       // It finds the time slot for the current slot.
       this.timeSlot = this.timeSlots.find(
-        slot => slot.day === currentSlot.day_of_week
+        slot => slot.day === currentSlot?.day_of_week
       );
     },
   },

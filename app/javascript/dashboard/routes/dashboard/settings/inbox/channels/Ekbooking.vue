@@ -179,7 +179,7 @@ export default {
         <div class="w-full">
           <woot-submit-button
             :loading="uiFlags.isCreating"
-            :disabled="!channelWebsiteUrl || !inboxName"
+            :disabled="!inboxName"
             :button-text="$t('INBOX_MGMT.ADD.EKBOOKING_CHANNEL.SUBMIT_BUTTON')"
           />
         </div>
