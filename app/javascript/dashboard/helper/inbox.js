@@ -10,6 +10,7 @@ export const INBOX_TYPES = {
   LINE: 'Channel::Line',
   SMS: 'Channel::Sms',
   WECHAT: 'Channel::WechatOfficial',
+  EKBOOKING: 'Channel::Ekbooking',
 };
 
 const INBOX_ICON_MAP = {

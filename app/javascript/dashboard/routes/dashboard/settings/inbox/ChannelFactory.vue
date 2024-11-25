@@ -10,6 +10,7 @@ import Whatsapp from './channels/Whatsapp.vue';
 import Line from './channels/Line.vue';
 import Telegram from './channels/Telegram.vue';
 import Wechat from './channels/Wechat.vue';
+import Ekbooking from './channels/Ekbooking.vue';
 
 const channelViewList = {
   facebook: Facebook,
@@ -22,6 +23,7 @@ const channelViewList = {
   line: Line,
   telegram: Telegram,
   wechat: Wechat,
+  ekbooking: Ekbooking,
 };
 
 export default defineComponent({

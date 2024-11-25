@@ -1,0 +1,84 @@
+{
+    "INBOX_MGMT": {
+        "ADD": {
+            "WECHAT_CHANNEL": {
+                "TITLE": "新增微信公眾號",
+                "DESC": "新增一個微信公眾號到您的收件箱，開始接收來自客戶的消息。",
+                "SUBMIT_BUTTON": "新增",
+                "CHANNEL_NAME": {
+                    "LABEL": "微信公眾號名稱",
+                    "PLACEHOLDER": "請輸入公眾號名稱",
+                    "ERROR": "公眾號名稱為必填項。"
+                },
+                "APP_TYPE": {
+                    "LABEL": "應用類型",
+                    "PLACEHOLDER": "請選擇應用類型",
+                    "ERROR": "應用類型為必填項。",
+                    "SUBSCRIPTION": "訂閱號",
+                    "SERVICE": "服務號"
+                },
+                "APP_ID": {
+                    "LABEL": "應用ID",
+                    "PLACEHOLDER": "請輸入應用ID",
+                    "ERROR": "應用ID為必填項。"
+                },
+                "APP_SECRET": {
+                    "LABEL": "應用密鑰",
+                    "PLACEHOLDER": "請輸入應用密鑰",
+                    "ERROR": "應用密鑰為必填項。"
+                },
+                "TOKEN": {
+                    "LABEL": "令牌",
+                    "PLACEHOLDER": "請輸入令牌",
+                    "ERROR": "令牌為必填項。"
+                },
+                "AES_KEY": {
+                    "LABEL": "AES密鑰",
+                    "PLACEHOLDER": "請輸入AES密鑰",
+                    "ERROR": "AES密鑰為必填項。"
+                }
+            },
+            "EKBOOKING_CHANNEL": {
+                "TITLE": "新增醫健約頻道",
+                "DESC": "為您的醫健約賬戶創建一個頻道，開始通過我們的醫健約集成支持您的客戶。",
+                "LOADING_MESSAGE": "正在創建醫健約支持頻道",
+                "CHANNEL_AVATAR": {
+                    "LABEL": "頻道頭像"
+                },
+                "CHANNEL_WELCOME_TITLE": {
+                    "LABEL": "歡迎標題",
+                    "PLACEHOLDER": "你好！"
+                },
+                "CHANNEL_WELCOME_TAGLINE": {
+                    "LABEL": "歡迎副標題",
+                    "PLACEHOLDER": "我們讓聯繫我們變得簡單。有什麼問題都可以問我們，或分享您的意見。"
+                },
+                "CHANNEL_GREETING_MESSAGE": {
+                    "LABEL": "頻道歡迎消息",
+                    "PLACEHOLDER": "通常在幾個小時內回覆。"
+                },
+                "CHANNEL_GREETING_TOGGLE": {
+                    "LABEL": "啟用頻道歡迎消息",
+                    "HELP_TEXT": "當客戶開始對話並發送第一條消息時，自動發送歡迎消息。",
+                    "ENABLED": "啟用",
+                    "DISABLED": "禁用"
+                },
+                "REPLY_TIME": {
+                    "TITLE": "設置回覆時間",
+                    "IN_A_FEW_MINUTES": "幾分鐘內",
+                    "IN_A_FEW_HOURS": "幾個小時內",
+                    "IN_A_DAY": "一天內",
+                    "HELP_TEXT": "此回覆時間將顯示在在線聊天小部件上。"
+                },
+                "WIDGET_COLOR": {
+                    "LABEL": "小部件顏色",
+                    "PLACEHOLDER": "更新小部件中使用的顏色"
+                },
+                "SUBMIT_BUTTON": "創建收件箱",
+                "API": {
+                    "ERROR_MESSAGE": "我們無法創建醫健約頻道，請再試一次。"
+                }
+            }
+        }
+    }
+}

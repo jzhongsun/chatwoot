@@ -101,6 +101,46 @@ async function widgetApp(req, res, next) {
   }
 }
 
+async function ekbookingApp(req, res, next) {
+  try {
+    console.info(req.headers)
+    const response = await fetch(backend_url + req.url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Cookie': req.headers['cookie'],
+        'User-Agent': req.headers['user-agent'],
+        'X-Forwarded-For': req.ip,
+      },
+      credentials: 'include',
+    });
+    const widget = await response.json();
+    // console.info(response, widget);
+    res
+      .cookie('cw_conversation', widget.conversation_token, {
+        expire: 1000 * 60 * 60 * 24 * 30 + Date.now(),
+      })
+      .render('widget', {
+        installation_name: widget.global_config.INSTALLATION_NAME,
+        inbox: widget.inbox,
+        contact: widget.contact,
+        contact_inbox: widget.contact_inbox,
+        account: widget.account,
+        web_widget: widget.web_widget,
+        agent_bot: widget.agent_bot,
+        languages: widget.languages,
+        auth_token: widget.conversation_token,
+        pubsub_token: widget.contact_inbox.pubsub_token,
+        global_config: widget.global_config,
+        web_channel: widget.web_channel,
+        csrf_token: randomUUID(),
+        layout: false,
+      });
+  } catch (error) {
+    next(error);
+  }
+}
+
 /* GET home page. */
 router.get('/', dashboardApp);
 router.get('/app/', dashboardApp);
@@ -108,6 +148,7 @@ router.get('/app/accounts/**', dashboardApp);
 router.get('/app/login', v3App);
 router.get('/auth', v3App);
 router.get('/widget', widgetApp);
+router.get('/ekbooking', ekbookingApp);
 
 /* HEALTH */
 router.get('/health', (req, res) => res.send('OK'));
