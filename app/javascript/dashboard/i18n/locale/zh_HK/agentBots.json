@@ -3,7 +3,7 @@
     "HEADER": "機器人",
     "LOADING_EDITOR": "正在載入編輯器...",
     "HEADER_BTN_TXT": "新增機器人設定",
-    "SIDEBAR_TXT": "<p><b>機器人</b> <p>機器人是你團隊中最出色的成員。他們可以處理瑣碎的事務，讓你可以專注於更重要的事情。試試看吧。</p> <p>你可以在這裡管理你的機器人，或者使用「新增機器人設定」按鈕創建新的機器人。</p> <p>打開<a href=\"https://www.chatwoot.com/hc/chatwoot-user-guide-cloud-version/articles/1677497472-how-to-use-agent-bots\" target=\"_blank\">機器人手冊</a>以獲得更多幫助。</p>",
+    "SIDEBAR_TXT": "<p><b>機器人</b> <p>機器人是你團隊中最出色的成員。他們可以處理瑣碎的事務，讓你可以專注於更重要的事情。試試看吧。</p> <p>你可以在這裡管理你的機器人，或者使用「新增機器人設定」按鈕創建新的機器人。</p> <p>打開<a href=\"\" target=\"_blank\">機器人手冊</a>以獲得更多幫助。</p>",
     "CSML_BOT_EDITOR": {
       "NAME": {
         "LABEL": "機器人名稱",

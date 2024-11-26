@@ -48,10 +48,10 @@
         "CUSTOM_EMAIL_DOMAIN_ENABLED": "您現在可以在自定義域名的電子郵件地址中接收消息。"
       }
     },
-    "UPDATE_CHATWOOT": "有新的 Chatwoot 更新 {latestChatwootVersion} 可用。請更新您的實例。",
+    "UPDATE_CHATWOOT": "有新的 更新 {latestChatwootVersion} 可用。請更新您的實例。",
     "LEARN_MORE": "了解更多",
-    "PAYMENT_PENDING": "您的付款尚未完成。請更新您的付款信息以繼續使用 Chatwoot。",
-    "LIMITS_UPGRADE": "您的帳戶已超出使用限制，請升級您的套餐以繼續使用 Chatwoot。",
+    "PAYMENT_PENDING": "您的付款尚未完成。請更新您的付款信息以繼續使用。",
+    "LIMITS_UPGRADE": "您的帳戶已超出使用限制，請升級您的套餐以繼續使用。",
     "OPEN_BILLING": "打開賬單"
   },
   "FORMS": {

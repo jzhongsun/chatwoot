@@ -386,7 +386,7 @@
         "SLUG": {
           "LABEL": "路徑",
           "PLACEHOLDER": "類別URL路徑",
-          "HELP_TEXT": "app.chatwoot.com/hc/my-portal/en-US/categories/my-slug",
+          "HELP_TEXT": "app..com/hc/my-portal/en-US/categories/my-slug",
           "ERROR": "路徑為必填"
         },
         "DESCRIPTION": {
@@ -417,7 +417,7 @@
         "SLUG": {
           "LABEL": "路徑",
           "PLACEHOLDER": "類別URL路徑",
-          "HELP_TEXT": "app.chatwoot.com/hc/my-portal/en-US/categories/my-slug",
+          "HELP_TEXT": "app..com/hc/my-portal/en-US/categories/my-slug",
           "ERROR": "路徑為必填"
         },
         "DESCRIPTION": {
