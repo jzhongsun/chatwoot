@@ -1,88 +1,88 @@
 {
   "MACROS": {
-    "HEADER": "Macros",
-    "DESCRIPTION": "A macro is a set of saved actions that help customer service agents easily complete tasks. The agents can define a set of actions like tagging a conversation with a label, sending an email transcript, updating a custom attribute, etc., and they can run these actions in a single click.",
-    "LEARN_MORE": "Learn more about macros",
-    "HEADER_BTN_TXT": "Add a new macro",
-    "HEADER_BTN_TXT_SAVE": "Save macro",
-    "LOADING": "Fetching macros",
-    "ERROR": "Something went wrong. Please try again",
-    "ORDER_INFO": "Macros will run in the order you add your actions. You can rearrange them by dragging them by the handle beside each node.",
+    "HEADER": "宏",
+    "DESCRIPTION": "宏是一組保存的動作，可幫助客戶服務代理輕鬆完成任務。代理可以定義一組動作，例如為對話添加標籤、發送電子郵件記錄、更新自定義屬性等，並可以在單擊一次後運行這些動作。",
+    "LEARN_MORE": "了解更多關於宏的信息",
+    "HEADER_BTN_TXT": "新增宏",
+    "HEADER_BTN_TXT_SAVE": "保存宏",
+    "LOADING": "正在獲取宏",
+    "ERROR": "發生了一些錯誤。請再試一次",
+    "ORDER_INFO": "宏將按照您添加動作的順序運行。您可以通過拖動每個節點旁邊的手柄來重新排列它們。",
     "ADD": {
       "FORM": {
         "NAME": {
-          "LABEL": "Macro name",
-          "PLACEHOLDER": "Enter a name for your macro",
-          "ERROR": "Name is required for creating a macro"
+          "LABEL": "宏名稱",
+          "PLACEHOLDER": "為您的宏輸入名稱",
+          "ERROR": "創建宏時名稱是必填項"
         },
         "ACTIONS": {
           "LABEL": "操作"
         }
       },
       "API": {
-        "SUCCESS_MESSAGE": "Macro added successfully",
-        "ERROR_MESSAGE": "Unable to create macro, Please try again later"
+        "SUCCESS_MESSAGE": "宏新增成功",
+        "ERROR_MESSAGE": "無法創建宏，請稍後再試"
       }
     },
     "LIST": {
       "TABLE_HEADER": [
-        "姓名",
-        "Created by",
-        "Last updated by",
-        "Visibility"
+        "名稱",
+        "創建者",
+        "最後更新者",
+        "可見性"
       ],
-      "404": "No macros found"
+      "404": "未找到宏"
     },
     "DELETE": {
-      "TOOLTIP": "Delete macro",
+      "TOOLTIP": "刪除宏",
       "CONFIRM": {
-        "MESSAGE": "您確定要刪除嗎？ ",
+        "MESSAGE": "您確定要刪除嗎？",
         "YES": "是，刪除",
         "NO": "否"
       },
       "API": {
-        "SUCCESS_MESSAGE": "Macro deleted successfully",
-        "ERROR_MESSAGE": "There was an error deleting the macro. Please try again later"
+        "SUCCESS_MESSAGE": "宏已成功刪除",
+        "ERROR_MESSAGE": "刪除宏時發生錯誤。請稍後再試"
       }
     },
     "EDIT": {
-      "TOOLTIP": "Edit macro",
+      "TOOLTIP": "編輯宏",
       "API": {
-        "SUCCESS_MESSAGE": "Macro updated successfully",
-        "ERROR_MESSAGE": "Could not update Macro, Please try again later"
+        "SUCCESS_MESSAGE": "宏已成功更新",
+        "ERROR_MESSAGE": "無法更新宏，請稍後再試"
       }
     },
     "EDITOR": {
-      "START_FLOW": "Start Flow",
-      "END_FLOW": "End Flow",
-      "LOADING": "Fetching macro",
-      "ADD_BTN_TOOLTIP": "Add new action",
-      "DELETE_BTN_TOOLTIP": "Delete Action",
+      "START_FLOW": "開始流程",
+      "END_FLOW": "結束流程",
+      "LOADING": "正在獲取宏",
+      "ADD_BTN_TOOLTIP": "新增動作",
+      "DELETE_BTN_TOOLTIP": "刪除動作",
       "VISIBILITY": {
-        "LABEL": "Macro Visibility",
+        "LABEL": "宏可見性",
         "GLOBAL": {
-          "LABEL": "Public",
-          "DESCRIPTION": "This macro is available publicly for all agents in this account."
+          "LABEL": "公開",
+          "DESCRIPTION": "此宏對此賬戶中的所有代理公開可用。"
         },
         "PERSONAL": {
-          "LABEL": "Private",
-          "DESCRIPTION": "This macro will be private to you and not be available to others."
+          "LABEL": "私人",
+          "DESCRIPTION": "此宏僅對您私有，其他人不可見。"
         }
       }
     },
     "EXECUTE": {
-      "BUTTON_TOOLTIP": "Execute",
-      "PREVIEW": "Preview Macro",
-      "EXECUTED_SUCCESSFULLY": "Macro executed successfully"
+      "BUTTON_TOOLTIP": "執行",
+      "PREVIEW": "預覽宏",
+      "EXECUTED_SUCCESSFULLY": "宏已成功執行"
     },
     "ERRORS": {
-      "ATTRIBUTE_KEY_REQUIRED": "Attribute key is required",
-      "FILTER_OPERATOR_REQUIRED": "Filter operator is required",
-      "VALUE_REQUIRED": "此欄位為必填項目",
-      "VALUE_MUST_BE_BETWEEN_1_AND_998": "Value must be between 1 and 998",
-      "ACTION_PARAMETERS_REQUIRED": "Action parameters are required",
-      "ATLEAST_ONE_CONDITION_REQUIRED": "At least one condition is required",
-      "ATLEAST_ONE_ACTION_REQUIRED": "At least one action is required"
+      "ATTRIBUTE_KEY_REQUIRED": "屬性鍵是必填項",
+      "FILTER_OPERATOR_REQUIRED": "過濾器操作符是必填項",
+      "VALUE_REQUIRED": "此欄位為必填項",
+      "VALUE_MUST_BE_BETWEEN_1_AND_998": "值必須在 1 到 998 之間",
+      "ACTION_PARAMETERS_REQUIRED": "動作參數是必填項",
+      "ATLEAST_ONE_CONDITION_REQUIRED": "至少需要一個條件",
+      "ATLEAST_ONE_ACTION_REQUIRED": "至少需要一個動作"
     }
   }
 }

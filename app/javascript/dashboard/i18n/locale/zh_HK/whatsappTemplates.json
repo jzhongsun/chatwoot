@@ -1,25 +1,25 @@
 {
   "WHATSAPP_TEMPLATES": {
     "MODAL": {
-      "TITLE": "Whatsapp Templates",
-      "SUBTITLE": "Select the whatsapp template you want to send",
-      "TEMPLATE_SELECTED_SUBTITLE": "Process {templateName}"
+      "TITLE": "WhatsApp 範本",
+      "SUBTITLE": "選擇您想發送的 WhatsApp 範本",
+      "TEMPLATE_SELECTED_SUBTITLE": "處理 {templateName}"
     },
     "PICKER": {
-      "SEARCH_PLACEHOLDER": "Search Templates",
-      "NO_TEMPLATES_FOUND": "No templates found for",
+      "SEARCH_PLACEHOLDER": "搜尋範本",
+      "NO_TEMPLATES_FOUND": "未找到符合的範本",
       "LABELS": {
-        "LANGUAGE": "Language",
-        "TEMPLATE_BODY": "Template Body",
-        "CATEGORY": "Category"
+        "LANGUAGE": "語言",
+        "TEMPLATE_BODY": "範本內容",
+        "CATEGORY": "類別"
       }
     },
     "PARSER": {
-      "VARIABLES_LABEL": "Variables",
-      "VARIABLE_PLACEHOLDER": "Enter {variable} value",
-      "GO_BACK_LABEL": "Go Back",
-      "SEND_MESSAGE_LABEL": "Send Message",
-      "FORM_ERROR_MESSAGE": "Please fill all variables before sending"
+      "VARIABLES_LABEL": "變數",
+      "VARIABLE_PLACEHOLDER": "輸入 {variable} 的值",
+      "GO_BACK_LABEL": "返回",
+      "SEND_MESSAGE_LABEL": "發送消息",
+      "FORM_ERROR_MESSAGE": "請填寫所有變數後再發送"
     }
   }
 }

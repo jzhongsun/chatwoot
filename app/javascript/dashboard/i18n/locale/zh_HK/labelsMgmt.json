@@ -3,15 +3,15 @@
     "HEADER": "標籤",
     "HEADER_BTN_TXT": "新增標籤",
     "LOADING": "正在獲取標籤",
-    "DESCRIPTION": "Labels help you categorize and prioritize conversations and leads. You can assign a label to a conversation or contact using the side panel.",
-    "LEARN_MORE": "Learn more about labels",
-    "SEARCH_404": "没有任何項目符合此查詢",
+    "DESCRIPTION": "標籤可幫助您分類和優先處理對話和潛在客戶。您可以使用側邊欄為對話或聯繫人分配標籤。",
+    "LEARN_MORE": "了解更多關於標籤的信息",
+    "SEARCH_404": "沒有任何項目符合此查詢",
     "LIST": {
-      "404": "此帳戶中没有可用的標籤。",
+      "404": "此賬戶中沒有可用的標籤。",
       "TITLE": "管理標籤",
-      "DESC": "標記可以讓您將對話集中起來。",
+      "DESC": "標籤可以讓您將對話集中起來。",
       "TABLE_HEADER": [
-        "姓名：",
+        "名稱：",
         "描述資訊",
         "顏色"
       ]
@@ -20,9 +20,9 @@
       "NAME": {
         "LABEL": "標籤名稱",
         "PLACEHOLDER": "標籤名稱",
-        "REQUIRED_ERROR": "Label name is required",
-        "MINIMUM_LENGTH_ERROR": "Minimum length 2 is required",
-        "VALID_ERROR": "Only Alphabets, Numbers, Hyphen and Underscore are allowed"
+        "REQUIRED_ERROR": "標籤名稱是必填項",
+        "MINIMUM_LENGTH_ERROR": "最少需要2個字符",
+        "VALID_ERROR": "只允許字母、數字、連字符和下劃線"
       },
       "DESCRIPTION": {
         "LABEL": "描述資訊",
@@ -41,21 +41,21 @@
     },
     "SUGGESTIONS": {
       "TOOLTIP": {
-        "SINGLE_SUGGESTION": "Add label to conversation",
-        "MULTIPLE_SUGGESTION": "Select this label",
-        "DESELECT": "Deselect label",
-        "DISMISS": "Dismiss suggestion"
+        "SINGLE_SUGGESTION": "為對話添加標籤",
+        "MULTIPLE_SUGGESTION": "選擇此標籤",
+        "DESELECT": "取消選擇標籤",
+        "DISMISS": "忽略建議"
       },
-      "POWERED_BY": "Chatwoot AI",
-      "DISMISS": "Dismiss",
-      "ADD_SELECTED_LABELS": "Add selected labels",
-      "ADD_SELECTED_LABEL": "Add selected label",
-      "ADD_ALL_LABELS": "Add all labels",
-      "SUGGESTED_LABELS": "Suggested labels"
+      "POWERED_BY": "AI",
+      "DISMISS": "忽略",
+      "ADD_SELECTED_LABELS": "添加選中的標籤",
+      "ADD_SELECTED_LABEL": "添加選中的標籤",
+      "ADD_ALL_LABELS": "添加所有標籤",
+      "SUGGESTED_LABELS": "建議的標籤"
     },
     "ADD": {
       "TITLE": "新增標籤",
-      "DESC": "標記可以讓您將對話集中起來。",
+      "DESC": "標籤可以讓您將對話集中起來。",
       "API": {
         "SUCCESS_MESSAGE": "標籤新增成功",
         "ERROR_MESSAGE": "出現錯誤，請重試"
@@ -76,9 +76,9 @@
       },
       "CONFIRM": {
         "TITLE": "確認刪除",
-        "MESSAGE": "您確定要刪除吗？ ",
-        "YES": "是，刪除 ",
-        "NO": "不，保留 "
+        "MESSAGE": "您確定要刪除嗎？",
+        "YES": "是，刪除",
+        "NO": "不，保留"
       }
     }
   }

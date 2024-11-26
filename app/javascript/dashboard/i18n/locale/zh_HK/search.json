@@ -1,7 +1,7 @@
 {
   "SEARCH": {
     "TABS": {
-      "ALL": "所有的",
+      "ALL": "全部",
       "CONTACTS": "聯絡人",
       "CONVERSATIONS": "對話",
       "MESSAGES": "訊息"
@@ -11,16 +11,16 @@
       "CONVERSATIONS": "對話",
       "MESSAGES": "訊息"
     },
-    "SEARCHING_DATA": "Searching",
-    "EMPTY_STATE": "No {item} found for query '{query}'",
-    "EMPTY_STATE_FULL": "查無 {query} 條件的結果",
-    "PLACEHOLDER_KEYBINDING": "/ to focus",
-    "INPUT_PLACEHOLDER": "Type 3 or more characters to search",
-    "EMPTY_STATE_DEFAULT": "Search by conversation id, email, phone number, messages for better search results. ",
-    "BOT_LABEL": "機器人",
-    "READ_MORE": "Read more",
-    "WROTE": "wrote:",
-    "FROM": "from",
-    "EMAIL": "email"
+    "SEARCHING_DATA": "搜尋中",
+    "EMPTY_STATE": "找不到符合 '{query}' 的 {item}",
+    "EMPTY_STATE_FULL": "查無符合 '{query}' 的結果",
+    "PLACEHOLDER_KEYBINDING": "按 / 來聚焦",
+    "INPUT_PLACEHOLDER": "輸入 3 個或更多字符進行搜尋",
+    "EMPTY_STATE_DEFAULT": "通過對話 ID、電郵地址、電話號碼或訊息內容進行搜尋，以獲得更好的搜尋結果。",
+    "BOT_LABEL": "機械人",
+    "READ_MORE": "閱讀更多",
+    "WROTE": "寫道：",
+    "FROM": "來自",
+    "EMAIL": "電郵"
   }
 }
