@@ -1,5 +1,9 @@
 {
     "INBOX_MGMT": {
+        "CHANNELS": {
+            "WECHAT": "微信公眾號",
+            "EKBOOKING": "醫健約"
+        },
         "ADD": {
             "WECHAT_CHANNEL": {
                 "TITLE": "新增微信公眾號",

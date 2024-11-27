@@ -1,5 +1,9 @@
 {
     "INBOX_MGMT": {
+        "CHANNELS": {
+            "WECHAT": "Wechat Official",
+            "EKBOOKING": "Ekbooking"
+        },
         "ADD": {
             "WECHAT_CHANNEL": {
                 "TITLE": "Add Wechat Official Account",
