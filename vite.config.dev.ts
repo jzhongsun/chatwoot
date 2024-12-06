@@ -40,8 +40,9 @@ export function mpa_route_plugin() {
         'User-Agent': req.headers['user-agent'],
       },
     });
+    console.info('config', config);
     const app = await config.json();
-    console.info('config', app);
+    console.info('app', app);
     let html = fs.readFileSync(path.resolve(__dirname, 'widget.html'), {encoding: 'utf-8'})
     html = html.replace('{{{global_config.INSTALLATION_NAME}}}', app.global_config.INSTALLATION_NAME)
 
