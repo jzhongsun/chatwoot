@@ -49,6 +49,14 @@
                 "CHANNEL_AVATAR": {
                     "LABEL": "频道头像"
                 },
+                "INBOX_NAME": {
+                    "LABEL": "医健约品牌名称",
+                    "PLACEHOLDER": "请输入医健约品牌名称"
+                },
+                "BRAND_ID": {
+                    "LABEL": "医健约品牌编号",
+                    "PLACEHOLDER": "请输入医健约品牌编号"
+                },
                 "CHANNEL_WELCOME_TITLE": {
                     "LABEL": "欢迎标题",
                     "PLACEHOLDER": "你好！"

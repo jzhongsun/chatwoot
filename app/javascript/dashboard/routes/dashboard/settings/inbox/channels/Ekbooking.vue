@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       inboxName: '',
+      channelBrandId: '',
       channelWebsiteUrl: '',
       channelWidgetColor: '#009CE0',
       channelWelcomeTitle: '',
@@ -39,13 +40,14 @@ export default {
     async createChannel() {
       try {
         const website = await this.$store.dispatch(
-          'inboxes/createWebsiteChannel',
+          'inboxes/createChannel',
           {
             name: this.inboxName,
             greeting_enabled: this.greetingEnabled,
             greeting_message: this.greetingMessage,
             channel: {
               type: 'ekbooking',
+              brand_id: this.channelBrandId,
               widget_color: this.channelWidgetColor,
               welcome_title: this.channelWelcomeTitle,
               welcome_tagline: this.channelWelcomeTagline,
@@ -89,19 +91,22 @@ export default {
     >
       <div class="w-full">
         <label>
-          {{ $t('INBOX_MGMT.ADD.WEBSITE_NAME.LABEL') }}
+          {{ $t('INBOX_MGMT.ADD.EKBOOKING_CHANNEL.INBOX_NAME.LABEL') }}
           <input
             v-model="inboxName"
             type="text"
-            :placeholder="$t('INBOX_MGMT.ADD.WEBSITE_NAME.PLACEHOLDER')"
+            :placeholder="$t('INBOX_MGMT.ADD.EKBOOKING_CHANNEL.INBOX_NAME.PLACEHOLDER')"
           />
         </label>
       </div>
-
       <div class="w-full">
         <label>
-          {{ $t('INBOX_MGMT.ADD.EKBOOKING_CHANNEL.WIDGET_COLOR.LABEL') }}
-          <woot-color-picker v-model="channelWidgetColor" />
+          {{ $t('INBOX_MGMT.ADD.EKBOOKING_CHANNEL.BRAND_ID.LABEL') }}
+          <input
+            v-model="channelBrandId"
+            type="text"
+            :placeholder="$t('INBOX_MGMT.ADD.EKBOOKING_CHANNEL.BRAND_ID.PLACEHOLDER')"
+          />
         </label>
       </div>
 

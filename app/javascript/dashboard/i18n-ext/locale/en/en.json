@@ -46,6 +46,14 @@
                 "TITLE": "Ekbooking channel",
                 "DESC": "Create a channel for your Ekbooking account and start supporting your customers via our Ekbooking integration.",
                 "LOADING_MESSAGE": "Creating Ekbooking Support Channel",
+                "INBOX_NAME": {
+                    "LABEL": "Ekbooking brand name",
+                    "PLACEHOLDER": "Please enter the name of Ekbooking brand"
+                },
+                "BRAND_ID": {
+                    "LABEL": "Ekbooking brand ID",
+                    "PLACEHOLDER": "Please enter the ID of Ekbooking brand"
+                },
                 "CHANNEL_AVATAR": {
                     "LABEL": "Channel Avatar"
                 },

@@ -49,6 +49,14 @@
                 "CHANNEL_AVATAR": {
                     "LABEL": "頻道頭像"
                 },
+                "INBOX_NAME": {
+                    "LABEL": "醫健約品牌名稱",
+                    "PLACEHOLDER": "請輸入醫健約品牌名稱"
+                },
+                "BRAND_ID": {
+                    "LABEL": "醫健約品牌編號",
+                    "PLACEHOLDER": "請輸入醫健約品牌編號"
+                },
                 "CHANNEL_WELCOME_TITLE": {
                     "LABEL": "歡迎標題",
                     "PLACEHOLDER": "你好！"
