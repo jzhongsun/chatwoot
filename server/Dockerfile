@@ -4,5 +4,6 @@ EXPOSE 4000
 ENV BACKEND_URL=http://localhost:8080
 WORKDIR /app
 COPY . /app
+COPY manifest.json ./dist/manifest.json
 RUN npm install
 ENTRYPOINT ["node","serve.js"]
