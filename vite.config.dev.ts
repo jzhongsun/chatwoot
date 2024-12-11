@@ -72,6 +72,7 @@ export function mpa_route_plugin() {
 
 
     html = html.replace('{{account.features.disable_branding}}', app.account.features.disable_branding)
+    html = html.replace('{{web_widget.hide_header}}', 'true')
     html = html.replace('{{contact_inbox.pubsub_token}}', app.contact_inbox.pubsub_token)
     html = html.replace('{{conversationToken}}', app.conversation_token)
 
@@ -111,7 +112,7 @@ export function mpa_route_plugin() {
           res.writeHead(200, { 'Content-Type': 'text/html; charset=UTF-8' }).end(html);
         } else if (req.url?.startsWith('/widget?website_token=')) {
           widgetApp(req, res);
-        } else if (req.url?.startsWith('/ekbooking?website_token=')) {
+        } else if (req.url?.startsWith('/ekbooking?')) {
           widgetApp(req, res);
         } else {
           next();

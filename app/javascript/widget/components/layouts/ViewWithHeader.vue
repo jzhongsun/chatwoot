@@ -22,6 +22,7 @@ export default {
       ticking: true,
       disableBranding: window.chatwootWebChannel.disableBranding || false,
       requestID: null,
+      hideHeader: window.chatwootWebChannel.hideHeader || false,
     };
   },
   computed: {
@@ -109,6 +110,7 @@ export default {
   >
     <div class="relative flex flex-col h-full">
       <div
+        v-if="!hideHeader"
         class="sticky top-0 z-40 transition-all header-wrap"
         :class="{
           expanded: !isHeaderCollapsed,
