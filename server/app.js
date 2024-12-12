@@ -78,8 +78,13 @@ async function widgetApp(req, res, next) {
     // console.info(response, widget);
     widget.account.features.disable_branding = false;
     widget.web_widget.hide_header = false;
+    const cookies = response.headers.getSetCookie();
+    if (cookies) {
+      cookies.forEach(cookie => {
+        res.set('Set-Cookie', cookie);
+      });
+    }
     res
-      .cookie('cw_conversation', response.cookie('cw_conversation'))
       .render('widget', {
         installation_name: widget.global_config.INSTALLATION_NAME,
         inbox: widget.inbox,
