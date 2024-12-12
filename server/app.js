@@ -79,9 +79,7 @@ async function widgetApp(req, res, next) {
     widget.account.features.disable_branding = false;
     widget.web_widget.hide_header = false;
     res
-      .cookie('cw_conversation', widget.conversation_token, {
-        expire: 1000 * 60 * 60 * 24 * 30 + Date.now(),
-      })
+      .cookie('cw_conversation', response.cookie('cw_conversation'))
       .render('widget', {
         installation_name: widget.global_config.INSTALLATION_NAME,
         inbox: widget.inbox,
