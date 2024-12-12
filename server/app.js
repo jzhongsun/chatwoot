@@ -76,6 +76,8 @@ async function widgetApp(req, res, next) {
     });
     const widget = await response.json();
     // console.info(response, widget);
+    widget.account.features.disable_branding = false;
+    widget.web_widget.hide_header = false;
     res
       .cookie('cw_conversation', widget.conversation_token, {
         expire: 1000 * 60 * 60 * 24 * 30 + Date.now(),
