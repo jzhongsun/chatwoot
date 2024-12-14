@@ -63,15 +63,10 @@ async function dashboardApp(req, res, next) {
 
 async function widgetApp(req, res, next) {
   try {
-    console.info(req.headers)
+    console.info("widget app request with headers", req.headers)
     const response = await fetch(backend_url + req.url, {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Cookie': req.headers['cookie'],
-        'User-Agent': req.headers['user-agent'],
-        'X-Forwarded-For': req.ip,
-      },
+      headers: req.headers,
       credentials: 'include',
     });
     const widget = await response.json();
