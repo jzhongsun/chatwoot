@@ -7,6 +7,12 @@ var proxy = require('http-proxy-middleware');
 const { randomUUID } = require('crypto');
 
 var app = express();
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 var router = express.Router();
 
 var env = process.env;
