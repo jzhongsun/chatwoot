@@ -140,6 +140,7 @@ export default {
         :title="item.title"
         :description="item.description"
         :actions="item.actions"
+        :lines="item.lines"
       />
     </div>
     <div v-if="isArticle">

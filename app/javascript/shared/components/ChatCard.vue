@@ -23,6 +23,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    lines: {
+      type: Array,
+      default: () => [],
+    },
   },
   setup() {
     const { getThemeClass } = useDarkMode();
@@ -38,17 +42,25 @@ export default {
   >
     <img class="media" :src="mediaUrl" />
     <div class="card-body">
-      <h4
+      <h5
         class="title"
         :class="getThemeClass('text-black-900', 'dark:text-slate-50')"
       >
         {{ title }}
-      </h4>
+      </h5>
       <p
         class="body"
         :class="getThemeClass('text-black-700', 'dark:text-slate-100')"
       >
         {{ description }}
+      </p>
+      <p
+        v-for="line in lines"
+        :key="line" 
+        class="body"
+        :class="getThemeClass('text-black-700', 'dark:text-slate-100')"
+      >
+        {{ line }}
       </p>
       <CardButton v-for="action in actions" :key="action.id" :action="action" />
     </div>
@@ -60,13 +72,13 @@ export default {
 @import 'dashboard/assets/scss/mixins.scss';
 
 .card-message {
-  max-width: 220px;
+  max-width: 240px;
   padding: $space-small;
   border-radius: $space-small;
   overflow: hidden;
 
   .title {
-    font-size: $font-size-default;
+    font-size: $font-size-default * 0.8;
     font-weight: $font-weight-medium;
     margin-top: $space-smaller;
     margin-bottom: $space-smaller;
@@ -74,6 +86,7 @@ export default {
   }
 
   .body {
+    font-size: $font-size-default * 0.8;
     margin-bottom: $space-smaller;
   }
 
@@ -81,7 +94,7 @@ export default {
     @include border-light;
     width: 100%;
     object-fit: contain;
-    max-height: 150px;
+    // max-height: 150px;
     border-radius: 5px;
   }
 
