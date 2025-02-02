@@ -1,6 +1,7 @@
 import { MESSAGE_TYPE } from 'shared/constants/messages';
 import { showBadgeOnFavicon } from './faviconHelper';
 import { initFaviconSwitcher } from './faviconHelper';
+import { showBrowserNotificationNewMessage, initBrowserNotification } from './notificationHelper';
 import {
   getAlertAudio,
   initOnEvents,
@@ -58,6 +59,7 @@ class DashboardAudioNotificationHelper {
       });
     });
     initFaviconSwitcher();
+    initBrowserNotification();
   };
 
   executeRecurringNotification = () => {
@@ -165,18 +167,27 @@ class DashboardAudioNotificationHelper {
     }
 
     // If the user looking at the conversation, then dismiss the alert
-    if (this.isMessageFromCurrentConversation(message) && !document.hidden) {
+    if (this.isMessageFromCurrentConversation(message) && document.visibilityState === 'visible') {
       return;
     }
     // If the user has disabled alerts when active on the dashboard, the dismiss the alert
-    if (this.playAlertOnlyWhenHidden && !document.hidden) {
+    if (this.playAlertOnlyWhenHidden && document.visibilityState === 'visible') {
+      console.log('notification is not shown', this.playAlertOnlyWhenHidden, document.visibilityState);
       return;
     }
 
     window.playAudioAlert();
     showBadgeOnFavicon();
+    showBrowserNotificationNewMessage(message);
     this.playAudioEvery30Seconds();
   };
+
+  onConversationCreated = (conversation) => {
+    // If the user does not have the permission to view the conversation, then dismiss the alert
+    if (!this.isUserHasConversationPermission()) {
+      return;
+    }
+  }
 }
 
 const notifHelper = new DashboardAudioNotificationHelper();

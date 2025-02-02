@@ -92,5 +92,8 @@
                 }
             }
         }
+    },
+    "PUSH_NOTIFICATIONS": {
+        "CONVERSATION_NEW_MESSAGE": "[{inbox}]新消息来自 {name}"
     }
 }
