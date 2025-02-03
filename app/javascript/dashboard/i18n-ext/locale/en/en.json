@@ -90,6 +90,17 @@
                 "API": {
                     "ERROR_MESSAGE": "We were not able to create a Ekbooking channel, please try again"
                 }
+            },
+            "WHATSAPP": {
+                "PROVIDERS": {
+                    "WHATSAPP_PRIVATE_API": "WhatsApp Private API",
+                    "WHATSAPP_BUSINESS_API": "WhatsApp Business API"
+                },
+                "SESSION_ID": {
+                    "LABEL": "Session ID",
+                    "PLACEHOLDER": "Please enter the Session ID",
+                    "ERROR": "Please enter a valid value."
+                }
             }
         }
     },

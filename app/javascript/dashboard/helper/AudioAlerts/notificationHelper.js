@@ -3,7 +3,7 @@ export const showBrowserNotificationNewMessage = (message) => {
     const { t } = window.i18n.global;
     console.info('new message', message);
     const notification = new Notification(
-        '🚀' + t('PUSH_NOTIFICATIONS.CONVERSATION_NEW_MESSAGE', { name: message?.sender?.name, inbox: message?.conversation?.inbox?.name }),
+        '📤 ' + t('PUSH_NOTIFICATIONS.CONVERSATION_NEW_MESSAGE', { name: message?.sender?.name, inbox: message?.conversation?.inbox?.name }),
         {
             body: message?.content,
             icon: '/favicon-96x96.png',

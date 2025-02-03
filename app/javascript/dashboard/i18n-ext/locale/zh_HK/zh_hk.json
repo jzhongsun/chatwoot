@@ -90,6 +90,17 @@
                 "API": {
                     "ERROR_MESSAGE": "我們無法創建醫健約頻道，請再試一次。"
                 }
+            },
+            "WHATSAPP": {
+                "PROVIDERS": {
+                    "WHATSAPP_PRIVATE_API": "WhatsApp 個人 API",
+                    "WHATSAPP_BUSINESS_API": "WhatsApp 商業 API"
+                },
+                "SESSION_ID": {
+                    "LABEL": "會話 ID",
+                    "PLACEHOLDER": "請輸入會話 ID",
+                    "ERROR": "請輸入有效值。"
+                }
             }
         }
     },
