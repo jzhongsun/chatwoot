@@ -6,6 +6,7 @@ import { ViteDevServer } from 'vite';
 import fs from 'fs';
 
 const backend = 'http://localhost:8080';
+// const backend = 'https://agents.xlin.ai';
 export function mpa_route_plugin() {
 
   const htmlHandleApp = function (html, app) {
@@ -86,7 +87,7 @@ export function mpa_route_plugin() {
     configureServer: async (server: ViteDevServer) => {
       server.middlewares.use(async (req, res, next) => {
         // 自定义请求处理...
-        // console.log('req.url', req.url);
+        console.log('req.url', req.url);
         if (req.url === '/app/login' || req.url === '/auth') {
           const config = await fetch(backend + '/dashboard', {
             method: 'GET',
@@ -140,7 +141,7 @@ export default defineConfig({
     proxy: {
       // proxy requests to the backend
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'https://agents.xlin.ai',
         changeOrigin: true,
         ws: false,
       },

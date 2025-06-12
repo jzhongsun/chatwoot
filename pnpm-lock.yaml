@@ -19,6 +19,9 @@ importers:
       '@chatwoot/captain':
         specifier: 0.0.3-alpha.4
         version: 0.0.3-alpha.4(tailwindcss@3.4.13)(typescript@5.6.2)
+      '@chatwoot/chatwoot':
+        specifier: 'link:'
+        version: 'link:'
       '@chatwoot/ninja-keys':
         specifier: 1.2.3
         version: 1.2.3
@@ -4979,12 +4982,6 @@ packages:
     resolution: {integrity: sha512-flFbp/gs9pZniXR6fans8smv1kDScJ8RS7rEpMjhVabiKeq7Qz3D9+eGsypncjfIyyU84saU88XZ0zjbD6Gq/g==}
     peerDependencies:
       vue: ^3.0.0
-
-  vue-qrcode@2.2.2:
-    resolution: {integrity: sha512-SbrXq/mSb1g2tbDyXPe9gy9KiMYsvxWKRErlpij1BqiFoHwQckheZV63CTw6yRLLUVG2RXAVlX+APkpdCK7SQQ==}
-    peerDependencies:
-      qrcode: ^1.0.0
-      vue: ^2.7.0 || ^3.0.0
 
   vue-resize@2.0.0-alpha.1:
     resolution: {integrity: sha512-7+iqOueLU7uc9NrMfrzbG8hwMqchfVfSzpVlCMeJQe4pyibqyoifDNbKTZvwxZKDvGkB+PdFeKvnGZMoEb8esg==}
@@ -10491,12 +10488,6 @@ snapshots:
 
   vue-observe-visibility@2.0.0-alpha.1(vue@3.5.12(typescript@5.6.2)):
     dependencies:
-      vue: 3.5.12(typescript@5.6.2)
-
-  vue-qrcode@2.2.2(qrcode@1.5.4)(vue@3.5.12(typescript@5.6.2)):
-    dependencies:
-      qrcode: 1.5.4
-      tslib: 2.8.1
       vue: 3.5.12(typescript@5.6.2)
 
   vue-resize@2.0.0-alpha.1(vue@3.5.12(typescript@5.6.2)):
