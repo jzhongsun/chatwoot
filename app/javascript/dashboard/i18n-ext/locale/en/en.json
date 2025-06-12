@@ -93,6 +93,7 @@
             },
             "WHATSAPP": {
                 "PROVIDERS": {
+                    "WHATSAPP_PRIVATE": "WhatsApp Private",
                     "WHATSAPP_PRIVATE_API": "WhatsApp Private API",
                     "WHATSAPP_BUSINESS_API": "WhatsApp Business API"
                 },
@@ -102,9 +103,28 @@
                     "ERROR": "Please enter a valid value."
                 }
             }
+        },
+        "SETTINGS_WHATSAPP_PRIVATE": {
+            "TITLE": "WhatsApp",
+            "SUBTITLE": "Setup WhatsApp Channel",
+            "SESSION_ID": {
+                "TITLE": "Session ID",
+                "SUBTITLE": "Please enter the Session ID"
+            },
+            "STATE": {
+                "TITLE": "State",
+                "SUBTITLE": "Please enter the State"
+            },
+            "QRCODE": {
+                "TITLE": "QR Code",
+                "SUBTITLE": "Please enter the QR Code"
+            }
         }
     },
     "PUSH_NOTIFICATIONS": {
         "CONVERSATION_NEW_MESSAGE": "[{inbox}]New message from {name}"
+    },
+    "TABS": {
+        "WHATSAPP_PRIVATE": "WhatsApp"
     }
 }

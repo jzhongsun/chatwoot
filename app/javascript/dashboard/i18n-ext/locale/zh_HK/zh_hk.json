@@ -93,6 +93,7 @@
             },
             "WHATSAPP": {
                 "PROVIDERS": {
+                    "WHATSAPP_PRIVATE": "WhatsApp 私有",
                     "WHATSAPP_PRIVATE_API": "WhatsApp 個人 API",
                     "WHATSAPP_BUSINESS_API": "WhatsApp 商業 API"
                 },
@@ -102,6 +103,25 @@
                     "ERROR": "請輸入有效值。"
                 }
             }
+        },
+        "SETTINGS_WHATSAPP_PRIVATE": {
+            "TITLE": "WhatsApp",
+            "SUBTITLE": "設置 WhatsApp 頻道",
+            "SESSION_ID": {
+                "TITLE": "會話 ID",
+                "SUBTITLE": "請輸入會話 ID"
+            },
+            "STATE": {
+                "TITLE": "狀態",
+                "SUBTITLE": "請輸入狀態"
+            },
+            "QRCODE": {
+                "TITLE": "QR 碼",
+                "SUBTITLE": "請輸入 QR 碼"
+            }
+        },
+        "TABS": {
+            "WHATSAPP_PRIVATE": "WhatsApp"
         }
     },
     "PUSH_NOTIFICATIONS": {

@@ -192,7 +192,7 @@ export default {
     <ImapSettings :inbox="inbox" />
     <SmtpSettings v-if="inbox.imap_enabled" :inbox="inbox" />
   </div>
-  <div v-else-if="isAWhatsAppChannel && !isATwilioChannel">
+  <div v-else-if="isAWhatsAppChannel && !isATwilioChannel && !isAWhatsAppPrivateChannel">
     <div v-if="inbox.provider_config" class="mx-8">
       <SettingsSection
         :title="$t('INBOX_MGMT.SETTINGS_POPUP.WHATSAPP_WEBHOOK_TITLE')"

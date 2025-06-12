@@ -9,6 +9,7 @@ import inboxMixin from 'shared/mixins/inboxMixin';
 import FacebookReauthorize from './facebook/Reauthorize.vue';
 import MicrosoftReauthorize from './channels/microsoft/Reauthorize.vue';
 import GoogleReauthorize from './channels/google/Reauthorize.vue';
+import PrivateWhatsappReauthorize from './channels/PrivateWhatsappReauthorize.vue';
 import PreChatFormSettings from './PreChatForm/Settings.vue';
 import WeeklyAvailability from './components/WeeklyAvailability.vue';
 import GreetingsEditor from 'shared/components/GreetingsEditor.vue';
@@ -34,6 +35,7 @@ export default {
     SenderNameExamplePreview,
     MicrosoftReauthorize,
     GoogleReauthorize,
+    PrivateWhatsappReauthorize,
   },
   mixins: [inboxMixin],
   setup() {
@@ -84,6 +86,9 @@ export default {
       if (this.isATwilioWhatsAppChannel) {
         return this.$t('INBOX_MGMT.ADD.WHATSAPP.PROVIDERS.TWILIO');
       }
+      if (this.isAWhatsAppPrivateChannel) {
+        return this.$t('INBOX_MGMT.ADD.WHATSAPP.PROVIDERS.WHATSAPP_PRIVATE');
+      }
       return '';
     },
     tabs() {
@@ -123,7 +128,7 @@ export default {
         (this.isAnEmailChannel && !this.inbox.provider) ||
         this.isAMicrosoftInbox ||
         this.isAGoogleInbox ||
-        this.isAWhatsAppChannel ||
+        (this.isAWhatsAppChannel && !this.isAWhatsAppPrivateChannel) ||
         this.isAWebWidgetInbox
       ) {
         visibleToAllChannelTabs = [
@@ -133,6 +138,16 @@ export default {
             name: this.$t('INBOX_MGMT.TABS.CONFIGURATION'),
           },
         ];
+      }
+
+      if (this.isAWhatsAppChannel && this.isAWhatsAppPrivateChannel) {
+        visibleToAllChannelTabs = [
+          ...visibleToAllChannelTabs,
+          {
+            key: 'whatsapp_private',
+            name: this.$t('INBOX_MGMT.TABS.WHATSAPP_PRIVATE'),
+          },
+        ];        
       }
 
       if (
@@ -767,6 +782,9 @@ export default {
     </div>
     <div v-if="selectedTabKey === 'configuration'">
       <ConfigurationPage :inbox="inbox" />
+    </div>
+    <div v-if="selectedTabKey === 'whatsapp_private'" class="mx-8">
+      <PrivateWhatsappReauthorize :inbox="inbox" />
     </div>
     <div v-if="selectedTabKey === 'preChatForm'">
       <PreChatFormSettings :inbox="inbox" />
