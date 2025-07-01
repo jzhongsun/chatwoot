@@ -5,8 +5,9 @@ import SettingsSection from '../../../../../components/SettingsSection.vue';
 import ApiClient from 'dashboard/api/ApiClient';
 import { ref, onMounted } from 'vue';
 import QRCode from 'qrcode';
-import axios from 'axios';
 import PageHeader from '../../SettingsSubPageHeader.vue';
+
+/* global axios */
 
 class WhatsAppPrivateApiClient extends ApiClient {
   constructor() {
