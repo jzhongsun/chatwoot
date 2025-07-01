@@ -18,90 +18,249 @@ class WhatsAppPrivateApiClient extends ApiClient {
     return axios.get(`${this.url}/inboxes/` + inbox_id + '/session');
   }
 
-  // SSE 同步联系人
-  syncContacts(inbox_id, onMessage, onError, onComplete) {
-    const eventSource = new EventSource(`${this.url}/inboxes/${inbox_id}/contacts/sync`);
-    
-    eventSource.onmessage = function(event) {
-      try {
-        const data = JSON.parse(event.data);
-        onMessage(data);
-      } catch (error) {
-        console.error('Failed to parse SSE message:', error);
+  // POST 流式同步联系人
+  async syncContacts(inbox_id, onMessage, onError, onComplete) {    
+    try {
+      const response = await axios({
+        method: 'POST',
+        url: `${this.url}/inboxes/${inbox_id}/contacts/sync`,
+        responseType: 'stream',
+        headers: {
+          'Accept': 'text/event-stream',
+          'Cache-Control': 'no-cache',
+          'Content-Type': 'application/json',
+        },
+        adapter: (config) => {
+          return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            
+            xhr.open(config.method.toUpperCase(), config.url, true);
+            
+            // 设置请求头
+            Object.keys(config.headers).forEach(key => {
+              xhr.setRequestHeader(key, config.headers[key]);
+            });
+            
+            let buffer = '';
+            
+            xhr.onreadystatechange = function() {
+              if (xhr.readyState === 3 || xhr.readyState === 4) {
+                const newData = xhr.responseText.substring(buffer.length);
+                buffer = xhr.responseText;
+                
+                if (newData) {
+                  // 按行分割处理 SSE 消息
+                  const lines = newData.split('\n');
+                  
+                  for (const line of lines) {
+                    if (line.trim()) {
+                      try {
+                        // 处理 SSE 格式的消息
+                        if (line.startsWith('data: ')) {
+                          const dataStr = line.substring(6);
+                          
+                          // 跳过空的 data 行
+                          if (!dataStr.trim()) continue;
+                          
+                          try {
+                            const data = JSON.parse(dataStr);
+                            
+                            // 根据消息类型处理
+                            if (data.type === 'complete') {
+                              onComplete(data);
+                            } else if (data.type === 'error') {
+                              onError(data);
+                            } else {
+                              onMessage(data);
+                            }
+                          } catch (parseError) {
+                            console.error('Failed to parse SSE data:', parseError, 'Data:', dataStr);
+                          }
+                        } else if (line.startsWith('event: ')) {
+                          // 处理事件类型（如果需要）
+                          const eventType = line.substring(7);
+                          console.log('SSE Event type:', eventType);
+                        }
+                      } catch (error) {
+                        console.error('Failed to process SSE message:', error, 'Line:', line);
+                      }
+                    }
+                  }
+                }
+              }
+              
+              if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                  resolve({
+                    data: xhr.responseText,
+                    status: xhr.status,
+                    statusText: xhr.statusText,
+                    headers: {},
+                    config: config
+                  });
+                } else {
+                  reject(new Error(`HTTP error! status: ${xhr.status}`));
+                }
+              }
+            };
+            
+            xhr.onerror = function() {
+              reject(new Error('Network error'));
+            };
+            
+            xhr.onabort = function() {
+              reject(new axios.Cancel('Request canceled'));
+            };            
+            xhr.send();
+          });
+        }
+      });
+
+      // 返回一个类似 EventSource 的对象，用于兼容现有代码
+      return {
+        close: () => {
+          // cancelTokenSource.cancel('User requested cancellation');
+        },
+        abort: () => {
+          // cancelTokenSource.cancel('User requested cancellation');
+        }
+      };
+    } catch (error) {
+      if (axios.isCancel(error)) {
+        console.log('Request canceled:', error.message);
+      } else {
+        console.error('Failed to start sync:', error);
+        onError(error);
       }
-    };
-
-    eventSource.onerror = function(error) {
-      console.error('SSE error:', error);
-      eventSource.close();
-      onError(error);
-    };
-
-    // 监听特定事件类型
-    eventSource.addEventListener('complete', function(event) {
-      try {
-        const data = JSON.parse(event.data);
-        onComplete(data);
-      } catch (error) {
-        console.error('Failed to parse completion message:', error);
-      }
-      eventSource.close();
-    });
-
-    eventSource.addEventListener('error', function(event) {
-      try {
-        const data = JSON.parse(event.data);
-        onError(data);
-      } catch (error) {
-        console.error('Failed to parse error message:', error);
-      }
-      eventSource.close();
-    });
-
-    return eventSource;
+      return {
+        close: () => {},
+        abort: () => {}
+      };
+    }
   }
 
-  // SSE 同步消息
-  syncMessages(inbox_id, onMessage, onError, onComplete) {
-    const eventSource = new EventSource(`${this.url}/inboxes/${inbox_id}/chats/sync`);
-    
-    eventSource.onmessage = function(event) {
-      try {
-        const data = JSON.parse(event.data);
-        onMessage(data);
-      } catch (error) {
-        console.error('Failed to parse SSE message:', error);
+
+
+  // POST 流式同步消息
+  async syncMessages(inbox_id, onMessage, onError, onComplete) {    
+    try {
+      const response = await axios({
+        method: 'POST',
+        url: `${this.url}/inboxes/${inbox_id}/chats/sync`,
+        responseType: 'stream',
+        headers: {
+          'Accept': 'text/event-stream',
+          'Cache-Control': 'no-cache',
+          'Content-Type': 'application/json',
+        },
+        adapter: (config) => {
+          return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            
+            xhr.open(config.method.toUpperCase(), config.url, true);
+            
+            // 设置请求头
+            Object.keys(config.headers).forEach(key => {
+              xhr.setRequestHeader(key, config.headers[key]);
+            });
+            
+            let buffer = '';
+            
+            xhr.onreadystatechange = function() {
+              if (xhr.readyState === 3 || xhr.readyState === 4) {
+                const newData = xhr.responseText.substring(buffer.length);
+                buffer = xhr.responseText;
+                
+                if (newData) {
+                  // 按行分割处理 SSE 消息
+                  const lines = newData.split('\n');
+                  
+                  for (const line of lines) {
+                    if (line.trim()) {
+                      try {
+                        // 处理 SSE 格式的消息
+                        if (line.startsWith('data: ')) {
+                          const dataStr = line.substring(6);
+                          
+                          // 跳过空的 data 行
+                          if (!dataStr.trim()) continue;
+                          
+                          try {
+                            const data = JSON.parse(dataStr);
+                            
+                            // 根据消息类型处理
+                            if (data.type === 'complete') {
+                              onComplete(data);
+                            } else if (data.type === 'error') {
+                              onError(data);
+                            } else {
+                              onMessage(data);
+                            }
+                          } catch (parseError) {
+                            console.error('Failed to parse SSE data:', parseError, 'Data:', dataStr);
+                          }
+                        } else if (line.startsWith('event: ')) {
+                          // 处理事件类型（如果需要）
+                          const eventType = line.substring(7);
+                          console.log('SSE Event type:', eventType);
+                        }
+                      } catch (error) {
+                        console.error('Failed to process SSE message:', error, 'Line:', line);
+                      }
+                    }
+                  }
+                }
+              }
+              
+              if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                  resolve({
+                    data: xhr.responseText,
+                    status: xhr.status,
+                    statusText: xhr.statusText,
+                    headers: {},
+                    config: config
+                  });
+                } else {
+                  reject(new Error(`HTTP error! status: ${xhr.status}`));
+                }
+              }
+            };
+            
+            xhr.onerror = function() {
+              reject(new Error('Network error'));
+            };
+            
+            xhr.onabort = function() {
+              reject(new axios.Cancel('Request canceled'));
+            };
+                        
+            xhr.send();
+          });
+        }
+      });
+
+      // 返回一个类似 EventSource 的对象，用于兼容现有代码
+      return {
+        close: () => {
+          // cancelTokenSource.cancel('User requested cancellation');
+        },
+        abort: () => {
+          // cancelTokenSource.cancel('User requested cancellation');
+        }
+      };
+    } catch (error) {
+      if (axios.isCancel(error)) {
+        console.log('Request canceled:', error.message);
+      } else {
+        console.error('Failed to start sync:', error);
+        onError(error);
       }
-    };
-
-    eventSource.onerror = function(error) {
-      console.error('SSE error:', error);
-      eventSource.close();
-      onError(error);
-    };
-
-    // 监听特定事件类型
-    eventSource.addEventListener('complete', function(event) {
-      try {
-        const data = JSON.parse(event.data);
-        onComplete(data);
-      } catch (error) {
-        console.error('Failed to parse completion message:', error);
-      }
-      eventSource.close();
-    });
-
-    eventSource.addEventListener('error', function(event) {
-      try {
-        const data = JSON.parse(event.data);
-        onError(data);
-      } catch (error) {
-        console.error('Failed to parse error message:', error);
-      }
-      eventSource.close();
-    });
-
-    return eventSource;
+      return {
+        close: () => {},
+        abort: () => {}
+      };
+    }
   }
 }
 
@@ -207,7 +366,7 @@ export default {
       this.syncStates.contacts.logs = [];
 
       try {
-        this.syncStates.contacts.eventSource = whatsAppPrivateApiClient.syncContacts(
+        this.syncStates.contacts.eventSource = await whatsAppPrivateApiClient.syncContacts(
           this.inbox.id,
           // onMessage - 处理实时日志
           (data) => {
@@ -291,7 +450,7 @@ export default {
       this.syncStates.messages.logs = [];
 
       try {
-        this.syncStates.messages.eventSource = whatsAppPrivateApiClient.syncMessages(
+        this.syncStates.messages.eventSource = await whatsAppPrivateApiClient.syncMessages(
           this.inbox.id,
           // onMessage - 处理实时日志
           (data) => {
@@ -426,10 +585,10 @@ export default {
 
 <template>
   <div class="whatsapp-settings-container">
-    <PageHeader
+    <!-- <PageHeader
       :header-title="$t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.TITLE')"
       :header-content="$t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SUBTITLE')"
-    />
+    /> -->
     <!-- WhatsApp 连接状态区域 - 占整行 -->
     <div class="connection-status-section">
       <div class="session-info-card">
@@ -445,8 +604,8 @@ export default {
           <!-- 会话详情 -->
           <div v-if="session.session_id" class="session-details">
             <div class="detail-item">
-              <label>{{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SESSION_ID') }}:</label>
-              <woot-code :script="session.session_id" />
+              <label>{{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SESSION_ID.TITLE') }}:</label>
+              <woot-code class="w-1/4" :script="session.session_id" />
             </div>
             
             <div v-if="session.me?.pushName" class="detail-item">
@@ -721,6 +880,7 @@ export default {
 
 /* 连接状态区域 */
 .connection-status-section {
+  margin-top: 24px;
   margin-bottom: 24px;
 }
 
