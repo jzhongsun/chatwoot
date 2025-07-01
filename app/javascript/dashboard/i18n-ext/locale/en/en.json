@@ -118,7 +118,37 @@
             "QRCODE": {
                 "TITLE": "QR Code",
                 "SUBTITLE": "Please enter the QR Code"
-            }
+            },
+            "SYNC_CONTACTS_TITLE": "Sync Contacts",
+            "SYNC_CONTACTS_DESCRIPTION": "Synchronize your WhatsApp contacts with Chatwoot to keep your contact list up to date.",
+            "SYNC_CONTACTS_BUTTON": "Sync Contacts",
+            "SYNC_CONTACTS_SUCCESS": "Contacts synchronized successfully",
+            "SYNC_CONTACTS_ERROR": "Failed to synchronize contacts. Please try again.",
+            "SYNC_MESSAGES_TITLE": "Sync Messages",
+            "SYNC_MESSAGES_DESCRIPTION": "Import your recent WhatsApp message history to maintain conversation continuity.",
+            "SYNC_MESSAGES_BUTTON": "Sync Messages",
+            "SYNC_MESSAGES_SUCCESS": "Messages synchronized successfully",
+            "SYNC_MESSAGES_ERROR": "Failed to synchronize messages. Please try again.",
+            "SYNC_SUCCESS": "Synced successfully",
+            "SYNC_FAILED": "Sync failed",
+            "LAST_SYNC": "Last sync",
+            "STOP_SYNC": "Stop Sync",
+            "CLEAR_LOGS": "Clear Logs",
+            "SYNC_LOGS": "Sync Logs",
+            "LOGS_COUNT": "entries",
+            "SYNC_STOPPED": "Sync operation stopped by user",
+            "CONNECTION_STATUS": "Connection Status",
+            "CONNECTED_USER": "Connected User",
+            "SCAN_QR_CODE": "Scan QR Code",
+            "QR_CODE_INSTRUCTION": "Open WhatsApp on your phone and scan this QR code to connect",
+            "AUTO_REFRESH": "Auto refreshing...",
+            "CONNECTED_SUCCESSFULLY": "Connected Successfully",
+            "READY_TO_SYNC": "Your WhatsApp is now connected and ready for synchronization",
+            "STATUS_CONNECTED": "Connected",
+            "STATUS_DISCONNECTED": "Disconnected",
+            "STATUS_CONNECTING": "Connecting",
+            "STATUS_QR_CODE": "Waiting for QR Scan",
+            "STATUS_UNKNOWN": "Unknown"
         }
     },
     "PUSH_NOTIFICATIONS": {

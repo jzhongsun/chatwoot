@@ -76,14 +76,20 @@ export default {
     },
     isOnExpandedLayout() {
       const {
-        LAYOUT_TYPES: { CONDENSED },
+        LAYOUT_TYPES: { CONDENSED, EXPANDED },
       } = wootConstants;
-      const { conversation_display_type: conversationDisplayType = CONDENSED } =
+      const { conversation_display_type: conversationDisplayType = EXPANDED } =
         this.uiSettings;
       return conversationDisplayType !== CONDENSED;
     },
     isContactPanelOpen() {
+      const {
+        SMALL_SCREEN_BREAKPOINT,
+      } = wootConstants;      
       if (this.currentChat.id) {
+        if (window.innerWidth >= SMALL_SCREEN_BREAKPOINT) {
+          return true;
+        }
         const { is_contact_sidebar_open: isContactSidebarOpen } =
           this.uiSettings;
         return isContactSidebarOpen;
