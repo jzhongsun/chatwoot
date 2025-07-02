@@ -86,6 +86,30 @@ class MessageApi extends ApiClient {
     return axios.delete(`${this.url}/${conversationID}/messages/${messageId}`);
   }
 
+  edit(conversationID, messageId, {
+    message,
+    private: isPrivate,
+    contentAttributes,
+    echo_id: echoId,
+    files,
+    ccEmails = '',
+    bccEmails = '',
+    toEmails = '',
+    templateParams,
+  }) {
+    return axios.post(`${this.url}/${conversationID}/messages/${messageId}/edit`, {
+      message,
+      private: isPrivate,
+      contentAttributes,
+      echo_id: echoId,
+      files,
+      cc_emails: ccEmails,
+      bcc_emails: bccEmails,
+      to_emails: toEmails,
+      template_params: templateParams,
+    });
+  }
+
   retry(conversationID, messageId) {
     return axios.post(
       `${this.url}/${conversationID}/messages/${messageId}/retry`

@@ -120,7 +120,7 @@
                 "SUBTITLE": "Please enter the QR Code"
             },
             "SYNC_CONTACTS_TITLE": "Sync Contacts",
-            "SYNC_CONTACTS_DESCRIPTION": "Synchronize your WhatsApp contacts with Chatwoot to keep your contact list up to date.",
+            "SYNC_CONTACTS_DESCRIPTION": "Synchronize your WhatsApp contacts to keep your contact list up to date.",
             "SYNC_CONTACTS_BUTTON": "Sync Contacts",
             "SYNC_CONTACTS_SUCCESS": "Contacts synchronized successfully",
             "SYNC_CONTACTS_ERROR": "Failed to synchronize contacts. Please try again.",
