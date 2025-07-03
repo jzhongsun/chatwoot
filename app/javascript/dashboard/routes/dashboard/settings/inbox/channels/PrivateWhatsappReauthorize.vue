@@ -6,6 +6,8 @@ import ApiClient from 'dashboard/api/ApiClient';
 import { ref, onMounted } from 'vue';
 import QRCode from 'qrcode';
 import PageHeader from '../../SettingsSubPageHeader.vue';
+import { fetchEventSource } from '@microsoft/fetch-event-source';
+import Auth from 'dashboard/api/auth';
 
 /* global axios */
 
@@ -18,249 +20,138 @@ class WhatsAppPrivateApiClient extends ApiClient {
     return axios.get(`${this.url}/inboxes/` + inbox_id + '/session');
   }
 
-  // POST 流式同步联系人
-  async syncContacts(inbox_id, onMessage, onError, onComplete) {    
-    try {
-      const response = await axios({
-        method: 'POST',
-        url: `${this.url}/inboxes/${inbox_id}/contacts/sync`,
-        responseType: 'stream',
-        headers: {
-          'Accept': 'text/event-stream',
-          'Cache-Control': 'no-cache',
-          'Content-Type': 'application/json',
-        },
-        adapter: (config) => {
-          return new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
-            
-            xhr.open(config.method.toUpperCase(), config.url, true);
-            
-            // 设置请求头
-            Object.keys(config.headers).forEach(key => {
-              xhr.setRequestHeader(key, config.headers[key]);
-            });
-            
-            let buffer = '';
-            
-            xhr.onreadystatechange = function() {
-              if (xhr.readyState === 3 || xhr.readyState === 4) {
-                const newData = xhr.responseText.substring(buffer.length);
-                buffer = xhr.responseText;
-                
-                if (newData) {
-                  // 按行分割处理 SSE 消息
-                  const lines = newData.split('\n');
-                  
-                  for (const line of lines) {
-                    if (line.trim()) {
-                      try {
-                        // 处理 SSE 格式的消息
-                        if (line.startsWith('data: ')) {
-                          const dataStr = line.substring(6);
-                          
-                          // 跳过空的 data 行
-                          if (!dataStr.trim()) continue;
-                          
-                          try {
-                            const data = JSON.parse(dataStr);
-                            
-                            // 根据消息类型处理
-                            if (data.type === 'complete') {
-                              onComplete(data);
-                            } else if (data.type === 'error') {
-                              onError(data);
-                            } else {
-                              onMessage(data);
-                            }
-                          } catch (parseError) {
-                            console.error('Failed to parse SSE data:', parseError, 'Data:', dataStr);
-                          }
-                        } else if (line.startsWith('event: ')) {
-                          // 处理事件类型（如果需要）
-                          const eventType = line.substring(7);
-                          console.log('SSE Event type:', eventType);
-                        }
-                      } catch (error) {
-                        console.error('Failed to process SSE message:', error, 'Line:', line);
-                      }
-                    }
-                  }
-                }
-              }
-              
-              if (xhr.readyState === 4) {
-                if (xhr.status >= 200 && xhr.status < 300) {
-                  resolve({
-                    data: xhr.responseText,
-                    status: xhr.status,
-                    statusText: xhr.statusText,
-                    headers: {},
-                    config: config
-                  });
-                } else {
-                  reject(new Error(`HTTP error! status: ${xhr.status}`));
-                }
-              }
-            };
-            
-            xhr.onerror = function() {
-              reject(new Error('Network error'));
-            };
-            
-            xhr.onabort = function() {
-              reject(new axios.Cancel('Request canceled'));
-            };            
-            xhr.send();
-          });
-        }
-      });
+  async syncContacts(inbox_id, onMessage, onError, onComplete) {
+    let controller = new AbortController();
 
-      // 返回一个类似 EventSource 的对象，用于兼容现有代码
-      return {
-        close: () => {
-          // cancelTokenSource.cancel('User requested cancellation');
+    try {
+      const {
+        'access-token': accessToken,
+        'token-type': tokenType,
+        client,
+        expiry,
+        uid,
+      } = Auth.getAuthData();
+      await fetchEventSource(`${this.url}/inboxes/${inbox_id}/contacts/sync`, {
+        method: 'POST',
+        headers: {
+          'access-token': accessToken,
+          'token-type': tokenType,
+          client,
+          expiry,
+          uid,
         },
-        abort: () => {
-          // cancelTokenSource.cancel('User requested cancellation');
-        }
-      };
+        signal: controller.signal,
+
+        onopen(res) {
+          if (res.ok) {
+            console.log('Contacts sync connected');
+          } else {
+            throw new Error(`HTTP ${res.status}`);
+          }
+        },
+
+        onmessage(event) {
+          try {
+            const data = JSON.parse(event.data);
+            if (data.type === 'complete') {
+              onComplete(data);
+              controller.abort();
+            } else if (data.type === 'error') {
+              onError(data);
+              controller.abort();
+            } else {
+              onMessage(data);
+            }
+          } catch (parseError) {
+            console.error('Parse error:', parseError);
+          }
+        },
+        onclose() {
+          console.log('Contacts sync closed');
+          onComplete({ type: 'complete', message: 'Contacts sync completed' });
+        },
+
+        onerror(err) {
+          console.error('Contacts sync error:', err);
+          onError(err);
+          if (err.name === 'AbortError') return;
+          throw err;
+        },
+      });
     } catch (error) {
-      if (axios.isCancel(error)) {
-        console.log('Request canceled:', error.message);
-      } else {
-        console.error('Failed to start sync:', error);
-        onError(error);
-      }
-      return {
-        close: () => {},
-        abort: () => {}
-      };
+      console.error('Contacts sync error:', error);
+      onError(error);
     }
+
+    return {
+      close: () => controller.abort(),
+      abort: () => controller.abort(),
+    };
   }
 
+  async syncMessages(inbox_id, onMessage, onError, onComplete) {
+    let controller = new AbortController();
 
-
-  // POST 流式同步消息
-  async syncMessages(inbox_id, onMessage, onError, onComplete) {    
     try {
-      const response = await axios({
-        method: 'POST',
-        url: `${this.url}/inboxes/${inbox_id}/chats/sync`,
-        responseType: 'stream',
-        headers: {
-          'Accept': 'text/event-stream',
-          'Cache-Control': 'no-cache',
-          'Content-Type': 'application/json',
-        },
-        adapter: (config) => {
-          return new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
-            
-            xhr.open(config.method.toUpperCase(), config.url, true);
-            
-            // 设置请求头
-            Object.keys(config.headers).forEach(key => {
-              xhr.setRequestHeader(key, config.headers[key]);
-            });
-            
-            let buffer = '';
-            
-            xhr.onreadystatechange = function() {
-              if (xhr.readyState === 3 || xhr.readyState === 4) {
-                const newData = xhr.responseText.substring(buffer.length);
-                buffer = xhr.responseText;
-                
-                if (newData) {
-                  // 按行分割处理 SSE 消息
-                  const lines = newData.split('\n');
-                  
-                  for (const line of lines) {
-                    if (line.trim()) {
-                      try {
-                        // 处理 SSE 格式的消息
-                        if (line.startsWith('data: ')) {
-                          const dataStr = line.substring(6);
-                          
-                          // 跳过空的 data 行
-                          if (!dataStr.trim()) continue;
-                          
-                          try {
-                            const data = JSON.parse(dataStr);
-                            
-                            // 根据消息类型处理
-                            if (data.type === 'complete') {
-                              onComplete(data);
-                            } else if (data.type === 'error') {
-                              onError(data);
-                            } else {
-                              onMessage(data);
-                            }
-                          } catch (parseError) {
-                            console.error('Failed to parse SSE data:', parseError, 'Data:', dataStr);
-                          }
-                        } else if (line.startsWith('event: ')) {
-                          // 处理事件类型（如果需要）
-                          const eventType = line.substring(7);
-                          console.log('SSE Event type:', eventType);
-                        }
-                      } catch (error) {
-                        console.error('Failed to process SSE message:', error, 'Line:', line);
-                      }
-                    }
-                  }
-                }
-              }
-              
-              if (xhr.readyState === 4) {
-                if (xhr.status >= 200 && xhr.status < 300) {
-                  resolve({
-                    data: xhr.responseText,
-                    status: xhr.status,
-                    statusText: xhr.statusText,
-                    headers: {},
-                    config: config
-                  });
-                } else {
-                  reject(new Error(`HTTP error! status: ${xhr.status}`));
-                }
-              }
-            };
-            
-            xhr.onerror = function() {
-              reject(new Error('Network error'));
-            };
-            
-            xhr.onabort = function() {
-              reject(new axios.Cancel('Request canceled'));
-            };
-                        
-            xhr.send();
-          });
-        }
-      });
+      const {
+        'access-token': accessToken,
+        'token-type': tokenType,
+        client,
+        expiry,
+        uid,
+      } = Auth.getAuthData();
 
-      // 返回一个类似 EventSource 的对象，用于兼容现有代码
-      return {
-        close: () => {
-          // cancelTokenSource.cancel('User requested cancellation');
+      await fetchEventSource(`${this.url}/inboxes/${inbox_id}/chats/sync`, {
+        method: 'POST',
+        signal: controller.signal,
+        headers: {
+          'access-token': accessToken,
+          'token-type': tokenType,
+          client,
+          expiry,
+          uid,
         },
-        abort: () => {
-          // cancelTokenSource.cancel('User requested cancellation');
-        }
-      };
+        onopen(res) {
+          if (res.ok) {
+            console.log('Messages sync connected');
+          } else {
+            throw new Error(`HTTP ${res.status}`);
+          }
+        },
+        onmessage(event) {
+          try {
+            const data = JSON.parse(event.data);
+            if (data.type === 'complete') {
+              onComplete(data);
+              controller.abort();
+            } else if (data.type === 'error') {
+              onError(data);
+              controller.abort();
+            } else {
+              onMessage(data);
+            }
+          } catch (parseError) {
+            console.error('Parse error:', parseError);
+          }
+        },
+        onclose() {
+          console.log('Messages sync closed');
+          onComplete({ type: 'complete', message: 'Messages sync completed' });
+        },
+        onerror(err) {
+          onError(err);
+          if (err.name === 'AbortError') return;
+          throw err;
+        },
+      });
     } catch (error) {
-      if (axios.isCancel(error)) {
-        console.log('Request canceled:', error.message);
-      } else {
-        console.error('Failed to start sync:', error);
-        onError(error);
-      }
-      return {
-        close: () => {},
-        abort: () => {}
-      };
+      onError(error);
     }
+
+    return {
+      close: () => controller.abort(),
+      abort: () => controller.abort(),
+    };
   }
 }
 
@@ -354,12 +245,12 @@ export default {
     },
     async syncContacts() {
       if (!this.inbox.id) return;
-      
+
       // 关闭之前的连接
       if (this.syncStates.contacts.eventSource) {
         this.syncStates.contacts.eventSource.close();
       }
-      
+
       this.syncStates.contacts.loading = true;
       this.syncStates.contacts.error = null;
       this.syncStates.contacts.success = false;
@@ -376,7 +267,7 @@ export default {
               message: data.message || JSON.stringify(data),
               data: data
             });
-            
+
             // 自动滚动到最新日志
             this.$nextTick(() => {
               const logContainer = this.$refs.contactsLogContainer;
@@ -389,7 +280,7 @@ export default {
           (error) => {
             this.syncStates.contacts.error = error.message || this.$t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_CONTACTS_ERROR');
             this.syncStates.contacts.loading = false;
-            
+
             // 添加错误日志
             this.syncStates.contacts.logs.push({
               timestamp: new Date(),
@@ -397,7 +288,7 @@ export default {
               message: this.syncStates.contacts.error,
               data: error
             });
-            
+
             // 显示错误消息
             this.$store.dispatch('alerts/show', {
               message: this.syncStates.contacts.error,
@@ -409,7 +300,7 @@ export default {
             this.syncStates.contacts.success = true;
             this.syncStates.contacts.lastSyncTime = new Date();
             this.syncStates.contacts.loading = false;
-            
+
             // 添加完成日志
             this.syncStates.contacts.logs.push({
               timestamp: new Date(),
@@ -417,7 +308,7 @@ export default {
               message: data.message || this.$t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_CONTACTS_SUCCESS'),
               data: data
             });
-            
+
             // 显示成功消息
             this.$store.dispatch('alerts/show', {
               message: this.$t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_CONTACTS_SUCCESS'),
@@ -428,7 +319,7 @@ export default {
       } catch (error) {
         this.syncStates.contacts.error = error.message || this.$t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_CONTACTS_ERROR');
         this.syncStates.contacts.loading = false;
-        
+
         // 显示错误消息
         this.$store.dispatch('alerts/show', {
           message: this.syncStates.contacts.error,
@@ -438,12 +329,12 @@ export default {
     },
     async syncMessages() {
       if (!this.inbox.id) return;
-      
+
       // 关闭之前的连接
       if (this.syncStates.messages.eventSource) {
         this.syncStates.messages.eventSource.close();
       }
-      
+
       this.syncStates.messages.loading = true;
       this.syncStates.messages.error = null;
       this.syncStates.messages.success = false;
@@ -460,7 +351,7 @@ export default {
               message: data.message || JSON.stringify(data),
               data: data
             });
-            
+
             // 自动滚动到最新日志
             this.$nextTick(() => {
               const logContainer = this.$refs.messagesLogContainer;
@@ -473,7 +364,7 @@ export default {
           (error) => {
             this.syncStates.messages.error = error.message || this.$t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_MESSAGES_ERROR');
             this.syncStates.messages.loading = false;
-            
+
             // 添加错误日志
             this.syncStates.messages.logs.push({
               timestamp: new Date(),
@@ -481,7 +372,7 @@ export default {
               message: this.syncStates.messages.error,
               data: error
             });
-            
+
             // 显示错误消息
             this.$store.dispatch('alerts/show', {
               message: this.syncStates.messages.error,
@@ -493,7 +384,7 @@ export default {
             this.syncStates.messages.success = true;
             this.syncStates.messages.lastSyncTime = new Date();
             this.syncStates.messages.loading = false;
-            
+
             // 添加完成日志
             this.syncStates.messages.logs.push({
               timestamp: new Date(),
@@ -501,7 +392,7 @@ export default {
               message: data.message || this.$t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_MESSAGES_SUCCESS'),
               data: data
             });
-            
+
             // 显示成功消息
             this.$store.dispatch('alerts/show', {
               message: this.$t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_MESSAGES_SUCCESS'),
@@ -512,7 +403,7 @@ export default {
       } catch (error) {
         this.syncStates.messages.error = error.message || this.$t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_MESSAGES_ERROR');
         this.syncStates.messages.loading = false;
-        
+
         // 显示错误消息
         this.$store.dispatch('alerts/show', {
           message: this.syncStates.messages.error,
@@ -546,7 +437,7 @@ export default {
         this.syncStates[type].eventSource.close();
         this.syncStates[type].eventSource = null;
         this.syncStates[type].loading = false;
-        
+
         // 添加停止日志
         this.syncStates[type].logs.push({
           timestamp: new Date(),
@@ -599,7 +490,7 @@ export default {
             <span class="status-text">{{ getStatusText(session.state) }}</span>
           </div>
         </div>
-        
+
         <div class="session-content">
           <!-- 会话详情 -->
           <div v-if="session.session_id" class="session-details">
@@ -607,7 +498,7 @@ export default {
               <label>{{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SESSION_ID.TITLE') }}:</label>
               <woot-code class="w-1/4" :script="session.session_id" />
             </div>
-            
+
             <div v-if="session.me?.pushName" class="detail-item">
               <label>{{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.CONNECTED_USER') }}:</label>
               <span class="user-info">
@@ -655,11 +546,7 @@ export default {
     <div class="sync-section" v-if="session.state === 'WORKING'">
       <div class="sync-tabs">
         <div class="tab-headers">
-          <button
-            class="tab-header"
-            :class="{ active: activeTab === 'contacts' }"
-            @click="setActiveTab('contacts')"
-          >
+          <button class="tab-header" :class="{ active: activeTab === 'contacts' }" @click="setActiveTab('contacts')">
             <i class="ion-person-stalker"></i>
             {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_CONTACTS_TITLE') }}
             <span v-if="syncStates.contacts.loading" class="tab-loading">
@@ -672,12 +559,8 @@ export default {
               <i class="ion-alert-circled"></i>
             </span>
           </button>
-          
-          <button
-            class="tab-header"
-            :class="{ active: activeTab === 'messages' }"
-            @click="setActiveTab('messages')"
-          >
+
+          <button class="tab-header" :class="{ active: activeTab === 'messages' }" @click="setActiveTab('messages')">
             <i class="ion-chatbox-working"></i>
             {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_MESSAGES_TITLE') }}
             <span v-if="syncStates.messages.loading" class="tab-loading">
@@ -715,62 +598,45 @@ export default {
                   </span>
                 </div>
               </div>
-              
+
               <div class="sync-actions">
                 <div class="sync-buttons">
-                  <woot-button
-                    :loading="syncStates.contacts.loading"
-                    :disabled="syncStates.contacts.loading || syncStates.messages.loading"
-                    @click="syncContacts"
-                    size="medium"
-                    variant="smooth"
-                  >
+                  <woot-button :loading="syncStates.contacts.loading"
+                    :disabled="syncStates.contacts.loading || syncStates.messages.loading" @click="syncContacts"
+                    size="medium" variant="smooth">
                     <i class="ion-person-stalker"></i>
                     {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_CONTACTS_BUTTON') }}
                   </woot-button>
-                  
-                  <woot-button
-                    v-if="syncStates.contacts.loading"
-                    @click="stopSync('contacts')"
-                    size="medium"
-                    variant="hollow"
-                    color-scheme="secondary"
-                  >
+
+                  <woot-button v-if="syncStates.contacts.loading" @click="stopSync('contacts')" size="medium"
+                    variant="hollow" color-scheme="secondary">
                     <i class="ion-stop"></i>
                     {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.STOP_SYNC') }}
                   </woot-button>
-                  
-                  <woot-button
-                    v-if="syncStates.contacts.logs.length > 0"
-                    @click="clearLogs('contacts')"
-                    size="medium"
-                    variant="clear"
-                    color-scheme="secondary"
-                  >
+
+                  <woot-button v-if="syncStates.contacts.logs.length > 0" @click="clearLogs('contacts')" size="medium"
+                    variant="clear" color-scheme="secondary">
                     <i class="ion-trash-a"></i>
                     {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.CLEAR_LOGS') }}
                   </woot-button>
                 </div>
-                
+
                 <div v-if="syncStates.contacts.lastSyncTime" class="last-sync-time">
-                  {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.LAST_SYNC') }}: 
+                  {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.LAST_SYNC') }}:
                   {{ formatLastSyncTime(syncStates.contacts.lastSyncTime) }}
                 </div>
               </div>
-              
+
               <!-- 实时日志显示 -->
               <div v-if="syncStates.contacts.logs.length > 0" class="sync-logs">
                 <div class="logs-header">
                   <h5>{{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_LOGS') }}</h5>
-                  <span class="logs-count">{{ syncStates.contacts.logs.length }} {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.LOGS_COUNT') }}</span>
+                  <span class="logs-count">{{ syncStates.contacts.logs.length }} {{
+                    $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.LOGS_COUNT') }}</span>
                 </div>
                 <div ref="contactsLogContainer" class="logs-container">
-                  <div
-                    v-for="(log, index) in syncStates.contacts.logs"
-                    :key="index"
-                    class="log-entry"
-                    :class="`log-${log.type}`"
-                  >
+                  <div v-for="(log, index) in syncStates.contacts.logs" :key="index" class="log-entry"
+                    :class="`log-${log.type}`">
                     <span class="log-time">{{ formatLogTime(log.timestamp) }}</span>
                     <span class="log-type">{{ log.type.toUpperCase() }}</span>
                     <span class="log-message">{{ log.message }}</span>
@@ -802,62 +668,45 @@ export default {
                   </span>
                 </div>
               </div>
-              
+
               <div class="sync-actions">
                 <div class="sync-buttons">
-                  <woot-button
-                    :loading="syncStates.messages.loading"
-                    :disabled="syncStates.messages.loading || syncStates.contacts.loading"
-                    @click="syncMessages"
-                    size="medium"
-                    variant="smooth"
-                  >
+                  <woot-button :loading="syncStates.messages.loading"
+                    :disabled="syncStates.messages.loading || syncStates.contacts.loading" @click="syncMessages"
+                    size="medium" variant="smooth">
                     <i class="ion-chatbox-working"></i>
                     {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_MESSAGES_BUTTON') }}
                   </woot-button>
-                  
-                  <woot-button
-                    v-if="syncStates.messages.loading"
-                    @click="stopSync('messages')"
-                    size="medium"
-                    variant="hollow"
-                    color-scheme="secondary"
-                  >
+
+                  <woot-button v-if="syncStates.messages.loading" @click="stopSync('messages')" size="medium"
+                    variant="hollow" color-scheme="secondary">
                     <i class="ion-stop"></i>
                     {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.STOP_SYNC') }}
                   </woot-button>
-                  
-                  <woot-button
-                    v-if="syncStates.messages.logs.length > 0"
-                    @click="clearLogs('messages')"
-                    size="medium"
-                    variant="clear"
-                    color-scheme="secondary"
-                  >
+
+                  <woot-button v-if="syncStates.messages.logs.length > 0" @click="clearLogs('messages')" size="medium"
+                    variant="clear" color-scheme="secondary">
                     <i class="ion-trash-a"></i>
                     {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.CLEAR_LOGS') }}
                   </woot-button>
                 </div>
-                
+
                 <div v-if="syncStates.messages.lastSyncTime" class="last-sync-time">
-                  {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.LAST_SYNC') }}: 
+                  {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.LAST_SYNC') }}:
                   {{ formatLastSyncTime(syncStates.messages.lastSyncTime) }}
                 </div>
               </div>
-              
+
               <!-- 实时日志显示 -->
               <div v-if="syncStates.messages.logs.length > 0" class="sync-logs">
                 <div class="logs-header">
                   <h5>{{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_LOGS') }}</h5>
-                  <span class="logs-count">{{ syncStates.messages.logs.length }} {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.LOGS_COUNT') }}</span>
+                  <span class="logs-count">{{ syncStates.messages.logs.length }} {{
+                    $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.LOGS_COUNT') }}</span>
                 </div>
                 <div ref="messagesLogContainer" class="logs-container">
-                  <div
-                    v-for="(log, index) in syncStates.messages.logs"
-                    :key="index"
-                    class="log-entry"
-                    :class="`log-${log.type}`"
-                  >
+                  <div v-for="(log, index) in syncStates.messages.logs" :key="index" class="log-entry"
+                    :class="`log-${log.type}`">
                     <span class="log-time">{{ formatLogTime(log.timestamp) }}</span>
                     <span class="log-type">{{ log.type.toUpperCase() }}</span>
                     <span class="log-message">{{ log.message }}</span>
@@ -943,14 +792,14 @@ export default {
   background-color: #ef4444;
 }
 
-.status-connecting, 
+.status-connecting,
 .status-scan_qr_code {
   background-color: #fefce8;
   color: #a16207;
   border: 1px solid #fef3c7;
 }
 
-.status-connecting .status-indicator, 
+.status-connecting .status-indicator,
 .status-scan_qr_code .status-indicator {
   background-color: #eab308;
 }
