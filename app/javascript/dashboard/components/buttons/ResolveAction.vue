@@ -142,24 +142,24 @@ useEmitter(CMD_RESOLVE_CONVERSATION, onCmdResolveConversation);
       <woot-button
         v-if="isOpen"
         class-names="resolve"
-        color-scheme="success"
-        icon="checkmark"
-        emoji="✅"
-        :is-loading="isLoading"
-        @click="onCmdResolveConversation"
-      >
-        {{ $t('CONVERSATION.HEADER.RESOLVE_ACTION') }}
-      </woot-button>
-      <woot-button
-        v-else-if="isResolved"
-        class-names="resolve"
         color-scheme="warning"
         icon="arrow-redo"
         emoji="👀"
         :is-loading="isLoading"
+        @click="onCmdResolveConversation"
+      >
+        {{ $t('CONVERSATION.HEADER.OPEN_STATUS') }}
+      </woot-button>
+      <woot-button
+        v-else-if="isResolved"
+        class-names="resolve"
+        color-scheme="success"
+        icon="checkmark"
+        emoji="✅"
+        :is-loading="isLoading"
         @click="onCmdOpenConversation"
       >
-        {{ t('CONVERSATION.HEADER.REOPEN_ACTION') }}
+        {{ t('CONVERSATION.HEADER.RESOLVED_STATUS') }}
       </woot-button>
       <woot-button
         v-else-if="showOpenButton"

@@ -55,6 +55,9 @@
       "HIDE_LABELS": "隱藏標籤"
     },
     "HEADER": {
+      "OPEN_STATUS": "未解決",
+      "RESOLVED_STATUS": "已解決",
+      
       "RESOLVE_ACTION": "已解決",
       "REOPEN_ACTION": "重新打開",
       "OPEN_ACTION": "打開",

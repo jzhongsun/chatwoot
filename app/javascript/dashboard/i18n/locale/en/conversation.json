@@ -55,6 +55,8 @@
       "HIDE_LABELS": "Hide labels"
     },
     "HEADER": {
+      "OPEN_STATUS": "Open",
+      "RESOLVED_STATUS": "Resolved",
       "RESOLVE_ACTION": "Resolve",
       "REOPEN_ACTION": "Reopen",
       "OPEN_ACTION": "Open",
