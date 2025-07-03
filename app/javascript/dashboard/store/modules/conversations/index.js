@@ -202,6 +202,21 @@ export const mutations = {
     }
   },
 
+  [types.DELETE_MESSAGE]({ allConversations, selectedChatId }, message) {
+    const { conversation_id: conversationId } = message;
+    const [chat] = getSelectedChatConversation({
+      allConversations,
+      selectedChatId: conversationId,
+    });
+    if (!chat) return;
+
+    chat.messages = chat.messages.filter(m => m.id !== message.id);
+    if (selectedChatId === conversationId) {
+      emitter.emit(BUS_EVENTS.FETCH_LABEL_SUGGESTIONS);
+      emitter.emit(BUS_EVENTS.SCROLL_TO_MESSAGE);
+    }
+  },
+
   [types.ADD_CONVERSATION](_state, conversation) {
     _state.allConversations.push(conversation);
   },

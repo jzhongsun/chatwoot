@@ -68,10 +68,10 @@
         "LABEL": "电话号码",
         "PLACEHOLDER": "请输入您的手机号码",
         "REQUIRED_ERROR": "电话号码是必填项",
-        "DIAL_CODE_VALID_ERROR": "请选择国家代码",
+        "DIAL_CODE_VALID_ERROR": "请选择国家/地区代码",
         "VALID_ERROR": "请输入一个有效的电话号码",
         "DROPDOWN_EMPTY": "没有检索到相关信息",
-        "DROPDOWN_SEARCH": "Search country"
+        "DROPDOWN_SEARCH": "Search country / region"
       },
       "MESSAGE": {
         "LABEL": "消息",

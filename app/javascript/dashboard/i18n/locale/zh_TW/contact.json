@@ -150,8 +150,8 @@
         "LABEL": "公司名稱"
       },
       "COUNTRY": {
-        "PLACEHOLDER": "Enter the country name",
-        "LABEL": "國家名稱",
+        "PLACEHOLDER": "Enter the country/region name",
+        "LABEL": "國家/地區名稱",
         "SELECT_PLACEHOLDER": "選擇",
         "REMOVE": "刪除",
         "SELECT_COUNTRY": "Select Country"
@@ -242,7 +242,7 @@
         "CONVERSATIONS": "對話",
         "LAST_ACTIVITY": "最後活動",
         "CREATED_AT": "建立於",
-        "COUNTRY": "國家",
+        "COUNTRY": "國家/地區",
         "CITY": "城市",
         "SOCIAL_PROFILES": "社群檔案",
         "COMPANY": "公司",

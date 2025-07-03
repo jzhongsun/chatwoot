@@ -68,10 +68,10 @@
         "LABEL": "聯絡電話",
         "PLACEHOLDER": "請輸入您的電話號碼",
         "REQUIRED_ERROR": "電話號碼為必填項",
-        "DIAL_CODE_VALID_ERROR": "請選擇國家代碼",
+        "DIAL_CODE_VALID_ERROR": "請選擇國家/地區代碼",
         "VALID_ERROR": "請輸入有效的電話號碼",
         "DROPDOWN_EMPTY": "沒有找到結果",
-        "DROPDOWN_SEARCH": "搜索國家"
+        "DROPDOWN_SEARCH": "搜索國家/地區"
       },
       "MESSAGE": {
         "LABEL": "訊息",

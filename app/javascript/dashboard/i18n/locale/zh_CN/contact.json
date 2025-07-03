@@ -151,7 +151,7 @@
       },
       "COUNTRY": {
         "PLACEHOLDER": "输入国家/地区名称",
-        "LABEL": "国家",
+        "LABEL": "国家/地区",
         "SELECT_PLACEHOLDER": "选择",
         "REMOVE": "删除",
         "SELECT_COUNTRY": "选择国家/地区"
@@ -242,7 +242,7 @@
         "CONVERSATIONS": "会话",
         "LAST_ACTIVITY": "最后一次活动",
         "CREATED_AT": "创建于",
-        "COUNTRY": "国家",
+        "COUNTRY": "国家/地区",
         "CITY": "城市",
         "SOCIAL_PROFILES": "社交资料",
         "COMPANY": "公司",

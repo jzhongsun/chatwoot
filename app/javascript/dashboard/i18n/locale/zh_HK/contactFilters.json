@@ -39,7 +39,7 @@
       "PHONE_NUMBER": "電話號碼",
       "IDENTIFIER": "識別碼",
       "CITY": "城市",
-      "COUNTRY": "國家",
+      "COUNTRY": "國家/地區",
       "CUSTOM_ATTRIBUTE_LIST": "列表",
       "CUSTOM_ATTRIBUTE_TEXT": "文字",
       "CUSTOM_ATTRIBUTE_NUMBER": "數字",

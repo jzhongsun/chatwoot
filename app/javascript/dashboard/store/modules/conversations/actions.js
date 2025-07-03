@@ -320,7 +320,7 @@ const actions = {
   ) {
     try {
       const { data } = await MessageApi.delete(conversationId, messageId);
-      commit(types.ADD_MESSAGE, data);
+      commit(types.DELETE_MESSAGE, data);
       commit(types.DELETE_CONVERSATION_ATTACHMENTS, data);
     } catch (error) {
       throw new Error(error);
