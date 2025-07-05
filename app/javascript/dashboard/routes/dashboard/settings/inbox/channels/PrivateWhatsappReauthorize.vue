@@ -89,6 +89,71 @@ class WhatsAppPrivateApiClient extends ApiClient {
     };
   }
 
+  async syncGroups(inbox_id, onMessage, onError, onComplete) {
+    let controller = new AbortController();
+
+    try {
+      const {
+        'access-token': accessToken,
+        'token-type': tokenType,
+        client,
+        expiry,
+        uid,
+      } = Auth.getAuthData();
+
+      await fetchEventSource(`${this.url}/inboxes/${inbox_id}/groups/sync`, {
+        method: 'POST',
+        signal: controller.signal,
+        headers: {
+          'access-token': accessToken,
+          'token-type': tokenType,
+          client,
+          expiry,
+          uid,
+        },
+        onopen(res) {
+          if (res.ok) {
+            console.log('Groups sync connected');
+          } else {
+            throw new Error(`HTTP ${res.status}`);
+          }
+        },
+        onmessage(event) {
+          try {
+            const data = JSON.parse(event.data);
+            if (data.type === 'complete') {
+              onComplete(data);
+              controller.abort();
+            } else if (data.type === 'error') {
+              onError(data);
+              controller.abort();
+            } else {
+              onMessage(data);
+            }
+          } catch (parseError) {
+            console.error('Parse error:', parseError);
+          }
+        },
+        onclose() {
+          console.log('Groups sync closed');
+          onComplete({ type: 'complete', message: 'Groups sync completed' });
+        },
+        onerror(err) {
+          onError(err);
+          if (err.name === 'AbortError') return;
+          throw err;
+        },
+      });
+    } catch (error) {
+      onError(error);
+    }
+
+    return {
+      close: () => controller.abort(),
+      abort: () => controller.abort(),
+    };
+  }
+
   async syncMessages(inbox_id, onMessage, onError, onComplete) {
     let controller = new AbortController();
 
@@ -187,6 +252,14 @@ export default {
       activeTab: 'contacts', // 当前激活的tab
       syncStates: {
         contacts: {
+          loading: false,
+          success: false,
+          error: null,
+          lastSyncTime: null,
+          logs: [],
+          eventSource: null,
+        },
+        groups: {
           loading: false,
           success: false,
           error: null,
@@ -323,6 +396,47 @@ export default {
         // 显示错误消息
         this.$store.dispatch('alerts/show', {
           message: this.syncStates.contacts.error,
+          type: 'error',
+        });
+      }
+    },
+
+    async syncGroups() {
+      if (!this.inbox.id) return;
+
+      this.syncStates.groups.loading = true;
+      this.syncStates.groups.error = null;
+      this.syncStates.groups.success = false;
+      this.syncStates.groups.logs = [];
+
+      try {
+        this.syncStates.groups.eventSource = await whatsAppPrivateApiClient.syncGroups(
+          this.inbox.id,
+          (data) => {
+            this.syncStates.groups.logs.push({
+              timestamp: new Date(),
+              type: data.type || 'info',
+              message: data.message || JSON.stringify(data),
+              data: data
+            });
+          },
+          (error) => {
+            this.syncStates.groups.error = error.message || this.$t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_GROUPS_ERROR');
+            this.syncStates.groups.loading = false;
+          },
+          (data) => {
+            this.syncStates.groups.success = true;
+            this.syncStates.groups.lastSyncTime = new Date();
+            this.syncStates.groups.loading = false;
+          }
+        );
+      } catch (error) {
+        this.syncStates.groups.error = error.message || this.$t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_GROUPS_ERROR');
+        this.syncStates.groups.loading = false;
+
+        // 显示错误消息
+        this.$store.dispatch('alerts/show', {
+          message: this.syncStates.groups.error,
           type: 'error',
         });
       }
@@ -560,6 +674,20 @@ export default {
             </span>
           </button>
 
+          <button class="tab-header" :class="{ active: activeTab === 'groups' }" @click="setActiveTab('groups')">
+            <i class="ion-people"></i>
+            {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_GROUPS_TITLE') }}
+            <span v-if="syncStates.groups.loading" class="tab-loading">
+              <woot-spinner size="small" />
+            </span>
+            <span v-else-if="syncStates.groups.success" class="tab-success">
+              <i class="ion-checkmark-round"></i>
+            </span>
+            <span v-else-if="syncStates.groups.error" class="tab-error">
+              <i class="ion-alert-circled"></i>
+            </span>
+          </button>
+
           <button class="tab-header" :class="{ active: activeTab === 'messages' }" @click="setActiveTab('messages')">
             <i class="ion-chatbox-working"></i>
             {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_MESSAGES_TITLE') }}
@@ -636,6 +764,76 @@ export default {
                 </div>
                 <div ref="contactsLogContainer" class="logs-container">
                   <div v-for="(log, index) in syncStates.contacts.logs" :key="index" class="log-entry"
+                    :class="`log-${log.type}`">
+                    <span class="log-time">{{ formatLogTime(log.timestamp) }}</span>
+                    <span class="log-type">{{ log.type.toUpperCase() }}</span>
+                    <span class="log-message">{{ log.message }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 同步群组 Tab -->
+          <div v-show="activeTab === 'groups'" class="tab-panel">
+            <div class="sync-panel">
+              <div class="sync-header">
+                <div class="sync-info">
+                  <h4>{{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_GROUPS_TITLE') }}</h4>
+                  <p class="sync-description">
+                    {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_GROUPS_DESCRIPTION') }}
+                  </p>
+                </div>
+                <div class="sync-status">
+                  <woot-spinner v-if="syncStates.groups.loading" size="small" />
+                  <span v-else-if="syncStates.groups.success" class="success-indicator">
+                    <i class="ion-checkmark-round"></i>
+                    {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_SUCCESS') }}
+                  </span>
+                  <span v-else-if="syncStates.groups.error" class="error-indicator">
+                    <i class="ion-alert-circled"></i>
+                    {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_FAILED') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="sync-actions">
+                <div class="sync-buttons">
+                  <woot-button :loading="syncStates.contacts.loading"
+                    :disabled="syncStates.groups.loading || syncStates.messages.loading" @click="syncGroups"
+                    size="medium" variant="smooth">
+                    <i class="ion-person-stalker"></i>
+                    {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_GROUPS_BUTTON') }}
+                  </woot-button>
+
+                  <woot-button v-if="syncStates.groups.loading" @click="stopSync('groups')" size="medium"
+                    variant="hollow" color-scheme="secondary">
+                    <i class="ion-stop"></i>
+                    {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.STOP_SYNC') }}
+                  </woot-button>
+
+                  <woot-button v-if="syncStates.groups.logs.length > 0" @click="clearLogs('groups')" size="medium"
+                    variant="clear" color-scheme="secondary">
+                    <i class="ion-trash-a"></i>
+                    {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.CLEAR_LOGS') }}
+                  </woot-button>
+                </div>
+
+                <div v-if="syncStates.groups.lastSyncTime" class="last-sync-time">
+                  {{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.LAST_SYNC') }}:
+                  {{ formatLastSyncTime(syncStates.groups.lastSyncTime) }}
+                </div>
+              </div>
+
+              <!-- 实时日志显示 -->
+              <div v-if="syncStates.groups.logs.length > 0" class="sync-logs">
+                <div class="logs-header">
+                  <h5>{{ $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.SYNC_LOGS') }}</h5>
+                  <span class="logs-count">{{ syncStates.groups.logs.length }} {{
+                    $t('INBOX_MGMT.SETTINGS_WHATSAPP_PRIVATE.LOGS_COUNT') }}</span>
+                </div>
+                <div ref="contactsLogContainer" class="logs-container">
+                  <div v-for="(log, index) in syncStates.groups.logs" :key="index" class="log-entry"
                     :class="`log-${log.type}`">
                     <span class="log-time">{{ formatLogTime(log.timestamp) }}</span>
                     <span class="log-type">{{ log.type.toUpperCase() }}</span>
