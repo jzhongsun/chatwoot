@@ -194,7 +194,24 @@ export default {
       return this.contentAttributes.external_error || '';
     },
     sender() {
-      return this.data.sender || {};
+      return this.data.sender || { name: '' };
+    },
+
+    isWhatsAppGroupMessage() {
+      const additionalAttributes = this.data.additional_attributes || {};
+      return additionalAttributes.group_id && additionalAttributes.group_id.includes('@g.us');
+    },
+
+    displaySender() {
+      const additionalAttributes = this.data.additional_attributes || {};
+      if (additionalAttributes.group_id) {
+        return {
+          group_id: additionalAttributes.group_id,
+          notify_name: additionalAttributes.notify_name,
+          participant_id: additionalAttributes.participant,
+        };
+      }
+      return this.data.sender;
     },
     status() {
       return this.data.status;
@@ -322,6 +339,7 @@ export default {
     },
     isSentByBot() {
       if (this.isPending || this.isFailed) return false;
+      if (this.isWhatsAppGroupMessage) return false;
       return !this.sender.type || this.sender.type === 'agent_bot';
     },
     shouldShowContextMenu() {
@@ -462,6 +480,14 @@ export default {
         />
       </div>
       <div :class="bubbleClass" @contextmenu="openContextMenu($event)">
+        <div v-if="isWhatsAppGroupMessage" class="sender--info">
+          <fluent-icon
+              icon="person"
+              size="12"
+              class="text-woot-500 dark:text-woot-400 mr-0.5"
+            />
+          <span class="sender--available-name">{{ displaySender.notify_name || displaySender.name }}</span>
+        </div>
         <BubbleMailHead
           :email-attributes="contentAttributes.email"
           :cc="emailHeadAttributes.cc"
@@ -686,7 +712,7 @@ export default {
 }
 
 .sender--info {
-  @apply items-center text-black-700 dark:text-black-100 inline-flex py-1 px-0;
+  @apply items-center text-woot-700 dark:text-woot-100 inline-flex py-1 px-0;
 
   .sender--available-name {
     @apply text-xs ml-1;

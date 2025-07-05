@@ -160,6 +160,11 @@ export default {
               class="[&>span]:overflow-hidden [&>span]:whitespace-nowrap [&>span]:text-ellipsis min-w-0"
               @click.prevent="$emit('contactPanelToggle')"
             >
+              <fluent-icon v-if="currentContact.contact_type === 'group'"
+                icon="people-team"
+                size="12"
+                class="text-slate-500 dark:text-slate-400 mr-0.5"
+              />
               <span
                 class="text-base font-medium leading-tight text-slate-900 dark:text-slate-100"
               >

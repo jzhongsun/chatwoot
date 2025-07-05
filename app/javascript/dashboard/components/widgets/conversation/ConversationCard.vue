@@ -292,8 +292,13 @@ export default {
         </div>
       </div>
       <h4
-        class="conversation--user text-sm my-0 mx-2 capitalize pt-0.5 text-ellipsis font-medium overflow-hidden whitespace-nowrap w-[calc(100%-70px)] text-slate-900 dark:text-slate-100"
+        class="flex items-center conversation--user text-sm my-0 mx-2 capitalize pt-0.5 text-ellipsis font-medium overflow-hidden whitespace-nowrap w-[calc(100%-70px)] text-slate-900 dark:text-slate-100"
       >
+        <fluent-icon v-if="currentContact.contact_type === 'group'"
+                icon="people-team"
+                size="12"
+                class="text-slate-500 dark:text-slate-400 mr-0.5"
+              />
         {{ currentContact.name }}
       </h4>
       <MessagePreview

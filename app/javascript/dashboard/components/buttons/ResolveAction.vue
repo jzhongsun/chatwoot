@@ -43,8 +43,8 @@ const isSnoozed = computed(
 
 const buttonClass = computed(() => {
   if (isPending.value) return 'primary';
-  if (isOpen.value) return 'success';
-  if (isResolved.value) return 'warning';
+  if (isOpen.value) return 'warning';
+  if (isResolved.value) return 'success';
   return '';
 });
 

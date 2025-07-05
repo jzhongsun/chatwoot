@@ -196,7 +196,7 @@ export default {
           >
             {{ contact.name }}
           </h3>
-          <div class="flex flex-row items-center gap-1">
+          <div v-if="contact.contact_type !== 'group'" class="flex flex-row items-center gap-1">
             <fluent-icon
               v-if="contact.created_at"
               v-tooltip.left="
@@ -227,7 +227,7 @@ export default {
         <p v-if="additionalAttributes.description" class="break-words mb-0.5">
           {{ additionalAttributes.description }}
         </p>
-        <div class="flex flex-col items-start w-full gap-2">
+        <div v-if="contact.contact_type !== 'group'" class="flex flex-col items-start w-full gap-2">
           <ContactInfoRow
             :href="contact.email ? `mailto:${contact.email}` : ''"
             :value="contact.email"
@@ -268,6 +268,11 @@ export default {
         </div>
       </div>
       <div class="flex items-center w-full mt-0.5 gap-2">
+        <fluent-icon v-if="contact.contact_type === 'group'"
+                icon="people-team"
+                size="16"
+                class="text-slate-500 dark:text-slate-400 mr-0.5"
+              />        
         <woot-button
           v-tooltip="$t('CONTACT_PANEL.NEW_MESSAGE')"
           :title="$t('CONTACT_PANEL.NEW_MESSAGE')"
@@ -276,6 +281,7 @@ export default {
           @click="toggleConversationModal"
         />
         <woot-button
+          v-if="contact.contact_type !== 'group'"
           v-tooltip="$t('EDIT_CONTACT.BUTTON_LABEL')"
           :title="$t('EDIT_CONTACT.BUTTON_LABEL')"
           icon="edit"
@@ -284,6 +290,7 @@ export default {
           @click="toggleEditModal"
         />
         <woot-button
+          v-if="contact.contact_type !== 'group'"
           v-tooltip="$t('CONTACT_PANEL.MERGE_CONTACT')"
           :title="$t('CONTACT_PANEL.MERGE_CONTACT')"
           icon="merge"
@@ -294,7 +301,7 @@ export default {
           @click="openMergeModal"
         />
         <woot-button
-          v-if="isAdmin"
+          v-if="isAdmin && contact.contact_type !== 'group'"
           v-tooltip="$t('DELETE_CONTACT.BUTTON_LABEL')"
           :title="$t('DELETE_CONTACT.BUTTON_LABEL')"
           icon="delete"
