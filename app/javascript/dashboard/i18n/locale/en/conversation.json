@@ -29,6 +29,7 @@
     "LOADING_INBOXES": "Loading inboxes",
     "LOADING_CONVERSATIONS": "Loading Conversations",
     "CANNOT_REPLY": "You cannot reply due to",
+    "CANNOT_REPLY_INBOX_NOT_FOUND": "Inbox not found",
     "24_HOURS_WINDOW": "24 hour message window restriction",
     "NOT_ASSIGNED_TO_YOU": "This conversation is not assigned to you. Would you like to assign this conversation to yourself?",
     "ASSIGN_TO_ME": "Assign to me",

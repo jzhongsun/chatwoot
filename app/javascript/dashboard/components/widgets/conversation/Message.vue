@@ -103,7 +103,7 @@ export default {
       return getDayDifferenceFromNow(new Date(), this.data?.created_at) >= 1;
     },
     hasOneHourPassed() {
-      return getMinutesDifferenceFromNow(new Date(), this.data?.created_at) >= 6000;
+      return getMinutesDifferenceFromNow(new Date(), this.data?.created_at) >= 60;
     },
     shouldRenderMessage() {
       return (

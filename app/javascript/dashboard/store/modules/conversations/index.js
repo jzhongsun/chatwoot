@@ -217,6 +217,24 @@ export const mutations = {
     }
   },
 
+  [types.EDIT_MESSAGE]({ allConversations, selectedChatId }, message) {
+    const { conversation_id: conversationId } = message;
+    const [chat] = getSelectedChatConversation({
+      allConversations,
+      selectedChatId: conversationId,
+    });
+    if (!chat) return;
+
+    const messageIndex = chat.messages.findIndex(m => m.id === message.id);
+    if (messageIndex !== -1) {
+      chat.messages[messageIndex] = message;
+      if (selectedChatId === conversationId) {
+        emitter.emit(BUS_EVENTS.FETCH_LABEL_SUGGESTIONS);
+        emitter.emit(BUS_EVENTS.SCROLL_TO_MESSAGE);
+      }
+    }
+  },
+
   [types.ADD_CONVERSATION](_state, conversation) {
     _state.allConversations.push(conversation);
   },

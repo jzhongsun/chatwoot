@@ -191,6 +191,9 @@ export default {
     },
 
     replyWindowBannerMessage() {
+      if (!this.currentChat.inbox) {
+        return this.$t('CONVERSATION.CANNOT_REPLY');
+      }
       if (this.isAWhatsAppChannel) {
         return this.$t('CONVERSATION.TWILIO_WHATSAPP_CAN_REPLY');
       }
@@ -216,6 +219,9 @@ export default {
       return '';
     },
     replyWindowLinkText() {
+      if (!this.currentChat.inbox) {
+        return this.$t('CONVERSATION.CANNOT_REPLY_INBOX_NOT_FOUND');
+      }
       if (this.isAWhatsAppChannel) {
         return this.$t('CONVERSATION.24_HOURS_WINDOW');
       }

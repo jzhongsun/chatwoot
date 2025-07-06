@@ -29,6 +29,7 @@
     "LOADING_INBOXES": "正在加載收件箱",
     "LOADING_CONVERSATIONS": "加載更多對話",
     "CANNOT_REPLY": "您不能回復，原因是：",
+    "CANNOT_REPLY_INBOX_NOT_FOUND": "收件箱無效",
     "24_HOURS_WINDOW": "24小時消息窗口限制",
     "NOT_ASSIGNED_TO_YOU": "此對話未分配給您。您想將其分配給自己嗎？",
     "ASSIGN_TO_ME": "分配給我",
