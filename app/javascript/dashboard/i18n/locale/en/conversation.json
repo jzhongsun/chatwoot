@@ -220,7 +220,8 @@
         "MESSAGE": "You cannot undo this action",
         "DELETE": "Delete",
         "CANCEL": "Cancel"
-      }
+      },
+      "EDIT": "Edit"
     }
   },
   "EMAIL_TRANSCRIPT": {

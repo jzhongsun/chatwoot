@@ -110,6 +110,10 @@ class MessageApi extends ApiClient {
     });
   }
 
+  editContent(conversationID, messageId, { content }) {
+    return axios.put(`${this.url}/${conversationID}/messages/${messageId}`, { content });
+  }
+
   retry(conversationID, messageId) {
     return axios.post(
       `${this.url}/${conversationID}/messages/${messageId}/retry`

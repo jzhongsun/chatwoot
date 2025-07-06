@@ -310,8 +310,22 @@ const actions = {
     }
   },
 
-  updateMessage({ commit }, message) {
-    commit(types.ADD_MESSAGE, message);
+  updateMessage: async function updateMessage ({ commit }, { conversationId, messageId, content }) {
+    try {
+      const { data } = await MessageApi.edit(conversationId, messageId, { content });
+      commit(types.EDIT_MESSAGE, data);
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+
+  editMessageContent: async function editMessageContent ({ commit }, { conversationId, messageId, content }) {
+    try {
+      const { data } = await MessageApi.editContent(conversationId, messageId, { content });
+      commit(types.EDIT_MESSAGE, data);
+    } catch (error) {
+      throw new Error(error);
+    }
   },
 
   deleteMessage: async function deleteLabels(

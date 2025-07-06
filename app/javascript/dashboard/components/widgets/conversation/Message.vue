@@ -20,7 +20,7 @@ import { BUS_EVENTS } from 'shared/constants/busEvents';
 import { ACCOUNT_EVENTS } from 'dashboard/helper/AnalyticsHelper/events';
 import { LOCAL_STORAGE_KEYS } from 'dashboard/constants/localStorage';
 import { LocalStorage } from 'shared/helpers/localStorage';
-import { getDayDifferenceFromNow } from 'shared/helpers/DateHelper';
+import { getDayDifferenceFromNow, getMinutesDifferenceFromNow } from 'shared/helpers/DateHelper';
 import * as Sentry from '@sentry/vue';
 import { useTrack } from 'dashboard/composables';
 import { emitter } from 'shared/helpers/mitt';
@@ -102,6 +102,9 @@ export default {
       // Disable retry button if the message is failed and the message is older than 24 hours
       return getDayDifferenceFromNow(new Date(), this.data?.created_at) >= 1;
     },
+    hasOneHourPassed() {
+      return getMinutesDifferenceFromNow(new Date(), this.data?.created_at) >= 6000;
+    },
     shouldRenderMessage() {
       return (
         this.hasAttachments ||
@@ -182,9 +185,10 @@ export default {
     contextMenuEnabledOptions() {
       return {
         copy: this.hasText,
-        delete: this.hasText || this.hasAttachments,
+        delete: (this.hasText || this.hasAttachments) && this.isOutgoing && (!this.hasOneHourPassed || this.isPrivate),
         cannedResponse: this.isOutgoing && this.hasText,
         replyTo: !this.data.private && this.inboxSupportsReplyTo.outgoing,
+        edit: this.isOutgoing && this.hasText && this.contentType === 'text' && !this.hasOneHourPassed,
       };
     },
     contentAttributes() {
@@ -453,6 +457,14 @@ export default {
         this.showBackgroundHighlight = false;
       }, HIGHLIGHT_TIMER);
     },
+    handleEdit(messageContent) {
+      const { conversation_id: conversationId, id: messageId } = this.data;
+      this.$store.dispatch('editMessageContent', {
+        conversationId,
+        messageId,
+        content: messageContent,
+      });
+    },
   },
 };
 </script>
@@ -604,6 +616,7 @@ export default {
         @open="openContextMenu"
         @close="closeContextMenu"
         @reply-to="handleReplyTo"
+        @edit="handleEdit"
       />
     </div>
   </li>

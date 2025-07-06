@@ -220,7 +220,8 @@
         "MESSAGE": "此操作无法撤销。",
         "DELETE": "删除",
         "CANCEL": "取消"
-      }
+      },
+      "EDIT": "编辑"
     }
   },
   "EMAIL_TRANSCRIPT": {

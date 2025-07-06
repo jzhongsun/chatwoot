@@ -13,6 +13,7 @@ import {
 import TranslateModal from 'dashboard/components/widgets/conversation/bubble/TranslateModal.vue';
 import MenuItem from '../../../components/widgets/conversation/contextMenu/menuItem.vue';
 import { useTrack } from 'dashboard/composables';
+import MessageEditModal from 'dashboard/components/widgets/conversation/MessageEditModal.vue';
 
 export default {
   components: {
@@ -20,6 +21,7 @@ export default {
     TranslateModal,
     MenuItem,
     ContextMenu,
+    MessageEditModal,
   },
   props: {
     message: {
@@ -39,7 +41,7 @@ export default {
       default: () => ({}),
     },
   },
-  emits: ['open', 'close', 'replyTo'],
+  emits: ['open', 'close', 'replyTo', 'edit'],
   setup() {
     const { getPlainText } = useMessageFormatter();
     return {
@@ -51,6 +53,7 @@ export default {
       isCannedResponseModalOpen: false,
       showTranslateModal: false,
       showDeleteModal: false,
+      showEditModal: false,
     };
   },
   computed: {
@@ -131,6 +134,13 @@ export default {
       this.handleClose();
       this.showDeleteModal = true;
     },
+    openEditModal() {
+      this.handleClose();
+      this.showEditModal = true;
+    },
+    closeEditModal() {
+      this.showEditModal = false;
+    },
     async confirmDeletion() {
       try {
         await this.$store.dispatch('deleteMessage', {
@@ -145,6 +155,10 @@ export default {
     },
     closeDeleteModal() {
       this.showDeleteModal = false;
+    },
+    handleEdit(messageContent) {
+      this.$emit('edit', messageContent);
+      this.handleClose();
     },
   },
 };
@@ -182,6 +196,13 @@ export default {
       :confirm-text="$t('CONVERSATION.CONTEXT_MENU.DELETE_CONFIRMATION.DELETE')"
       :reject-text="$t('CONVERSATION.CONTEXT_MENU.DELETE_CONFIRMATION.CANCEL')"
     />
+    <!-- Edit Content -->
+    <MessageEditModal
+        v-if="showEditModal && enabledOptions['edit']"
+        :message="message"
+        @close="closeEditModal"
+        @submit="handleEdit"
+      />
     <woot-button
       icon="more-vertical"
       color-scheme="secondary"
@@ -251,6 +272,15 @@ export default {
           }"
           variant="icon"
           @click.stop="openDeleteModal"
+        />
+        <MenuItem
+          v-if="enabledOptions['edit']"
+          :option="{
+            icon: 'edit',
+            label: $t('CONVERSATION.CONTEXT_MENU.EDIT'),
+          }"
+          variant="icon"
+          @click.stop="openEditModal"
         />
       </div>
     </ContextMenu>
