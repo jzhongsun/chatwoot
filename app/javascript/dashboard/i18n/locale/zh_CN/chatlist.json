@@ -122,6 +122,7 @@
     "SENT": "发送成功",
     "READ": "阅读成功",
     "DELIVERED": "已成功发送",
+    "REVOKED": "已撤回",
     "NO_MESSAGES": "没有信息",
     "NO_CONTENT": "没有可用的内容",
     "HIDE_QUOTED_TEXT": "隐藏引用文字",

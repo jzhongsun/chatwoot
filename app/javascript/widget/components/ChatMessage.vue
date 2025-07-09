@@ -2,7 +2,7 @@
 import AgentMessage from 'widget/components/AgentMessage.vue';
 import UserMessage from 'widget/components/UserMessage.vue';
 import { mapGetters } from 'vuex';
-import { MESSAGE_TYPE } from 'widget/helpers/constants';
+import { MESSAGE_TYPE, MESSAGE_STATUS } from 'widget/helpers/constants';
 
 export default {
   components: {
@@ -22,6 +22,9 @@ export default {
     isUserMessage() {
       return this.message.message_type === MESSAGE_TYPE.INCOMING;
     },
+    isDeleted() {
+      return this.message.content_attributes?.deleted || this.message.status === MESSAGE_STATUS.REVOKED;
+    },
     replyTo() {
       const replyTo = this.message?.content_attributes?.in_reply_to;
       return replyTo ? this.allMessages[replyTo] : null;
@@ -32,13 +35,13 @@ export default {
 
 <template>
   <UserMessage
-    v-if="isUserMessage"
+    v-if="isUserMessage && !isDeleted"
     :id="`cwmsg-${message.id}`"
     :message="message"
     :reply-to="replyTo"
   />
   <AgentMessage
-    v-else
+    v-else-if="!isDeleted"
     :id="`cwmsg-${message.id}`"
     :message="message"
     :reply-to="replyTo"

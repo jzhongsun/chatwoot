@@ -77,6 +77,9 @@ export default {
     isSent() {
       return MESSAGE_STATUS.SENT === this.messageStatus;
     },
+    isRevoked() {
+      return MESSAGE_STATUS.REVOKED === this.messageStatus;
+    },
     readableTime() {
       return messageTimestamp(this.createdAt, 'MMM d, yyyy h:mm a');
     },
@@ -172,6 +175,12 @@ export default {
 
       return false;
     },
+    showRevokedIndicator() {
+      if (!this.showStatusIndicators) {
+        return false;
+      }
+      return this.isRevoked;
+    },
   },
 };
 </script>
@@ -215,6 +224,14 @@ export default {
       <fluent-icon
         v-tooltip.top-start="$t('CHAT_LIST.SENT')"
         icon="checkmark"
+        class="action--icon read-tick"
+        size="14"
+      />
+    </span>
+    <span v-if="showRevokedIndicator" class="read-indicator-wrap">
+      <fluent-icon
+        v-tooltip.top-start="$t('CHAT_LIST.REVOKED')"
+        icon="delete"
         class="action--icon read-tick"
         size="14"
       />
@@ -290,6 +307,10 @@ export default {
 
   .time {
     @apply mr-2 block text-xxs leading-[1.8];
+  }
+
+  .action--text {
+    @apply text-xxs leading-[1.8] text-woot-100 dark:text-woot-100;
   }
 
   .action--icon {

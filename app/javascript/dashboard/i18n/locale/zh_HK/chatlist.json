@@ -122,6 +122,7 @@
     "SENT": "已發送",
     "READ": "已讀取",
     "DELIVERED": "已送達",
+    "REVOKED": "已撤回",
     "NO_MESSAGES": "沒有訊息",
     "NO_CONTENT": "沒有可用內容",
     "HIDE_QUOTED_TEXT": "隱藏引用文字",

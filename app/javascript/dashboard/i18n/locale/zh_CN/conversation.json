@@ -47,6 +47,7 @@
     "UNSUPPORTED_MESSAGE_INSTAGRAM": "不支持此消息。您可以在 Instagram 应用上查看此消息。",
     "SUCCESS_DELETE_MESSAGE": "已成功删除消息",
     "FAIL_DELETE_MESSSAGE": "无法删除消息，请重试！",
+    "MESSAGE_DELETED": "消息已删除",
     "NO_RESPONSE": "无响应",
     "RATING_TITLE": "评分",
     "FEEDBACK_TITLE": "Feedback",

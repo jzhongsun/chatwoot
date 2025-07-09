@@ -4,6 +4,7 @@ export const MESSAGE_STATUS = {
   FAILED: 'failed',
   SUCCESS: 'success',
   PROGRESS: 'progress',
+  REVOKED: 'revoked',
 };
 
 export const MESSAGE_TYPE = {

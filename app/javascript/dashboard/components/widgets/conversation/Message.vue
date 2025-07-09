@@ -111,7 +111,8 @@ export default {
         this.data.content ||
         this.isEmailContentType ||
         this.isUnsupported ||
-        this.isAnIntegrationMessage
+        this.isAnIntegrationMessage ||
+        this.isMessageDeleted
       );
     },
     emailMessageContent() {
@@ -287,7 +288,7 @@ export default {
       return !!(this.data.attachments && this.data.attachments.length > 0);
     },
     isMessageDeleted() {
-      return this.contentAttributes.deleted;
+      return this.contentAttributes.deleted || this.data.status === MESSAGE_STATUS.REVOKED;
     },
     hasText() {
       return !!this.data.content;
@@ -317,6 +318,7 @@ export default {
         'is-pending': this.isPending,
         'is-failed': this.isFailed,
         'is-email': this.isEmailContentType,
+        'is-deleted': this.isMessageDeleted,
       };
     },
     bubbleClass() {
@@ -330,6 +332,7 @@ export default {
         'is-from-bot': this.isSentByBot,
         'is-failed': this.isFailed,
         'is-email': this.isEmailContentType,
+        'is-deleted': this.isMessageDeleted,
       };
     },
     isUnsupported() {
@@ -513,6 +516,11 @@ export default {
           :message-type="data.message_type"
           :parent-has-attachments="hasAttachments"
         />
+        <div v-if="isMessageDeleted" class="deleted-message-header">
+          <span class="deleted-message-text">
+            {{ $t('CONVERSATION.MESSAGE_DELETED') }}
+          </span>
+        </div>
         <div v-if="isUnsupported">
           <template v-if="isAFacebookInbox && isInstagram">
             {{ $t('CONVERSATION.UNSUPPORTED_MESSAGE_INSTAGRAM') }}
@@ -525,7 +533,7 @@ export default {
           </template>
         </div>
         <BubbleText
-          v-else-if="data.content"
+          v-if="data.content && !isUnsupported"
           :message="message"
           :is-email="isEmailContentType"
           :display-quoted-button="displayQuotedButton"
@@ -705,6 +713,16 @@ export default {
         @apply text-red-50 dark:text-red-50;
       }
     }
+
+    &.is-deleted {
+      .deleted-message-header {
+        @apply text-left py-1 mb-2 text-slate-500 dark:text-slate-400 text-xs italic;
+        
+        .deleted-message-text {
+          @apply select-none font-medium;
+        }
+      }
+    }
   }
 
   &.is-pending {
@@ -716,6 +734,16 @@ export default {
 
     > .is-image.is-text.bubble > .message-text__wrap {
       @apply p-0;
+    }
+  }
+
+  &.is-deleted {
+    > .bubble {
+      @apply opacity-60;
+    }
+    
+    &:hover > .bubble {
+      @apply opacity-90;
     }
   }
 }
@@ -821,6 +849,16 @@ li.right {
 
     p {
       @apply text-woot-75 dark:text-woot-75;
+    }
+  }
+}
+
+.right .bubble.is-deleted {
+  .deleted-message-header {
+    @apply text-right text-white dark:text-white;
+    
+    .deleted-message-text {
+      @apply text-woot-100 dark:text-woot-100;
     }
   }
 }
