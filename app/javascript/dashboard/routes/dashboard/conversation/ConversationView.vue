@@ -83,16 +83,13 @@ export default {
       return conversationDisplayType !== CONDENSED;
     },
     isContactPanelOpen() {
-      const {
-        SMALL_SCREEN_BREAKPOINT,
-      } = wootConstants;      
+      const { SMALL_SCREEN_BREAKPOINT } = wootConstants;
       if (this.currentChat.id) {
-        if (window.innerWidth >= SMALL_SCREEN_BREAKPOINT) {
-          return true;
-        }
         const { is_contact_sidebar_open: isContactSidebarOpen } =
           this.uiSettings;
-        return isContactSidebarOpen;
+        return isContactSidebarOpen !== null
+          ? isContactSidebarOpen
+          : window.innerWidth >= SMALL_SCREEN_BREAKPOINT;
       }
       return false;
     },
