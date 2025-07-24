@@ -1,5 +1,10 @@
 
 export const showBrowserNotificationNewMessage = (message) => {
+    if (!('Notification' in window)) {
+        console.debug('This browser does not support desktop notification');
+        return;
+    }
+
     const { t } = window.i18n.global;
     console.info('new message', message);
     const notification = new Notification(
@@ -21,6 +26,10 @@ export const showBrowserNotificationNewMessage = (message) => {
 };
 
 export const initBrowserNotification = () => {
+    if (!('Notification' in window)) {
+        console.log('This browser does not support desktop notification');
+        return;
+    }
     Notification.requestPermission().then(permission => {
         if (permission === 'granted') {
             console.log('notification permission granted');
