@@ -27,7 +27,7 @@ export const messageTimestamp = (time, dateFormat = 'MMM d, yyyy') => {
   const now = new Date();
   const messageDate = format(messageTime, dateFormat);
   if (!isSameYear(messageTime, now)) {
-    return format(messageTime, 'LLL d y, h:mm a');
+    return format(messageTime, 'yyyy-MM-dd, HH:mm:ss');
   }
   return messageDate;
 };

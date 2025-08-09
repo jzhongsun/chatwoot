@@ -698,7 +698,7 @@ export default {
       @apply bg-violet-400 dark:bg-violet-400;
 
       .message-text--metadata .time {
-        @apply text-violet-50 dark:text-violet-50;
+        @apply text-slate-400 dark:text-slate-400;
       }
 
       &.is-private .message-text--metadata .time {

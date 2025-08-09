@@ -51,7 +51,7 @@ const hasMoreThanOneAttachment = computed(
 const readableTime = computed(() => {
   const { created_at: createdAt } = activeAttachment.value;
   if (!createdAt) return '';
-  return messageTimestamp(createdAt, 'LLL d yyyy, h:mm a') || '';
+  return messageTimestamp(createdAt, 'yyyy-MM-dd, HH:mm:ss') || '';
 });
 
 const isImage = computed(

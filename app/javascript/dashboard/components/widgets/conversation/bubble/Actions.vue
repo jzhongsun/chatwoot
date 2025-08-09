@@ -81,7 +81,7 @@ export default {
       return MESSAGE_STATUS.REVOKED === this.messageStatus;
     },
     readableTime() {
-      return messageTimestamp(this.createdAt, 'MMM d, yyyy h:mm a');
+      return messageTimestamp(this.createdAt, 'yyyy-MM-dd HH:mm:ss');
     },
     screenName() {
       const { additional_attributes: additionalAttributes = {} } =
