@@ -30,7 +30,29 @@ export default {
   computed: {
     pathSource() {
       // To support icons with multiple paths
-      const path = this.icons[`${this.icon}-${this.type}`];
+      const iconKey = `${this.icon}-${this.type}`;
+      const path = this.icons[iconKey];
+      
+      // Debug logging
+      console.log('Icon lookup:', {
+        icon: this.icon,
+        type: this.type,
+        iconKey: iconKey,
+        found: !!path,
+        iconsKeys: Object.keys(this.icons).slice(0, 5) // Show first 5 keys for debugging
+      });
+      
+      if (!path) {
+        // Return default document icon if icon not found
+        const defaultPath = this.icons['document-outline'];
+        if (defaultPath) {
+          console.log('Using default document icon');
+          return [defaultPath];
+        }
+        // Fallback to empty array if even default icon is not found
+        console.log('No default icon found, returning empty array');
+        return [];
+      }
       if (path.constructor === Array) {
         return path;
       }

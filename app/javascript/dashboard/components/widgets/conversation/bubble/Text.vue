@@ -39,8 +39,53 @@ export default {
       }
       return this.displayQuotedButton;
     },
+    isBase64Image() {
+      return this.isBase64ImageContent(this.message);
+    },
   },
   methods: {
+    isBase64ImageContent(content) {
+      if (!content || typeof content !== 'string') {
+        return false;
+      }
+      
+      const trimmedContent = content.trim();
+      
+      // Check if content is a pure base64 JPEG string (starts with /9j/)
+      if (trimmedContent.startsWith('/9j/')) {
+        return true;
+      }
+      
+      // Check if content contains base64 string wrapped in HTML tags (like <p>/9j/...</p>)
+      if (trimmedContent.includes('/9j/')) {
+        // Extract the base64 string from HTML content
+        const base64Match = trimmedContent.match(/\/9j\/[A-Za-z0-9+/=]+/);
+        if (base64Match) {
+          return true;
+        }
+      }
+      
+      return false;
+    },
+    getImageSrc(content) {
+      const trimmedContent = content.trim();
+      
+      // If content starts with /9j/, use it directly
+      if (trimmedContent.startsWith('/9j/')) {
+        return `data:image/jpeg;base64,${trimmedContent}`;
+      }
+      
+      // If content contains /9j/ wrapped in HTML, extract it
+      if (trimmedContent.includes('/9j/')) {
+        const base64Match = trimmedContent.match(/\/9j\/[A-Za-z0-9+/=]+/);
+        if (base64Match) {
+          return `data:image/jpeg;base64,${base64Match[0]}`;
+        }
+      }
+      
+      // Fallback: use the entire content
+      return `data:image/jpeg;base64,${trimmedContent}`;
+    },
     toggleQuotedContent() {
       this.showQuotedContent = !this.showQuotedContent;
     },
@@ -83,7 +128,15 @@ export default {
       'hide--quoted': !isQuotedContentPresent,
     }"
   >
-    <div v-if="!isEmail" v-dompurify-html="message" class="text-content" />
+    <div v-if="isBase64Image" class="base64-image-container">
+      <img
+        :src="getImageSrc(message)"
+        alt="Base64 Image"
+        class="base64-image"
+        @click="openImagePreview(getImageSrc(message))"
+      />
+    </div>
+    <div v-else-if="!isEmail" v-dompurify-html="message" class="text-content" />
     <div v-else @click="handleClickOnContent">
       <Letter
         class="text-content bg-white dark:bg-white text-slate-900 dark:text-slate-900 p-2 rounded-[4px]"
@@ -157,6 +210,27 @@ export default {
 .hide--quoted {
   blockquote {
     @apply hidden;
+  }
+}
+
+.base64-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.base64-image {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
   }
 }
 </style>
